@@ -1,0 +1,65 @@
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav mode="side" [opened]="this.opened"
+  [class.usermenu]="!this.userAdmin.Logined"
+  [class.adminmenu]="this.userAdmin.Logined"
+  >WEB-SHOP MENU
+
+
+    <mat-nav-list 
+    *ngIf="!this.userAdmin.Logined">
+      
+      <a mat-list-item routerLink="/shopforclient/shopall">
+        <mat-icon>shop</mat-icon> Show all
+      </a>
+
+      <a mat-list-item routerLink="/shopforclient/orderdetails">
+        <mat-icon>shopping_cart</mat-icon> Show your basket
+
+      </a>
+
+      <a mat-list-item routerLink="/shopforclient/order">
+        <mat-icon>store</mat-icon> Make Order
+      </a>
+
+      <a mat-list-item routerLink="/shopforclient/registration">
+        <mat-icon>how_to_reg</mat-icon> Registration
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list 
+    *ngIf="this.userAdmin.Logined">
+      
+      <a mat-list-item routerLink="/administrator/adminorder/allorders">
+        <mat-icon>list</mat-icon> Orders Mgmt
+      </a>
+
+      <a mat-list-item routerLink="/administrator/adminprod/allprod">
+        <mat-icon>category</mat-icon> Products Mgmt
+      </a>
+
+      <a mat-list-item routerLink="/administrator/adminprod/addprod">
+        <mat-icon>addchart</mat-icon> Add Products
+      </a>
+
+      <a mat-list-item routerLink="/administrator/adminuser/alluser">
+        <mat-icon>supervisor_account</mat-icon> Users Mgmt
+      </a>
+
+      <a mat-list-item routerLink="/administrator/adminuser/adduser">
+        <mat-icon>person_add</mat-icon> Add Users
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <button mat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

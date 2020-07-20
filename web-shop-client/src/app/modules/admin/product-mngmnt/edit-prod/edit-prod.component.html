@@ -1,0 +1,98 @@
+<button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
+<mat-grid-list cols="3" rowHeight="700px">
+  <mat-grid-tile #prodForm [colspan]="2" [rowspan]="1">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="example-form">
+
+      <mat-form-field class="example-part-width">
+        <mat-label for="prodname">perfume name:</mat-label>
+        <input matInput type="text" class="form-control" formControlName="prodname" id="prodname" autocomplete="off">
+        <div class="error"
+          *ngIf="addForm.controls['prodname'].hasError('required') && addForm.controls['prodname'].touched">perfume
+          name
+          is
+          required</div>
+      </mat-form-field>
+
+      <mat-form-field class="example-part-width">
+        <mat-label for="category">category:</mat-label>
+        <input matInput type="text" class="form-control" formControlName="category" id="category" autocomplete="off">
+        <div class="error"
+          *ngIf="addForm.controls['category'].hasError('required') && addForm.controls['category'].touched">category
+          is
+          required</div>
+      </mat-form-field>
+
+      <mat-form-field class="example-part-width">
+        <mat-label for="urlpicture">url of picture:</mat-label>
+        <input matInput type="text" class="form-control" formControlName="urlpicture" id="urlpicture"
+          autocomplete="off">
+        <div class="error"
+          *ngIf="addForm.controls['urlpicture'].hasError('required') && addForm.controls['urlpicture'].touched">
+          url of picture is required</div>
+      </mat-form-field>
+
+      <mat-form-field class="example-part-width">
+        <mat-label for="description">description:</mat-label>
+        <input matInput type="text" class="form-control" formControlName="description" id="description"
+          autocomplete="off">
+        <div class="error"
+          *ngIf="addForm.controls['description'].hasError('required') && addForm.controls['description'].touched">
+          description of picture is required</div>
+      </mat-form-field>
+
+      <mat-form-field class="example-part-width">
+        <mat-label for="cost">cost:</mat-label>
+        <input matInput type="number" class="form-control" formControlName="cost" id="cost" autocomplete="off">
+        <div class="error" *ngIf="addForm.controls['cost'].hasError('required') && addForm.controls['cost'].touched">
+          cost is
+          required</div>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" [disabled]="addForm.invalid">UPDATE THE PERFUME</button>
+      <div *ngIf="invalidLogin" class="error">
+        <div>Invalid credentials.</div>
+      </div>
+    
+      <div *ngIf="this.message" class="message">
+        <mat-label>{{this.message}}</mat-label>
+      </div>
+    </form>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <button mat-raised-button color="primary" [disabled]="addForm.invalid" (click)="showPreviewCard()">Preview Perfume
+      Card</button>
+
+    <mat-card class="example-card" *ngIf="addForm.controls['urlpicture'].touched">
+      <mat-card-header>
+        <mat-card-title>{{this.showTEMPLATE.prodname}}</mat-card-title>
+       
+      </mat-card-header>
+
+      <img mat-card-image src="{{ this.showTEMPLATE.urlpicture }}" alt="Photo of a Product"
+        class="view view-cascade overlay">
+      <mat-card-content>
+        <p> {{this.showTEMPLATE.description}} </p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <mat-card-subtitle>{{this.showTEMPLATE.cost}} $</mat-card-subtitle>
+        <!-- actiions -->
+        <button disabled mat-raised-button color="primary" size="md">
+          <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
+        </button>
+
+        <button disabled mat-raised-button>
+          <mat-icon>remove</mat-icon>
+        </button>
+
+        <input disabled type="number" style="width: 40px;">
+        <button disabled mat-raised-button>
+          <mat-icon>add</mat-icon>
+        </button>
+
+      </mat-card-actions>
+     
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,33 @@
+<mat-form-field class="searchProd">
+  <input matInput type="text" class="form-control" placeholder="Search by product name" #searchname name="searchname" />
+  <button mat-button matSuffix (click)="searchName(searchname.value)"mat-icon-button ><mat-icon>search</mat-icon></button>
+</mat-form-field> 
+
+<div class="card-columns" style="padding: 13px;">
+    <mat-spinner *ngIf="dataSource.length === 0"></mat-spinner>
+
+  <mat-card class="card card-cascade narrower " *ngFor="let product of dataSource, let i=index">
+  <mat-card-header>
+    
+            <mat-card-title>{{product.prodname}}</mat-card-title>
+     
+  </mat-card-header>
+
+  <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product">
+  <mat-card-content>
+   <p>
+                {{product.description}}
+            </p>
+  </mat-card-content>
+
+  <mat-card-actions class="def-number-input number-input">
+    <mat-card-subtitle>{{product.cost}} $ </mat-card-subtitle>
+    <button mat-raised-button (click)="editSelectedProduct(product)"><mat-icon>edit</mat-icon></button>
+    <button mat-raised-button (click)="deleteSelectedProduct(product)"><mat-icon>delete</mat-icon></button>
+
+  </mat-card-actions>
+</mat-card>
+
+</div>
+
+  <button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button> 

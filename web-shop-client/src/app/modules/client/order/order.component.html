@@ -1,0 +1,25 @@
+ <h1><mat-icon>shopping_basket</mat-icon> test orders page</h1>
+
+ <div style="padding: 13px;">
+  <!-- <mat-spinner *ngIf="product_list.length === 0"></mat-spinner> -->
+
+ <mat-list role="list">
+    <mat-list-item role="listitem"><mat-icon>details</mat-icon> ID - {{selectedOrder.id}}</mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>perm_identity</mat-icon> Name - {{selectedOrder.name}} </mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>call</mat-icon> Phone - {{selectedOrder.phone}} </mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>location_city</mat-icon> City - {{selectedOrder.city}} </mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>home</mat-icon> Address - {{selectedOrder.address}} </mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>alternate_email</mat-icon> Email - {{selectedOrder.email}} </mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>attach_money</mat-icon> SUM - {{selectedOrder.sum}} $</mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>local_shipping</mat-icon> Shiping? - {{selectedOrder.delivery}} </mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>done_outline</mat-icon> Received? - {{selectedOrder.orderstatus}} </mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>redeem</mat-icon> From US - {{selectedOrder.wishes}} </mat-list-item>
+    <mat-list-item role="listitem"><mat-icon>note</mat-icon> Notes - {{selectedOrder.notes}} </mat-list-item>
+ </mat-list> 
+
+
+
+</div>
+
+ 
+  <button mat-raised-button color="primary" (click)="loadOrders(1)">REFRESH</button> 

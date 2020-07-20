@@ -1,0 +1,46 @@
+<!-- <h1>test prod page</h1>
+
+<div *ngFor="let prod of dataSource">
+    <p> {{prod.id}}</p>
+    <p> {{prod.prodname}} </p>
+    <p> {{prod.category}} </p>
+    <p> {{prod.urlpicture}} </p>
+    <p> {{prod.description}} </p>
+    <p> {{prod.cost}} </p>
+</div> -->
+
+<div class="card-columns" style="padding: 13px;">
+  <mat-spinner *ngIf="this.dataSource.length === 0"></mat-spinner>
+
+  <mat-card class="card card-cascade narrower" *ngFor="let product of dataSource, let i=index">
+    <mat-card-header>
+      <mat-card-title>{{product.prodname}}</mat-card-title>
+    </mat-card-header>
+
+    <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product" class="view view-cascade overlay">
+    <mat-card-content>
+      <p> {{product.description}} </p>
+    </mat-card-content>
+    <mat-card-subtitle>{{product.cost}} $</mat-card-subtitle>
+    <mat-card-actions class="def-number-input number-input">
+      <!-- actiions -->
+      <button mat-raised-button color="primary" size="md" (click)="addItemToCart(product,quantity)">
+        <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
+      </button>
+
+      <button mat-raised-button (click)="quantity=quantity-1" [disabled]="quantity==0">
+        <mat-icon>remove</mat-icon>
+      </button>
+
+      <input #quant{{i}} min="0" [value]="quantity" type="number" style="width: 40px;">
+      <button mat-raised-button (click)="quantity=quantity+1">
+        <mat-icon>add</mat-icon>
+      </button>
+
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>
+
+<button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button>

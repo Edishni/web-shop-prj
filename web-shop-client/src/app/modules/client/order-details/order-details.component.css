@@ -1,0 +1,9 @@
+.mat-list{
+    max-width: 400px;
+}
+.example-card {
+    max-width: 200px;
+  }
+  div{
+      display: inline-flex;
+  }
