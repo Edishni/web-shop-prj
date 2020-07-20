@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>WEB-SHOP from EDDIE</div>
+  <div>
+    <span ><small>Current user :
+    </small>{{this.userAdmin.curentUser}}</span>
+    <span>
+      <mat-icon>home</mat-icon>Home
+    </span>
+    <span>
+      <mat-icon>info</mat-icon>About
+    </span>
+
+    <button mat-raised-button (click)="logOut()"
+     *ngIf="this.userAdmin.Logined"><mat-icon>logout</mat-icon> LogOut</button>
+    <button mat-raised-button  (click)="logIn()"
+    *ngIf="!this.userAdmin.Logined"><mat-icon>login</mat-icon> LogIn</button>
+ 
+
+  </div>
+
+
+</mat-toolbar>

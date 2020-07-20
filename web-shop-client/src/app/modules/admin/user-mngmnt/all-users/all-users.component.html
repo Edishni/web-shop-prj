@@ -1,0 +1,35 @@
+<div class="userPage">
+
+ <mat-form-field class="searchOrder">
+    <input matInput type="text" class="form-control" placeholder="Search by name" #searchname name="searchname" />
+    <button mat-button matSuffix (click)="searchName(searchname.value)"mat-icon-button ><mat-icon>search</mat-icon></button>
+  </mat-form-field> 
+
+  <div class="usrList">
+    <div *ngFor="let user of dataSource" style="margin:10px;">
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+          <mat-icon>details</mat-icon> ID - {{user.id}}
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <mat-icon>perm_identity</mat-icon> Name - {{user.name}}
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <mat-icon>call</mat-icon> Phone - {{user.phone}}
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <mat-icon>alternate_email</mat-icon> Email - {{user.email}}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <div class="example-button-row" justify-content-center>
+          <button mat-raised-button color="accent" m-3 center (click)="editUser(user)">
+            <mat-icon>edit</mat-icon>Edit
+          </button>
+          <button mat-raised-button color="warn" m-3 center (click)="deleteUser(user)">
+            <mat-icon>delete</mat-icon>Delete
+          </button>
+        </div>
+      </mat-list>
+    </div>
+  </div>
+</div>

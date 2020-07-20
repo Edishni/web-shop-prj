@@ -1,0 +1,30 @@
+.mat-list {
+  max-width: 400px;
+  height: 250px;
+  border: solid 2px white;
+  border-radius: 5px;
+}
+.userPage{
+height: 90vh;
+display: inline-block;
+}
+.usrList{
+    display: inline-flex;
+}
+.searchOrder {
+  display: block;
+}
+
+div {
+  display: inline-flex;
+  max-width: 400px;
+}
+
+.example-button-row {
+  display: flex;
+  justify-content: center;
+
+}
+.example-button-row .mat-button-base {
+  margin: 5px;
+}

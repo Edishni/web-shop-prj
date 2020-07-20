@@ -1,0 +1,18 @@
+img{
+    max-height: 80vh;
+
+   }
+
+.example-card {
+  max-width: 400px;
+  margin-left: 15px;
+}
+
+::ng-deep .mat-grid-tile .mat-figure {
+    display:inline-block !important; /* or whichever you need */
+   
+  }
+  .example-part-width {
+    margin: 10px;
+    display: inline;
+   }

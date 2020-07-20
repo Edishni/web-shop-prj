@@ -1,0 +1,46 @@
+<div>
+  <mat-card class="example-card" *ngFor="let order of dataSource" style="margin:10px;">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon>details</mat-icon> ID - {{order.id }}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>perm_identity</mat-icon> Name - {{order.name}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>call</mat-icon> Phone - {{order.phone}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>location_city</mat-icon> City - {{order.city}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>home</mat-icon> Address - {{order.address}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>alternate_email</mat-icon> Email - {{order.email}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>attach_money</mat-icon> SUM - {{order.sum}} $
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>local_shipping</mat-icon> Shiping? - {{order.delivery}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>done_outline</mat-icon> Received? - {{order.orderstatus}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>redeem</mat-icon> From US - {{order.wishes}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>note</mat-icon> Notes - {{order.notes}}
+      </mat-list-item>
+      <button mat-button>
+        <mat-icon>edit</mat-icon>Edit
+      </button>
+      <button mat-button>
+        <mat-icon>delete</mat-icon>Delete
+      </button>
+    </mat-list>
+  </mat-card>
+
+</div>
