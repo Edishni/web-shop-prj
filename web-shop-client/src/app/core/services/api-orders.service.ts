@@ -9,6 +9,7 @@ import { environment } from '../../../environments/environment';
 })
 export class ApiOrdersService {
   constructor(private http: HttpClient) { }
+selectedOrder:Order;
 
   getAll(): Observable<Order[]> {
     console.log('get all orders try');
@@ -19,15 +20,15 @@ export class ApiOrdersService {
     return this.http.get<Order>(`${environment.apiOrders}/${id}`)
   }
 
-  addPost(post: Order): Observable<Order> {
-    return this.http.post<Order>(environment.apiOrders, post)
+  addOrder(order: Order): Observable<Order> {
+    return this.http.post<Order>(environment.apiOrders, order)
   }
 
-  editPost(neworder: Order): Observable<Order> {
+  editOrder(neworder: Order): Observable<Order> {
     return this.http.put<Order>(`${environment.apiOrders}/${neworder.id}`, neworder)
   }
 
-  deletePost(id: number): Observable<Order> {
+  deleteOrder(id: number): Observable<Order> {
     return this.http.delete<Order>(`${environment.apiOrders}/${id}`)
   }
 }

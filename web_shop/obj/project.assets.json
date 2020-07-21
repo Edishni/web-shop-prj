@@ -12628,11 +12628,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\AngularPrj\\WEB_project-master\\WEB_project-master\\web_shop\\web_shop.csproj",
+      "projectUniqueName": "C:\\AngularPrj\\WEB_project-master\\web-shop-prj\\web_shop\\web_shop.csproj",
       "projectName": "web_shop",
-      "projectPath": "C:\\AngularPrj\\WEB_project-master\\WEB_project-master\\web_shop\\web_shop.csproj",
+      "projectPath": "C:\\AngularPrj\\WEB_project-master\\web-shop-prj\\web_shop\\web_shop.csproj",
       "packagesPath": "C:\\Users\\edwardt\\.nuget\\packages\\",
-      "outputPath": "C:\\AngularPrj\\WEB_project-master\\WEB_project-master\\web_shop\\obj\\",
+      "outputPath": "C:\\AngularPrj\\WEB_project-master\\web-shop-prj\\web_shop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

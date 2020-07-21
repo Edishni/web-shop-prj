@@ -2,5 +2,8 @@
     max-width: 400px;
   }
   div{
-      display: inline-flex;
+      display: inline-flex; 
+      min-height: 90vh;
   }
+
+ 
