@@ -1,14 +1,12 @@
 <mat-sidenav-container>
 
-  <mat-sidenav #sidenav mode="side" [opened]="this.opened"
-  [class.usermenu]="!this.userAdmin.Logined"
-  [class.adminmenu]="this.userAdmin.Logined"
-  >WEB-SHOP MENU
+  <mat-sidenav #sidenav mode="side" [opened]="this.opened" [class.usermenu]="!this.userAdmin.Logined"
+    [class.adminmenu]="this.userAdmin.Logined">
+    <h2>WEB-SHOP MENU</h2>
 
 
-    <mat-nav-list 
-    *ngIf="!this.userAdmin.Logined">
-      
+    <mat-nav-list *ngIf="!this.userAdmin.Logined">
+
       <a mat-list-item routerLink="/shopforclient/shopall">
         <mat-icon>shop</mat-icon> Show all
       </a>
@@ -27,21 +25,30 @@
       </a>
     </mat-nav-list>
 
-    <mat-nav-list 
-    *ngIf="this.userAdmin.Logined">
-      
+    <mat-nav-list *ngIf="this.userAdmin.Logined">
+    
+      <div mat-header>Orders Mangement</div>
+      <mat-divider></mat-divider>
       <a mat-list-item routerLink="/administrator/adminorder/allorders">
-        <mat-icon>list</mat-icon> Orders Mgmt
+        <mat-icon>list</mat-icon> Orders List
       </a>
 
+      <a mat-list-item routerLink="/administrator/adminorder/addorder">
+        <mat-icon>playlist_add</mat-icon> Add Order
+      </a>
+      
+      <div mat-header>Perfumes Mangement</div>
+      <mat-divider></mat-divider>
       <a mat-list-item routerLink="/administrator/adminprod/allprod">
-        <mat-icon>category</mat-icon> Products Mgmt
+        <mat-icon>category</mat-icon> Perfumes List
       </a>
 
       <a mat-list-item routerLink="/administrator/adminprod/addprod">
-        <mat-icon>addchart</mat-icon> Add Products
+        <mat-icon>addchart</mat-icon> Add Perfume
       </a>
 
+      <div mat-header>Users Mangement</div>
+      <mat-divider></mat-divider>
       <a mat-list-item routerLink="/administrator/adminuser/alluser">
         <mat-icon>supervisor_account</mat-icon> Users Mgmt
       </a>

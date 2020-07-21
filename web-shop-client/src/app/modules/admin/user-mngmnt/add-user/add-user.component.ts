@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-
+message:string='';
   invalidLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private apiUsers: ApiUsersService,
     private router: Router) { }
@@ -29,6 +29,8 @@ export class AddUserComponent implements OnInit {
       
       console.log(data)
     });
+    this.message = `The User ${user.name} was updated successfully!`;
+    this.addForm.reset();
   }
 
   goBack() {
@@ -41,6 +43,7 @@ export class AddUserComponent implements OnInit {
       email: ['', Validators.required],
       phone: ['', Validators.required],
     });
+    this.message='';
   }
 
 }

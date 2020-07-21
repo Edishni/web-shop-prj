@@ -30,3 +30,17 @@ C:\AngularPrj\WEB_project-master\WEB_project-master\web_shop\obj\Debug\netcoreap
 C:\AngularPrj\WEB_project-master\WEB_project-master\web_shop\obj\Debug\netcoreapp2.1\web_shop.RazorTargetAssemblyInfo.cache
 C:\AngularPrj\WEB_project-master\WEB_project-master\web_shop\obj\Debug\netcoreapp2.1\web_shop.dll
 C:\AngularPrj\WEB_project-master\WEB_project-master\web_shop\obj\Debug\netcoreapp2.1\web_shop.pdb
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\bin\Debug\netcoreapp2.1\web_shop.deps.json
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\bin\Debug\netcoreapp2.1\web_shop.runtimeconfig.json
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\bin\Debug\netcoreapp2.1\web_shop.runtimeconfig.dev.json
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\bin\Debug\netcoreapp2.1\web_shop.dll
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\bin\Debug\netcoreapp2.1\web_shop.pdb
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.csprojAssemblyReference.cache
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.csproj.CoreCompileInputs.cache
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.RazorAssemblyInfo.cache
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.RazorAssemblyInfo.cs
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.AssemblyInfoInputs.cache
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.AssemblyInfo.cs
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.RazorTargetAssemblyInfo.cache
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.dll
+C:\AngularPrj\WEB_project-master\web-shop-prj\web_shop\obj\Debug\netcoreapp2.1\web_shop.pdb
