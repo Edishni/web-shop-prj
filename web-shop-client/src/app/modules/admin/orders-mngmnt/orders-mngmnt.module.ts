@@ -7,8 +7,6 @@ import { OrdersMngmntRoutingModule } from './orders-mngmnt-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     AddOrderComponent,
@@ -20,7 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     OrdersMngmntRoutingModule,
     MaterialModule,
     ReactiveFormsModule 
-    
   ]
 })
 export class OrdersMngmntModule { }
