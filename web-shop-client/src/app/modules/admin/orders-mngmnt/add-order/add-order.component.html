@@ -1,9 +1,7 @@
 <div class="addOrderConteiner">
   <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
-  <mat-grid-list cols="3" rowHeight="700px">
-       <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="example-form">
+         <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="example-form">
  
-
         <mat-form-field class="example-part-width">
           <mat-label for="name">Name:</mat-label>
           <input matInput type="text" class="form-control" formControlName="name" id="name" autocomplete="off">
@@ -77,6 +75,4 @@
           <mat-label>{{this.message}}</mat-label>
         </div>
       </form>
- 
-  </mat-grid-list>
 </div>
