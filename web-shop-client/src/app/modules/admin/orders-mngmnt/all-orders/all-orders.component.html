@@ -1,5 +1,14 @@
-<div>
-  <mat-card class="example-card" *ngFor="let order of dataSource" style="margin:10px;">
+
+<mat-form-field class="searchOrder">
+  <input matInput type="text" class="form-control" placeholder="Search by user name" #searchorder name="searchorder" />
+  <button mat-button matSuffix (click)="searchOrder(searchorder.value)"mat-icon-button ><mat-icon>search</mat-icon></button>
+</mat-form-field> 
+<h4 mat-small >{{this.message}}</h4>
+<div class="card-columns" style="padding: 13px; margin:10px;">
+    <mat-spinner *ngIf="dataSource.length === 0"></mat-spinner>
+
+  <mat-card class="card card-cascade narrower " *ngFor="let order of dataSource, let i=index" style="padding: 13px; margin:10px;">
+
     <mat-list role="list">
       <mat-list-item role="listitem">
         <mat-icon>details</mat-icon> ID - {{order.id }}
@@ -34,13 +43,19 @@
       <mat-list-item role="listitem">
         <mat-icon>note</mat-icon> Notes - {{order.notes}}
       </mat-list-item>
-      <button mat-button>
-        <mat-icon>edit</mat-icon>Edit
-      </button>
-      <button mat-button>
-        <mat-icon>delete</mat-icon>Delete
-      </button>
-    </mat-list>
-  </mat-card>
+     </mat-list>
+
+     <div class="example-button-row" justify-content-center>
+    <button mat-raised-button color="accent" m-3 center (click)="editSelectedOrder(order)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-raised-button color="warn" m-3 center (click)="deleteSelectedOrder(order)">
+      <mat-icon>delete</mat-icon>
+    </button>
+     </div>
+
+</mat-card>
 
 </div>
+<!-- 
+  <button mat-raised-button color="primary" (click)="loadOrders()">REFRESH</button>  -->

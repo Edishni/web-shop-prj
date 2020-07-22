@@ -40,8 +40,9 @@ export class EditOrderComponent implements OnInit {
     }); 
    
   }
+
 goBack(){
-  this.router.navigate([`administrator/adminorder/allorder`]);
+  this.router.navigate([`administrator/adminorder/allorders`]);
 }
 
   ngOnInit(): void {
