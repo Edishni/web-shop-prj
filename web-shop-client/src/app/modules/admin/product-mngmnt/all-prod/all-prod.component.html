@@ -22,8 +22,8 @@
 
   <mat-card-actions class="def-number-input number-input">
     <mat-card-subtitle>{{product.cost}} $ </mat-card-subtitle>
-    <button mat-raised-button (click)="editSelectedProduct(product)"><mat-icon>edit</mat-icon></button>
-    <button mat-raised-button (click)="deleteSelectedProduct(product)"><mat-icon>delete</mat-icon></button>
+    <button mat-raised-button color="accent" m-3 center (click)="editSelectedProduct(product)"><mat-icon>edit</mat-icon></button>
+    <button mat-raised-button color="warn" m-3 center (click)="deleteSelectedProduct(product)"><mat-icon>delete</mat-icon></button>
 
   </mat-card-actions>
 </mat-card>

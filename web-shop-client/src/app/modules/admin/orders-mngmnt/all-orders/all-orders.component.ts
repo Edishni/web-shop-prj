@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiOrdersService } from 'src/app/core/services/api-orders.service';
 import { Order } from 'src/app/shared/models/Order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-orders',
@@ -9,18 +10,45 @@ import { Order } from 'src/app/shared/models/Order';
 })
 export class AllOrdersComponent implements OnInit {
 
-  dataSource? : Order[];
+  dataSource?: Order[];
+  message: string = '';
+  constructor(public orderAPI: ApiOrdersService, private router: Router) { }
 
-  constructor(public orderAPI : ApiOrdersService) { }
+  editSelectedOrder(editselOrder: Order) {
+    this.orderAPI.selectedOrder = editselOrder;
+    console.log(editselOrder);
+    this.router.navigate([`/adminorder/editorder/${editselOrder.id}`]);
 
-  loadOrders(){
+  }
+
+  deleteSelectedOrder(delselOrder: Order) {
+    this.orderAPI.deleteOrder(delselOrder.id).subscribe(data => {
+      this.loadOrders();
+      this.message=`The order for ${delselOrder.name} was deleted`;
+      console.log(data);
+    },
+      error => {
+        console.log(error);
+      });
+  }
+  searchOrder(ordername) {
+    this.orderAPI.getAll()
+      .subscribe(
+        data => {
+          this.dataSource = data.filter(ele => ele.name.includes(ordername));
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  loadOrders() {
     this.orderAPI.getAll().subscribe(data => this.dataSource = data);
   }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     console.log('orders api?');
     this.loadOrders();
   }
-
-
 }

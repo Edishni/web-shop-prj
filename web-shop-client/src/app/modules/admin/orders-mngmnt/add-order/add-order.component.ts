@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/shared/models/Order';
 import { ApiOrdersService } from 'src/app/core/services/api-orders.service';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-order',
@@ -12,6 +12,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AddOrderComponent implements OnInit {
   showTEMPLATE:Order;
   invalidLogin: boolean = false;
+  deliveryCntr= new FormControl(false);
+  orderstatusCntr= new FormControl(false);
+  
   message='';
   constructor(private formBuilder: FormBuilder, private apiOrder: ApiOrdersService,private router: Router) { }
   addForm;
@@ -21,14 +24,16 @@ export class AddOrderComponent implements OnInit {
       return;
     }
      const order: Order = {
-      name: this.addForm.controls.prodname.value,
+      name: this.addForm.controls.name.value,
       phone: this.addForm.controls.phone.value,
       city: this.addForm.controls.city.value,
       address: this.addForm.controls.address.value,
       email: this.addForm.controls.email.value,
       sum: this.addForm.controls.sum.value,
       delivery: this.addForm.controls.delivery.value,
-      orderstatus: this.addForm.controls.orderstatus.value,
+      orderstatus: this.addForm.controls.orderstatus.value, 
+/*    delivery: this.deliveryCntr.value,
+      orderstatus: this.orderstatusCntr.value,  */
       wishes: this.addForm.controls.wishes.value,
       notes: this.addForm.controls.notes.value,
     }
@@ -41,7 +46,7 @@ export class AddOrderComponent implements OnInit {
    
   }
 goBack(){
-  this.router.navigate([`administrator/adminorder/allorder`]);
+  this.router.navigate([`administrator/adminorder/allorders`]);
 }
 
   ngOnInit(): void {
@@ -52,8 +57,8 @@ goBack(){
       address: ['', Validators.required],
       email: ['', Validators.required],
       sum: [0, Validators.required],
-      delivery: [false, Validators.required],
-      orderstatus: [false, Validators.required],
+      delivery: ['', Validators.required],
+      orderstatus: ['', Validators.required],
       wishes: '',
       notes: '',
     });

@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./all-prod.component.css']
 })
 export class AllProdComponent implements OnInit {
-
-  displayedColumns: string[] = ['id', 'prodname', 'category', 'urlpicture', 'description', 'cost'];
   dataSource?: Product[];
   message: string = '';
   quantity: number = 0;
