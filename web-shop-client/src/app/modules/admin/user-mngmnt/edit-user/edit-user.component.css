@@ -5,3 +5,8 @@
    form{
       min-height: 90vh;
    }
+   h2{
+      text-align: center;
+      display: inline;
+      margin-left: 20%;
+    }

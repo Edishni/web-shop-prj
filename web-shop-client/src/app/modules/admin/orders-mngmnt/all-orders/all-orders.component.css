@@ -14,4 +14,8 @@
   .example-button-row .mat-button-base {
     margin: 5px;
   }
-  
+  h2{
+    text-align: center;
+    display: inline;
+    margin-left: 20%;
+  }

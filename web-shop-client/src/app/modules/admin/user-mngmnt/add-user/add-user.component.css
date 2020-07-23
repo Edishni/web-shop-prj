@@ -1,7 +1,14 @@
 .example-part-width {
-    margin: 10px;
-    display: inline;
-   }
-   form{
-      min-height: 90vh;
-   }
+  margin: 10px;
+  display: inline;
+}
+
+form {
+  min-height: 90vh;
+}
+
+h2 {
+  text-align: center;
+  display: inline;
+  margin-left: 20%;
+}

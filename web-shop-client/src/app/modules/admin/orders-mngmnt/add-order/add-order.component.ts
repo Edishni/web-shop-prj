@@ -32,8 +32,6 @@ export class AddOrderComponent implements OnInit {
       sum: this.addForm.controls.sum.value,
       delivery: this.addForm.controls.delivery.value,
       orderstatus: this.addForm.controls.orderstatus.value, 
-/*    delivery: this.deliveryCntr.value,
-      orderstatus: this.orderstatusCntr.value,  */
       wishes: this.addForm.controls.wishes.value,
       notes: this.addForm.controls.notes.value,
     }
@@ -59,8 +57,8 @@ goBack(){
       sum: [0, Validators.required],
       delivery: ['', Validators.required],
       orderstatus: ['', Validators.required],
-      wishes: '',
-      notes: '',
+      wishes: ['', Validators.required],
+      notes: ['', Validators.required],
     });
     
     this.showTEMPLATE=this.addForm;

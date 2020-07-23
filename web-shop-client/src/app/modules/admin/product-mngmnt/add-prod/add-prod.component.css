@@ -18,3 +18,8 @@
 .ng-star-inserted{
     width:-webkit-fill-available ;
 }
+h2{
+  text-align: center;
+  display: inline;
+  margin-left: 20%;
+}

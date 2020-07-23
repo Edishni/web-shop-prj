@@ -1,11 +1,11 @@
-
+<h2>Orders Management</h2><br>
 <mat-form-field class="searchOrder">
   <input matInput type="text" class="form-control" placeholder="Search by user name" #searchorder name="searchorder" />
   <button mat-button matSuffix (click)="searchOrder(searchorder.value)"mat-icon-button ><mat-icon>search</mat-icon></button>
 </mat-form-field> 
 <h4 mat-small >{{this.message}}</h4>
+
 <div class="card-columns" style="padding: 13px; margin:10px;">
-    <mat-spinner *ngIf="dataSource.length === 0"></mat-spinner>
 
   <mat-card class="card card-cascade narrower " *ngFor="let order of dataSource, let i=index" style="padding: 13px; margin:10px;">
 

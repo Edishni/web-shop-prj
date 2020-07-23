@@ -1,34 +1,36 @@
-<button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
-<h4 mat-small >{{this.message}}</h4>
-<form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="example-form">
-  <mat-label>Users Editor :</mat-label>
-  <mat-form-field class="example-part-width">
-    <mat-label for="name">name:</mat-label>
-    <input matInput type="text" class="form-control" formControlName="name" id="name" autocomplete="off">
-    <div class="error" *ngIf="editForm.controls['name'].hasError('required') && editForm.controls['name'].touched">name
-      is required</div>
-  </mat-form-field>
+<h2>The User Editor</h2>
+<div class="editUserConteiner">
+  <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
+  <h4 mat-small>{{this.message}}</h4>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="example-form">
+    <mat-label>Users Editor :</mat-label>
+    <mat-form-field class="example-part-width">
+      <mat-label for="name">name:</mat-label>
+      <input matInput type="text" class="form-control" formControlName="name" id="name" autocomplete="off">
+      <div class="error" *ngIf="editForm.controls['name'].hasError('required') && editForm.controls['name'].touched">
+        name
+        is required</div>
+    </mat-form-field>
 
-  <mat-form-field class="example-part-width">
-    <mat-label for="email">email:</mat-label>
-    <input matInput type="text" class="form-control" formControlName="email" id="email" autocomplete="off">
-    <div class="error" *ngIf="editForm.controls['email'].hasError('required') && editForm.controls['email'].touched">
-      email is required</div>
-  </mat-form-field>
+    <mat-form-field class="example-part-width">
+      <mat-label for="email">email:</mat-label>
+      <input matInput type="text" class="form-control" formControlName="email" id="email" autocomplete="off">
+      <div class="error" *ngIf="editForm.controls['email'].hasError('required') && editForm.controls['email'].touched">
+        email is required</div>
+    </mat-form-field>
 
-  <mat-form-field class="example-part-width">
-    <mat-label for="phone">phone:</mat-label>
-    <input matInput type="text" class="form-control" formControlName="phone" id="phone" autocomplete="off">
-    <div class="error" *ngIf="editForm.controls['phone'].hasError('required') && editForm.controls['phone'].touched">
-      phone is required</div>
-  </mat-form-field>
+    <mat-form-field class="example-part-width">
+      <mat-label for="phone">phone:</mat-label>
+      <input matInput type="text" class="form-control" formControlName="phone" id="phone" autocomplete="off">
+      <div class="error" *ngIf="editForm.controls['phone'].hasError('required') && editForm.controls['phone'].touched">
+        phone is required</div>
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" [disabled]="editForm.invalid">UPDATE USER</button>
- 
-  <div *ngIf="invalidLogin" class="error">
-    <div>Invalid credentials.</div>
-  </div>
+    <button mat-raised-button color="primary" [disabled]="editForm.invalid">UPDATE USER</button>
 
-</form>
+    <div *ngIf="invalidLogin" class="error">
+      <div>Invalid credentials.</div>
+    </div>
 
-
+  </form>
+</div>
