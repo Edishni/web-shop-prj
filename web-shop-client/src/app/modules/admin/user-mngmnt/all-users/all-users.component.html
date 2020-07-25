@@ -8,7 +8,8 @@
 </mat-form-field>
 
 <div class="card card-columns" style="padding: 13px; margin:10px;">
-  <div *ngFor="let user of dataSource" style="margin:10px;">
+
+  <mat-card *ngFor="let user of dataSource" style="margin:10px;">
     <mat-list role="list">
       <mat-list-item role="listitem">
         <mat-icon>details</mat-icon> ID - {{user.id}}
@@ -23,14 +24,14 @@
         <mat-icon>alternate_email</mat-icon> Email - {{user.email}}
       </mat-list-item>
       <mat-divider></mat-divider>
-      <div class="example-button-row" justify-content-center>
+      <mat-action class="example-button-row" justify-content-center>
         <button mat-raised-button color="accent" m-3 center (click)="editUser(user)">
           <mat-icon>edit</mat-icon>Edit
         </button>
         <button mat-raised-button color="warn" m-3 center (click)="deleteUser(user)">
           <mat-icon>delete</mat-icon>Delete
         </button>
-      </div>
+      </mat-action>
     </mat-list>
-  </div>
+  </mat-card>
 </div>

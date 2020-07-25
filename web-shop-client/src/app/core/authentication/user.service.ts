@@ -12,8 +12,6 @@ curentUser:any='QUEST';
  constructor( public db:AngularFirestore,public abAuth:AngularFireAuth) { }
  Logined:boolean=false;
  adminArr= ['edward.tchaevsky@gmail.com','admintest@gmail.com','adminshop@gmail.com']
-/*  readonly admin:string = 'edward.tchaevsky@gmail.com';
- readonly admin2:string = 'admintest@gmail.com'; */
 
   getCurrentUser(){
     return new Promise<any>(

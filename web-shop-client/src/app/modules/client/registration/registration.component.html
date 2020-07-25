@@ -1,27 +1,35 @@
-<form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="example-form">
-  
-<mat-label>New User Registration:</mat-label>
+<h2>New User Registration</h2>
+<div class="addUserConteiner">
+  <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
+  <h4 mat-small>{{this.message}}</h4>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="example-form">
+
+    <mat-label>New User Registration:</mat-label>
     <mat-form-field class="example-part-width">
-        <mat-label for="name">name:</mat-label>
-        <input matInput type="text" class="form-control" formControlName="name" id="name" autocomplete="off">
-        <div class="error" *ngIf="addForm.controls['name'].hasError('required') && addForm.controls['name'].touched">name is required</div>
-      </mat-form-field>
-
- <mat-form-field class="example-part-width">
-        <mat-label for="email">email:</mat-label>
-        <input matInput type="text" class="form-control" formControlName="email" id="email" autocomplete="off">
-        <div class="error" *ngIf="addForm.controls['email'].hasError('required') && addForm.controls['email'].touched">email is required</div>
+      <mat-label for="name">name:</mat-label>
+      <input matInput type="text" class="form-control" formControlName="name" id="name" autocomplete="off">
+      <div class="error" *ngIf="addForm.controls['name'].hasError('required') && addForm.controls['name'].touched">name
+        is required</div>
     </mat-form-field>
 
- <mat-form-field class="example-part-width">
-        <mat-label for="phone">phone:</mat-label>
-        <input matInput type="text" class="form-control" formControlName="phone" id="phone" autocomplete="off">
-        <div class="error" *ngIf="addForm.controls['phone'].hasError('required') && addForm.controls['phone'].touched">phone is required</div>
+    <mat-form-field class="example-part-width">
+      <mat-label for="email">email:</mat-label>
+      <input matInput type="text" class="form-control" formControlName="email" id="email" autocomplete="off">
+      <div class="error" *ngIf="addForm.controls['email'].hasError('required') && addForm.controls['email'].touched">
+        email is required</div>
     </mat-form-field>
 
-    <button mat-raised-button color="primary"  [disabled]="addForm.invalid">ADD NEW USER</button>
+    <mat-form-field class="example-part-width">
+      <mat-label for="phone">phone:</mat-label>
+      <input matInput type="text" class="form-control" formControlName="phone" id="phone" autocomplete="off">
+      <div class="error" *ngIf="addForm.controls['phone'].hasError('required') && addForm.controls['phone'].touched">
+        phone is required</div>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="addForm.invalid">ADD NEW USER</button>
     <div *ngIf="invalidLogin" class="error">
       <div>Invalid credentials.</div>
     </div>
 
-</form>
+  </form>
+</div>

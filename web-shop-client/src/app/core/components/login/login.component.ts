@@ -19,13 +19,13 @@ export class LoginComponent implements OnInit {
   
   loginWithGoogle(){
     this.auth.doGoogleLogin().then(res => {
-      this.location.back();
+      this.router.navigate(['/administrator/adminprod']);
     })
   }
 
   loginWithFacebook(){
     this.auth.doFacebookLogin().then(res => {
-      this.location.back();
+      this.router.navigate(['/administrator/adminprod']);
     })
   }
 
@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
       console.log(res);
       this.errorMessage = "";
       this.successMessage = "Your account has been created";
-      this.location.back();
+      this.router.navigate(['/administrator/adminprod']);
     }, err => {
       console.log(err);
       this.errorMessage = err.message;
       this.successMessage = "";
-      this.location.back();
+      this.router.navigate(['/administrator/adminprod']);
     })
   }
   ngOnInit(): void {

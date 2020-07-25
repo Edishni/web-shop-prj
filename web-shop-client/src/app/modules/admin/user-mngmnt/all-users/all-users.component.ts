@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/models/User';
 import { ApiUsersService } from 'src/app/core/services/api-users.service';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router} from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -9,24 +9,15 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './all-users.component.html',
   styleUrls: ['./all-users.component.css']
 })
-export class AllUsersComponent implements OnInit {
-
-  
+export class AllUsersComponent implements OnInit {  
   selectedUser: User;
   searchname = '';
   message = '';
   dataSource?: User[];
 
-
-  constructor(public userAPI: ApiUsersService, private route: ActivatedRoute, private formBuilder: FormBuilder,
-    private router: Router) {
-
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    };
+  constructor(public userAPI: ApiUsersService,private formBuilder: FormBuilder,
+    private router: Router) {}
  
-  }
-
   loadUsers() {
     this.userAPI.getAll().subscribe(data => this.dataSource = data);
   }
