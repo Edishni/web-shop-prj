@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-message:string='';
+  message: string = '';
   invalidLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private apiUsers: ApiUsersService,
     private router: Router) { }
@@ -25,11 +25,27 @@ message:string='';
       email: this.addForm.controls.email.value,
       phone: this.addForm.controls.phone.value,
     }
-    this.apiUsers.addUser(user).subscribe(data => {
-      
-      console.log(data)
-    });
-    this.message = `The User ${user.name} was updated successfully!`;
+//also test if the user exist in DB
+    this.apiUsers.getAll()
+      .subscribe(
+        data => {
+          const itNoExsist = data.some(obj => obj.name == user.name || obj.email == user.email || obj.phone == user.phone);
+          console.log(itNoExsist);
+          if (!itNoExsist) {
+            this.apiUsers.addUser(user).subscribe(data => {
+              console.log(data);
+              this.message = `The User ${user.name} was registred successfully!`;
+            });
+          }
+          else {
+            this.message = "The User is exist in our Users List";
+          }
+        },
+        error => {
+          this.message = "Sorry, but has some error durring registration..."
+          console.log(error);
+        });
+    console.log(this.message);
     this.addForm.reset();
   }
 
@@ -43,7 +59,7 @@ message:string='';
       email: ['', Validators.required],
       phone: ['', Validators.required],
     });
-    this.message='';
+    this.message = '';
   }
 
 }

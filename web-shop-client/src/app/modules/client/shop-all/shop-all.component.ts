@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../shared/models/Product';
 import { ApiProductsService } from 'src/app/core/services/api-products.service';
+import { CartListService } from 'src/app/core/services/cart-list.service';
 
 @Component({
   selector: 'app-shop-all',
@@ -8,19 +9,42 @@ import { ApiProductsService } from 'src/app/core/services/api-products.service';
   styleUrls: ['./shop-all.component.css']
 })
 export class ShopAllComponent implements OnInit {
-
-  displayedColumns: string[] = ['id','prodname','category','urlpicture','description','cost'];
-  dataSource : Product[]=[];
+  arrayCart: any[] = [];
   
-   quantity:number=0; 
+  dataSource: Product[] = [];
 
-  constructor(public prodAPI : ApiProductsService) { }
+  quantity: number = 0;
 
-  loadProd(){
+  constructor(public prodAPI: ApiProductsService, public cart: CartListService) { }
+
+  addItemToCart(item: Product) {
+    this.cart.addToCart(item);
+     
+  }
+
+  removeFromCart(item: Product) {
+    this.cart.delFromCart(item);
+   
+  }
+
+  searchPerfume(item) {
+    this.prodAPI.getAll()
+      .subscribe(
+        data => {
+          this.dataSource = data.filter(ele => ele.prodname.includes(item));
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+
+  loadProd() {
     this.prodAPI.getAll().subscribe(data => this.dataSource = data);
   }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     console.log('api?');
     this.loadProd();
   }

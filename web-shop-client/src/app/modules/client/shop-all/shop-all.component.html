@@ -1,13 +1,10 @@
-<!-- <h1>test prod page</h1>
-
-<div *ngFor="let prod of dataSource">
-    <p> {{prod.id}}</p>
-    <p> {{prod.prodname}} </p>
-    <p> {{prod.category}} </p>
-    <p> {{prod.urlpicture}} </p>
-    <p> {{prod.description}} </p>
-    <p> {{prod.cost}} </p>
-</div> -->
+<h2>Perfumes List</h2><br>
+<mat-form-field class="searchProd">
+  <input matInput type="text" class="form-control" placeholder="Search by product name" #searchname name="searchname" />
+  <button mat-button matSuffix (click)="searchPerfume(searchname.value)" mat-icon-button>
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field>
 
 <div class="card-columns" style="padding: 13px;">
   <mat-spinner *ngIf="this.dataSource.length === 0"></mat-spinner>
@@ -21,26 +18,22 @@
     <mat-card-content>
       <p> {{product.description}} </p>
     </mat-card-content>
-    <mat-card-subtitle>{{product.cost}} $</mat-card-subtitle>
+
     <mat-card-actions class="def-number-input number-input">
       <!-- actiions -->
-      <button mat-raised-button color="primary" size="md" (click)="addItemToCart(product,quantity)">
+      <mat-label><b>{{product.cost}} $ </b></mat-label>
+      <button #add{{id}} mat-raised-button color="primary" size="md" ml-3 (click)="addItemToCart(product)"
+        [disabled]="this.cart.findInCart(product)">
         <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
       </button>
-
-      <button mat-raised-button (click)="quantity=quantity-1" [disabled]="quantity==0">
-        <mat-icon>remove</mat-icon>
+      <button #out{{id}} mat-raised-button color="warn" size="md" ml-3 (click)="removeFromCart(product)"
+        [disabled]="!this.cart.findInCart(product)">
+        <mat-icon>add_shopping_cart</mat-icon>Cancel from Cart
       </button>
-
-      <input #quant{{i}} min="0" [value]="quantity" type="number" style="width: 40px;">
-      <button mat-raised-button (click)="quantity=quantity+1">
-        <mat-icon>add</mat-icon>
-      </button>
-
     </mat-card-actions>
 
   </mat-card>
 
 </div>
 
-<button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button>
+<!-- <button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button> -->

@@ -3,6 +3,8 @@ import { Order } from 'src/app/shared/models/Order';
 import { Product } from 'src/app/shared/models/Product';
 import { ApiOrdersService } from 'src/app/core/services/api-orders.service';
 import { ApiProductsService } from 'src/app/core/services/api-products.service';
+import { CartListService } from 'src/app/core/services/cart-list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
@@ -10,19 +12,39 @@ import { ApiProductsService } from 'src/app/core/services/api-products.service';
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent implements OnInit {
+  cartPerfumeList: any[] = [];
+  totalSum: number ;
+  selectedOrder: Order;
+  product_list: Product[] = [];
 
-  selectedOrder:Order;
-  product_list:Product[];
+  constructor(public orderAPI: ApiOrdersService, public prodAPI: ApiProductsService, public cart: CartListService, private router: Router) { }
 
-  constructor(public orderAPI : ApiOrdersService,public prodAPI : ApiProductsService) { }
-
-  loadOrders(id){
-    this.orderAPI.getById(id).subscribe(data => this.selectedOrder = data);
-    this.prodAPI.getAll().subscribe(data => this.product_list = data);
+  loadOrders() {
+    let quantity: number = 1;
+    this.cart.templateProdList.forEach(elem => (this.cartPerfumeList.push({ elem, quantity })));
   }
 
-  ngOnInit():void {
+  Total(){
+    this.totalSum=0;
+    if (this.cartPerfumeList.length > 0) {
+      this.cartPerfumeList.forEach(item => {
+        this.totalSum += item.elem.cost * item.quantity;
+      });    
+    }
+    return this.totalSum;
+  }
+
+  goBack(){
+    this.router.navigate([`shopforclient/shopall`]);
+  }
+
+  goToOrder(){
+    console.log(this.cartPerfumeList);
+  }
+  
+  ngOnInit(): void {
     console.log('orders api?');
-    this.loadOrders(1);
+    this.loadOrders();
+    this.totalSum=0;
   }
 }

@@ -3,5 +3,6 @@
         "activityBar.background": "#033431",
         "titleBar.activeBackground": "#044944",
         "titleBar.activeForeground": "#EDFEFD"
-    }
+    },
+    "javascript.implicitProjectConfig.experimentalDecorators": true
 }

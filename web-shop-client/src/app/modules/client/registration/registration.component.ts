@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/shared/models/User';
 import { ApiUsersService } from 'src/app/core/services/api-users.service';
 import { Router } from '@angular/router';
+import { ExpressionStatement } from '@angular/compiler';
 
 @Component({
   selector: 'app-registration',
@@ -14,6 +15,8 @@ export class RegistrationComponent implements OnInit {
   invalidLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private apiUsers: ApiUsersService, private router: Router) { }
   addForm;
+
+
 
   onSubmit() {
     if (this.addForm.invalid) {
@@ -28,9 +31,9 @@ export class RegistrationComponent implements OnInit {
     this.apiUsers.getAll()
       .subscribe(
         data => {
-          /* id is dinamic wrong usage ..... */
-          if (data.indexOf(user) == -1) {
-            console.log(data);
+          const itNoExsist = data.some(obj => obj.name == user.name || obj.email == user.email || obj.phone == user.phone);
+          console.log(itNoExsist);
+          if (!itNoExsist) {
             this.apiUsers.addUser(user).subscribe(data => {
               console.log(data);
               this.message = `The User ${user.name} was registred successfully!`;
@@ -44,7 +47,7 @@ export class RegistrationComponent implements OnInit {
           this.message = "Sorry, but has some error durring registration..."
           console.log(error);
         });
-    
+        console.log(this.message);
     this.addForm.reset();
   }
 
@@ -62,3 +65,22 @@ export class RegistrationComponent implements OnInit {
 
 
 }
+
+
+/* let itExsist: boolean = data.some(obj => {
+  console.log(obj);
+ (obj.name!= user.name && obj.email != user.email && obj.phone != user.phone);
+
+});
+console.log(itExsist);
+console.log(user);
+if (!itExsist) {
+  this.message = "The User is exist in our Users List";
+  console.log(this.message);
+}
+else {
+  this.apiUsers.addUser(user).subscribe(data => {
+    console.log(data);
+    this.message = `The User ${user.name} was registred successfully!`;
+  });
+} */
