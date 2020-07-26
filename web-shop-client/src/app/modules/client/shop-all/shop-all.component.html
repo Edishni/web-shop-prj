@@ -21,14 +21,16 @@
     </mat-card-content>
 
     <mat-card-actions class="def-number-input number-input">
-      <!-- actiions -->
+      <!-- actiions [disabled]="this.cart.findInCart(product)"-->
       <mat-label><b>cost : {{product.cost}} $ </b></mat-label>
       <button #add{{id}} mat-raised-button color="primary" size="md" ml-3 (click)="addItemToCart(product)"
-        [disabled]="this.cart.findInCart(product)">
+        
+        *ngIf="!this.cart.findInCart(product)"
+        >
         <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
       </button>
       <button #out{{id}} mat-raised-button color="warn" size="md" ml-3 (click)="removeFromCart(product)"
-        [disabled]="!this.cart.findInCart(product)">
+      *ngIf="this.cart.findInCart(product)">
         <mat-icon>add_shopping_cart</mat-icon>Cancel from Cart
       </button>
     </mat-card-actions>

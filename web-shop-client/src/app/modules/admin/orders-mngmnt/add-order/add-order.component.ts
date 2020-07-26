@@ -10,20 +10,20 @@ import { FormBuilder, Validators, FormControl } from '@angular/forms';
   styleUrls: ['./add-order.component.css']
 })
 export class AddOrderComponent implements OnInit {
-  showTEMPLATE:Order;
+  showTEMPLATE: Order;
   invalidLogin: boolean = false;
-  deliveryCntr= new FormControl(false);
-  orderstatusCntr= new FormControl(false);
-  
-  message='';
-  constructor(private formBuilder: FormBuilder, private apiOrder: ApiOrdersService,private router: Router) { }
+  deliveryCntr = new FormControl(false);
+  orderstatusCntr = new FormControl(false);
+
+  message = '';
+  constructor(private formBuilder: FormBuilder, private apiOrder: ApiOrdersService, private router: Router) { }
   addForm;
 
   onSubmit() {
     if (this.addForm.invalid) {
       return;
     }
-     const order: Order = {
+    const order: Order = {
       name: this.addForm.controls.name.value,
       phone: this.addForm.controls.phone.value,
       city: this.addForm.controls.city.value,
@@ -31,21 +31,21 @@ export class AddOrderComponent implements OnInit {
       email: this.addForm.controls.email.value,
       sum: this.addForm.controls.sum.value,
       delivery: this.addForm.controls.delivery.value,
-      orderstatus: this.addForm.controls.orderstatus.value, 
+      orderstatus: this.addForm.controls.orderstatus.value,
       wishes: this.addForm.controls.wishes.value,
       notes: this.addForm.controls.notes.value,
     }
     /* console.log(order); */
     this.apiOrder.addOrder(order).subscribe(data => {
-      this.message='New order was added into list'
+      this.message = 'New order was added into list'
       console.log(data);
       this.addForm.reset();
-    }); 
-   
+    });
   }
-goBack(){
-  this.router.navigate([`administrator/adminorder/allorders`]);
-}
+
+  goBack() {
+    this.router.navigate([`administrator/adminorder/allorders`]);
+  }
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({
@@ -60,8 +60,8 @@ goBack(){
       wishes: ['', Validators.required],
       notes: ['', Validators.required],
     });
-    
-    this.showTEMPLATE=this.addForm;
-    this.message='';
+
+    this.showTEMPLATE = this.addForm;
+    this.message = '';
   }
 }

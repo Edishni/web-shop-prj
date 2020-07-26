@@ -40,6 +40,8 @@ export class OrderDetailsComponent implements OnInit {
 
   goToOrder(){
     console.log(this.cartPerfumeList);
+    this.cart.itemsListToOrder=this.cartPerfumeList;
+    this.router.navigate([`shopforclient/order`]);
   }
   
   ngOnInit(): void {

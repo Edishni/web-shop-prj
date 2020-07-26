@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class CartListService {
   templateProdList: Product[]=[];
+  itemsListToOrder:any[];
   constructor() { }
 
   addToCart(item: Product): void {
@@ -25,6 +26,9 @@ export class CartListService {
       return true
     }
     else false
+  }
+  makeOrder(items){
+
   }
 
 }
