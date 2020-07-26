@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../shared/models/Product';
 import { ApiProductsService } from 'src/app/core/services/api-products.service';
 import { CartListService } from 'src/app/core/services/cart-list.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-shop-all',
@@ -15,16 +17,18 @@ export class ShopAllComponent implements OnInit {
 
   quantity: number = 0;
 
-  constructor(public prodAPI: ApiProductsService, public cart: CartListService) { }
+  constructor(public prodAPI: ApiProductsService, public cart: CartListService,private router : Router) { }
 
   addItemToCart(item: Product) {
-    this.cart.addToCart(item);
-     
+    this.cart.addToCart(item);  
   }
 
   removeFromCart(item: Product) {
     this.cart.delFromCart(item);
-   
+  }
+
+  goToCartList(){
+    this.router.navigate([`shopforclient/orderdetails`]);
   }
 
   searchPerfume(item) {

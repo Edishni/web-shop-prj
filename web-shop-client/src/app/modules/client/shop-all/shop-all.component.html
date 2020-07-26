@@ -1,11 +1,12 @@
 <h2>Perfumes List</h2><br>
+
 <mat-form-field class="searchProd">
   <input matInput type="text" class="form-control" placeholder="Search by product name" #searchname name="searchname" />
   <button mat-button matSuffix (click)="searchPerfume(searchname.value)" mat-icon-button>
     <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>
-
+<button mat-raised-button color="primary" (click)="goToCartList()" style="margin-left: 15px;">Your CART</button>
 <div class="card-columns" style="padding: 13px;">
   <mat-spinner *ngIf="this.dataSource.length === 0"></mat-spinner>
 
@@ -21,7 +22,7 @@
 
     <mat-card-actions class="def-number-input number-input">
       <!-- actiions -->
-      <mat-label><b>{{product.cost}} $ </b></mat-label>
+      <mat-label><b>cost : {{product.cost}} $ </b></mat-label>
       <button #add{{id}} mat-raised-button color="primary" size="md" ml-3 (click)="addItemToCart(product)"
         [disabled]="this.cart.findInCart(product)">
         <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
