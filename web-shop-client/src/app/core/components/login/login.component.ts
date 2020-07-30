@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  loginWithFacebook(){
+/*   loginWithFacebook(){
     this.auth.doFacebookLogin().then(res => {
       this.router.navigate(['/administrator/adminprod']);
     })
-  }
+  } */
 
   tryRegister(email,pass){
     this.auth.signInByEmailAndPass(email,pass)

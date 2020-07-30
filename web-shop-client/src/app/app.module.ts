@@ -12,8 +12,7 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { AboutComponent } from './core/components/about/about.component';
-
-import { LoginComponent } from './core/components/login/login.component';
+import { LoginDialogComponent } from './core/components/login-dialog/login-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import * as firebase from 'firebase';
 import { AngularFireModule } from '@angular/fire';
@@ -30,7 +29,7 @@ firebase.initializeApp(environment.firebaseConfig);
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-     LoginComponent
+     LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +49,7 @@ firebase.initializeApp(environment.firebaseConfig);
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginDialogComponent]
 })
 export class AppModule { }

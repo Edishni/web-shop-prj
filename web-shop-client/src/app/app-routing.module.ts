@@ -9,7 +9,6 @@ const routes: Routes = [
   {path: 'shopforclient' , loadChildren : ()=>import('src/app/modules/client/client.module').then(m=>m.ClientModule)},
   {path: 'administrator' , loadChildren : ()=>import('src/app/modules/admin/admin.module').then(m=>m.AdminModule),canActivate:[AuthorizationGuard]},
   {path: 'main', component:MainComponent},
-  {path: 'login', component:LoginComponent},
 ];
 
 @NgModule({

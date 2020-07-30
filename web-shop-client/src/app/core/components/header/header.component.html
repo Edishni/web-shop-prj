@@ -3,12 +3,10 @@
   <div>
     <span ><small>Current user :
     </small>{{this.userAdmin.curentUser}}</span>
-    <span>
-      <mat-icon>home</mat-icon>Home
-    </span>
-    <span>
-      <mat-icon>info</mat-icon>About
-    </span>
+
+    <button mat-raised-button ><mat-icon>home</mat-icon>Home</button>
+    <button mat-raised-button ><mat-icon>about</mat-icon>About</button>
+    
 
     <button mat-raised-button (click)="logOut()"
      *ngIf="this.userAdmin.Logined"><mat-icon>logout</mat-icon> LogOut</button>
