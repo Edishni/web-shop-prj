@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class CartListService {
   templateProdList: Product[]=[];
-  itemsListToOrder:any[];
+  itemsListToOrder:any[]=[];
   constructor() { }
 
   addToCart(item: Product): void {

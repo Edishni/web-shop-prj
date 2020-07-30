@@ -7,13 +7,15 @@
   </button>
 </mat-form-field>
 <button mat-raised-button color="primary" (click)="goToCartList()" style="margin-left: 15px;">Your CART</button>
+
 <div class="card-columns" style="padding: 13px;">
   <mat-spinner *ngIf="this.dataSource.length === 0"></mat-spinner>
-
-  <mat-card class="card card-cascade narrower" *ngFor="let product of dataSource, let i=index">
+<div class="card card-cscade narrower m-3" *ngFor="let product of dataSource, let i=index">
+  <mat-card>
     <mat-card-header>
       <mat-card-title>{{product.prodname}}</mat-card-title>
     </mat-card-header>
+
 
     <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product" class="view view-cascade overlay">
     <mat-card-content>
@@ -36,7 +38,7 @@
     </mat-card-actions>
 
   </mat-card>
-
+</div>
 </div>
 
 <!-- <button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button> -->

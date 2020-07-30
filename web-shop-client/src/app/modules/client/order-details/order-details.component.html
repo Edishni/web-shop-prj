@@ -1,7 +1,7 @@
 <h1>  <mat-icon>shopping_basket</mat-icon>Cart Details</h1>
 <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
 <button mat-raised-button color="accent" (click)="goToOrder()">DO ORDER</button>
-<div class="totalSumDisplay"><h3 style="margin-left: 20px;"><b>TOTAL SUM : {{Total()}} $</b></h3></div>
+<div class="totalSumDisplay"><h3><b>TOTAL SUM : {{Total()}} $</b></h3></div>
 <div class="card-columns" style="padding: 13px;">
 
   <mat-card class="example-card" *ngFor="let cartDetail of cartPerfumeList" style="margin:10px;">

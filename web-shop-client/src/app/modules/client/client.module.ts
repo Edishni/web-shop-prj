@@ -7,6 +7,7 @@ import { ShopAllComponent } from './shop-all/shop-all.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ClientRoutingModule,
+    MatGridListModule,
     MaterialModule,
  ReactiveFormsModule
   ]

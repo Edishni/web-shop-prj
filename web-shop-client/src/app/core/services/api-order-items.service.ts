@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from 'src/app/shared/models/Order';
-import { OrderItems } from 'src/app/shared/models/OrderItems';
+import { OrderItem } from 'src/app/shared/models/Order-Items';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,26 +12,28 @@ export class ApiOrderItemsService {
 
   constructor(private http: HttpClient) { }
   selectedOrder:Order;
-  selectedItems:ApiOrderItemsService;
+  selectedItems:OrderItem;
   
-    getAll(): Observable<OrderItems[]> {
+    getAll(): Observable<OrderItem[]> {
       console.log('get all order items try');
-      return this.http.get<OrderItems[]>(environment.apiOrderItems);
+      return this.http.get<OrderItem[]>(environment.apiOrderItems);
     }
   
-    getById(id: number): Observable<OrderItems> {
-      return this.http.get<OrderItems>(`${environment.apiOrderItems}/${id}`)
+    getById(id: number): Observable<OrderItem> {
+      return this.http.get<OrderItem>(`${environment.apiOrderItems}/${id}`)
     }
   
-    addOrder(orderItems: OrderItems): Observable<OrderItems> {
-      return this.http.post<OrderItems>(environment.apiOrderItems, orderItems)
+   addItem(orderItems: OrderItem): Observable<OrderItem> {
+     console.log(orderItems);
+     console.log("post item try...");
+      return this.http.post<OrderItem>(environment.apiOrderItems, orderItems)
     }
   
-    editOrder(neworderItems: OrderItems): Observable<OrderItems> {
-      return this.http.put<OrderItems>(`${environment.apiOrderItems}/${neworderItems.id}`, neworderItems)
+    editOrder(neworderItem: OrderItem): Observable<OrderItem> {
+      return this.http.put<OrderItem>(`${environment.apiOrderItems}/${neworderItem.id}`, neworderItem)
     }
   
-    deleteOrder(id: number): Observable<OrderItems> {
-      return this.http.delete<OrderItems>(`${environment.apiOrderItems}/${id}`)
+    deleteOrder(id: number): Observable<OrderItem> {
+      return this.http.delete<OrderItem>(`${environment.apiOrderItems}/${id}`)
     }
   }
