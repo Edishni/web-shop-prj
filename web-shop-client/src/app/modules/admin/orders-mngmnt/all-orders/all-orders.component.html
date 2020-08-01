@@ -1,13 +1,27 @@
 <h2>Orders Management</h2><br>
-<mat-form-field class="searchOrder">
-  <input matInput type="text" class="form-control" placeholder="Search by user name" #searchorder name="searchorder" />
-  <button mat-button matSuffix (click)="searchOrder(searchorder.value)"mat-icon-button ><mat-icon>search</mat-icon></button>
-</mat-form-field> 
-<h4 mat-small >{{this.message}}</h4>
+
+  <mat-form-field class="searchOrder">
+    <input matInput type="text" class="form-control" placeholder="Search by user name" #byorder
+      name="byorder" />
+    <button mat-button matSuffix (click)="searchOrder(byorder.value)" mat-icon-button>
+      <mat-icon>person_search</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="searchOrderID">
+    <input matInput type="number" class="form-control" placeholder="Search by order ID" #byorderid
+      name="byorderid" />
+    <button mat-button matSuffix (click)="searchOrderID(byorderid.value)" mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-button matSuffix (click)="loadOrders()" mat-icon-button>
+    <mat-icon>refresh</mat-icon>
+  </button>
+<h4 mat-small>{{this.message}}</h4>
 
 <div class="card-columns" style="padding: 13px; margin:10px;">
 
-  <mat-card class="card card-cascade narrower " *ngFor="let order of dataSource, let i=index" style="padding: 13px; margin:10px;width: 300px;">
+  <mat-card class="card card-cascade narrower " *ngFor="let order of dataSource, let i=index">
 
     <mat-list role="list">
       <mat-list-item role="listitem">
@@ -43,18 +57,21 @@
       <mat-list-item role="listitem">
         <mat-icon>note</mat-icon> Notes - {{order.notes}}
       </mat-list-item>
-     </mat-list>
+    </mat-list>
 
-     <div class="example-button-row" justify-content-center>
-    <button mat-raised-button color="accent" m-3 center (click)="editSelectedOrder(order)">
-      <mat-icon>edit</mat-icon>
-    </button>
-    <button mat-raised-button color="warn" m-3 center (click)="deleteSelectedOrder(order)">
-      <mat-icon>delete</mat-icon>
-    </button>
-     </div>
+    <div class="example-button-row" justify-content-center>
+      <button mat-raised-button color="accent" m-3 center (click)="editSelectedOrder(order)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-raised-button color="warn" m-3 center (click)="deleteSelectedOrder(order)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-raised-button color="primary" m-3 center (click)="lookItems(order.id)">
+        <mat-icon>list</mat-icon>
+      </button>
+    </div>
 
-</mat-card>
+  </mat-card>
 
 </div>
 <!-- 

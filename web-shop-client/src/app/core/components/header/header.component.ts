@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthorizationService } from '../../authentication/authorization.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+import { CartListService } from '../../services/cart-list.service';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +12,8 @@ import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(public userAdmin: UserService, public router: Router, private auth: AuthorizationService, private dialog: MatDialog) { }
+  cartHasItems: number = 0;
+  constructor(public userAdmin: UserService, public router: Router, private auth: AuthorizationService, private dialog: MatDialog, private cart: CartListService) { }
   logOut() {
     this.auth.doLogout();
     this.router.navigate(['/shopforclient/shopall']);
@@ -23,13 +24,18 @@ export class HeaderComponent implements OnInit {
       width: '400px',
     });
 
-    dialogRef.afterClosed().subscribe(result => {  
+    dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
     console.log("user:" + this.userAdmin.curentUser)
   }
-  
+
+  goToCart() {
+    this.router.navigate([`shopforclient/orderdetails`]);
+  }
+
   ngOnInit() {
+    this.cartHasItems = this.cart.itemsListToOrder.length;
   }
 
 }

@@ -1,0 +1,37 @@
+<h1>
+  <mat-icon>shopping_basket</mat-icon>Selected Order's Items
+</h1>
+<button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
+<h1>Order # - {{this.findOrderID}}</h1>
+<div class="totalSumDisplay">
+  <h3><b>TOTAL SUM : {{this.totalSum}} $</b></h3>
+</div>
+<div class="card-columns" style="padding: 13px;">
+  <mat-card class="example-card" *ngFor="let cartDetail of cartPerfumeList" style="margin:10px;">
+    <mat-card-header>
+      <mat-card-title>#{{cartDetail.id}} - {{cartDetail.prodname}}</mat-card-title><br>
+      <mat-card-subtitle>{{cartDetail.category}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ cartDetail.urlpicture }}" alt="Photo of a Product">
+    <mat-card-content>
+      <p>
+        {{cartDetail.description}}
+      </p>
+    </mat-card-content>
+    <mat-label><b>COST : {{cartDetail.cost}} $ </b></mat-label><br>
+    <mat-label><b>QNT : {{cartDetail.quantity}} items </b></mat-label><br>
+    <mat-divider></mat-divider>
+    <mat-label color="red"><b>SUM : {{cartDetail.sum}} $ </b></mat-label>
+    <mat-card-actions>
+
+      <!--  <button mat-mini-fab color="warn" (click)="cartDetail.quantity=cartDetail.quantity-1"
+        [disabled]="cartDetail.quantity==0">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <mat-label style="margin:10px;"><b> {{cartDetail.quantity}} items </b></mat-label>
+      <button mat-mini-fab color="primary" (click)="cartDetail.quantity=cartDetail.quantity+1">
+        <mat-icon>add</mat-icon>
+      </button><br> -->
+
+    </mat-card-actions>
+  </mat-card>

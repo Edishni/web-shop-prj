@@ -1,6 +1,16 @@
 mat-card {
   display: inline-block;
-  margin: 10px;
+  margin: 5px 6px 5px 6px;
+  padding: 8px;
+  width: auto;
+}
+
+mat-form-field {
+  margin-right: 10px;
+}
+
+mat-list-item mat-icon {
+  margin-right: 2px;
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -9,33 +19,30 @@ mat-card {
   }
 }
 
-;
-
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .card-columns {
-    column-count: 2;
+    column-count: 3;
   }
 }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .card-columns {
-    column-count: 3;
+    column-count: 4;
   }
 }
 
 /*   // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .card-columns {
-    column-count: 4;
+    column-count: 5;
   }
 }
 
 .example-button-row {
   display: flex;
   justify-content: center;
-
 }
 
 .example-button-row .mat-button-base {

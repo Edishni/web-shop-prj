@@ -1,17 +1,18 @@
 <mat-toolbar color="primary" class="navbar">
-  <div>WEB-SHOP from EDDIE</div>
+  <div><mat-icon>local_florist</mat-icon> PERFUME WEB-SHOP</div>
   <div>
-    <span ><small>Current user :
-    </small>{{this.userAdmin.curentUser}}</span>
+    <mat-icon *ngIf="this.cartHasItems>0" matBadge="this.cartHasItems" matBadgeColor="warn" (click)="goToCart()">shopping_cart</mat-icon>
+    <span >Welcome :  {{this.userAdmin.curentUser}}</span>
 
-    <button mat-raised-button ><mat-icon>home</mat-icon>Home</button>
-    <button mat-raised-button ><mat-icon>about</mat-icon>About</button>
+  
+    <a mat-fab matTooltip="return to main page" routerLink="/main"><mat-icon>home</mat-icon></a>
+    <a mat-fab matTooltip="Info about the site" routerLink="/about"><mat-icon>help</mat-icon></a>
     
 
-    <button mat-raised-button (click)="logOut()"
-     *ngIf="this.userAdmin.Logined"><mat-icon>logout</mat-icon> LogOut</button>
-    <button mat-raised-button  (click)="logIn()"
-    *ngIf="!this.userAdmin.Logined"><mat-icon>login</mat-icon> LogIn</button>
+    <button mat-fab  matTooltip="Logout from Administrative Mode" (click)="logOut()"
+     *ngIf="this.userAdmin.Logined"><mat-icon>logout</mat-icon></button>
+    <button mat-fab   matTooltip="LogIn to Administrative Mode" (click)="logIn()"
+    *ngIf="!this.userAdmin.Logined"><mat-icon>login</mat-icon></button>
  
 
   </div>

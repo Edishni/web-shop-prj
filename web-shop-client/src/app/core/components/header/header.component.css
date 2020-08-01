@@ -1,5 +1,5 @@
-button{
-    margin-right: 5px;
+button , a{
+    margin: 0 5px 0 10px;
 }
 .navbar{
    justify-content: space-between;
