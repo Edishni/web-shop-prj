@@ -24,14 +24,14 @@
         <mat-icon>alternate_email</mat-icon> Email - {{user.email}}
       </mat-list-item>
       <mat-divider></mat-divider>
-      <mat-action class="example-button-row" justify-content-center>
+      <mat-card-actions class="example-button-row" justify-content-center>
         <button mat-raised-button color="accent" m-3 center (click)="editUser(user)">
           <mat-icon>edit</mat-icon>Edit
         </button>
         <button mat-raised-button color="warn" m-3 center (click)="deleteUser(user)">
           <mat-icon>delete</mat-icon>Delete
         </button>
-      </mat-action>
+      </mat-card-actions>
     </mat-list>
   </mat-card>
 </div>

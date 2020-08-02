@@ -5,7 +5,7 @@
   border-radius: 5px;
 }
 
-.example-button-row {
+mat-card-actions{
   display: flex;
   justify-content: center;
 }
