@@ -6,35 +6,29 @@
   </button>
 </mat-form-field>
 
-<div class="card-columns" style="padding: 13px;">
+<div class="cards" style="padding: 5px;">
   <mat-spinner *ngIf="dataSource.length === 0"></mat-spinner>
 
-  <mat-card class="card card-cascade narrower " *ngFor="let product of dataSource, let i=index">
+  <mat-card class="card" *ngFor="let product of dataSource, let i=index">
     <mat-card-header>
-
       <mat-card-title>{{product.prodname}}</mat-card-title>
-
     </mat-card-header>
-
     <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product">
     <mat-card-content>
-      <p>
-        {{product.description}}
-      </p>
+      <mat-label><b>cost : {{product.cost}} $ </b></mat-label>
+      <p>{{product.description}}</p>
     </mat-card-content>
-
-    <mat-card-actions class="def-number-input number-input">
-      <mat-card-subtitle>{{product.cost}} $ </mat-card-subtitle>
-      <button mat-raised-button color="accent" m-3 center (click)="editSelectedProduct(product)">
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="editSelectedProduct(product)">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-raised-button color="warn" m-3 center (click)="deleteSelectedProduct(product)">
+      <button mat-raised-button color="warn" (click)="deleteSelectedProduct(product)">
         <mat-icon>delete</mat-icon>
       </button>
-
     </mat-card-actions>
   </mat-card>
 
 </div>
-
-<button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button>
+<!-- 
+<button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button> -->

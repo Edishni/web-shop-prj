@@ -17,8 +17,8 @@ img {
 mat-card {
   position: relative;
   margin: 7px;
-  min-width: 200px;
-  max-width: 400px;
+  min-width: 280px;
+  max-width: 320px;
   height: auto;
 }
 
@@ -42,30 +42,4 @@ mat-card {
   color: greenyellow;
 padding: 10px;
 width: 400px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .card-columns {
-    column-count: 1;
-  }
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .card-columns {
-    column-count: 2;
-  }
-}
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .card-columns {
-    column-count: 3;
-  }
-}
-
-/*   // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .card-columns {
-    column-count: 4;
-  }
 }

@@ -53,11 +53,9 @@ namespace web_shop.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("wishes")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("notes")
-                        .IsRequired()
+                    b.Property<string>("notes")                 
                         .HasColumnType("text");
 
                     b.Property<double>("sum")

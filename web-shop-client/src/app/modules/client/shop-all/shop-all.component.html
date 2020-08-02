@@ -8,10 +8,9 @@
 </mat-form-field>
 <button mat-raised-button color="primary" (click)="goToCartList()" style="margin-left: 15px;">Your CART</button>
 
-<div class="card-columns" style="padding: 13px;">
+<div class="cards" style="padding: 13px;">
   <mat-spinner *ngIf="this.dataSource.length === 0"></mat-spinner>
-<div class="card card-cscade narrower m-3" *ngFor="let product of dataSource, let i=index">
-  <mat-card>
+  <mat-card cascade="true" class="card" *ngFor="let product of dataSource, let i=index">
     <mat-card-header>
       <mat-card-title>{{product.prodname}}</mat-card-title>
     </mat-card-header>
@@ -19,26 +18,24 @@
 
     <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product" class="view view-cascade overlay">
     <mat-card-content>
+      <mat-label><b>cost : {{product.cost}} $ </b></mat-label>
       <p> {{product.description}} </p>
     </mat-card-content>
 
-    <mat-card-actions class="def-number-input number-input">
+    <mat-card-actions>
       <!-- actiions [disabled]="this.cart.findInCart(product)"-->
-      <mat-label><b>cost : {{product.cost}} $ </b></mat-label>
+
       <button #add{{id}} mat-raised-button color="primary" size="md" ml-3 (click)="addItemToCart(product)"
-        
-        *ngIf="!this.cart.findInCart(product)"
-        >
+        *ngIf="!this.cart.findInCart(product)">
         <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
       </button>
       <button #out{{id}} mat-raised-button color="warn" size="md" ml-3 (click)="removeFromCart(product)"
-      *ngIf="this.cart.findInCart(product)">
+        *ngIf="this.cart.findInCart(product)">
         <mat-icon>add_shopping_cart</mat-icon>Cancel from Cart
       </button>
     </mat-card-actions>
 
   </mat-card>
-</div>
 </div>
 
 <!-- <button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button> -->

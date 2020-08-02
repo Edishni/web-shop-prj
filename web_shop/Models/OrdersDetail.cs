@@ -40,11 +40,11 @@ namespace web_shop.Models
         [Column(TypeName = "bit")]
         public bool orderstatus { get; set; }
 
-        [Required]
+        
         [Column(TypeName = "text")]
         public string wishes { get; set; }
 
-        [Required]
+       
         [Column(TypeName = "text")]
         public string notes { get; set; }
     }
