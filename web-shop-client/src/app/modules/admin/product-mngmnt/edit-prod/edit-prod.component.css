@@ -5,13 +5,14 @@
 .example-card {
   max-width: 400px;
   margin-left: 15px;
+  overflow: auto;
 }
 
 ::ng-deep .mat-grid-tile .mat-figure {
   display: inline-block !important;
-  /* or whichever you need */
+  
 }
-
+/* or whichever you need */
 .example-part-width {
   margin: 10px;
   display: inline;
@@ -21,4 +22,13 @@ h2 {
   text-align: center;
   display: inline;
   margin-left: 20%;
+}
+
+mat-grid-tile{
+  overflow: auto;
+  margin: 5px;
+  padding: 3px;
+}
+mat-grid-tile button{
+  margin-bottom: 10px;
 }
