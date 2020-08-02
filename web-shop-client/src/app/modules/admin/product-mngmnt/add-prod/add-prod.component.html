@@ -35,8 +35,8 @@
 
         <mat-form-field class="example-part-width">
           <mat-label for="description">description:</mat-label>
-          <input matInput type="text" class="form-control" formControlName="description" id="description"
-            autocomplete="off">
+          <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" type="text"
+            class="form-control" formControlName="description" id="description" autocomplete="off"></textarea>
           <div class="error"
             *ngIf="addForm.controls['description'].hasError('required') && addForm.controls['description'].touched">
             description of picture is required</div>
@@ -56,7 +56,7 @@
         </div>
 
         <div *ngIf="this.message" class="message">
-          <mat-label>{{this.message}}</mat-label>
+          <mat-card-title >{{this.message}}</mat-card-title>
         </div>
       </form>
     </mat-grid-tile>
@@ -68,7 +68,6 @@
       <mat-card class="example-card" *ngIf="addForm.controls['urlpicture'].touched">
         <mat-card-header>
           <mat-card-title>{{this.showTEMPLATE.prodname}}</mat-card-title>
-
         </mat-card-header>
 
         <img mat-card-image src="{{ this.showTEMPLATE.urlpicture }}" alt="Photo of a Product"
@@ -79,20 +78,16 @@
 
         <mat-card-actions>
           <mat-card-subtitle>{{this.showTEMPLATE.cost}} $</mat-card-subtitle>
-          <!-- actiions -->
           <button disabled mat-raised-button color="primary" size="md">
             <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
           </button>
-
           <button disabled mat-raised-button>
             <mat-icon>remove</mat-icon>
           </button>
-
           <input disabled type="number" style="width: 40px;">
           <button disabled mat-raised-button>
             <mat-icon>add</mat-icon>
           </button>
-
         </mat-card-actions>
 
       </mat-card>

@@ -10,12 +10,15 @@ import { ViewChild } from '@angular/core';
   styleUrls: ['./all-orders.component.css']
 })
 export class AllOrdersComponent implements OnInit {
-/*   @ViewChild('byorder') 
-  byorder: ElementRef;
-  @ViewChild('byorderid') 
-  byorderid: ElementRef; */
+  /*   @ViewChild('byorder') 
+    byorder: ElementRef;
+    @ViewChild('byorderid') 
+    byorderid: ElementRef; */
 
+  @ViewChild('byorder') byorder: ElementRef;
+  @ViewChild('byorderid') byorderid: ElementRef;
   dataSource?: Order[];
+  originalData: Order[];
   message: string = '';
 
   constructor(public orderAPI: ApiOrdersService, private router: Router) { }
@@ -26,14 +29,14 @@ export class AllOrdersComponent implements OnInit {
     this.router.navigate([`/adminorder/editorder/${editselOrder.id}`]);
 
   }
-  lookItems(orderID:number){
+  lookItems(orderID: number) {
     this.router.navigate([`/adminorder/viewitems/${orderID}`]);
   }
 
   deleteSelectedOrder(delselOrder: Order) {
     this.orderAPI.deleteOrder(delselOrder.id).subscribe(data => {
       this.loadOrders();
-      this.message=`The order for ${delselOrder.name} was deleted`;
+      this.message = `The order for ${delselOrder.name} was deleted`;
       console.log(data);
     },
       error => {
@@ -41,39 +44,56 @@ export class AllOrdersComponent implements OnInit {
       });
   }
   searchOrder(ordername) {
-  /*   this.byorderid.nativeElement.value=''; */
-    this.orderAPI.getAll()
-      .subscribe(
-        data => {
-          this.dataSource = data.filter(ele => ele.name.includes(ordername));
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
+    this.byorderid.nativeElement.value = "";
+    if (ordername) {
+      this.dataSource = this.originalData.filter(ele => ele.name.includes(ordername));
+    }
+    else {
+      this.dataSource = this.originalData;
+    }
+    // this.orderAPI.getAll()
+    //   .subscribe(
+    //     data => {
+    //       this.dataSource = data.filter(ele => ele.name.includes(ordername));
+    //       console.log(data);
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     });
   }
 
   searchOrderID(orderID) {
- /*    this.byorder.nativeElement.value=''; */
-    this.dataSource=[];
-    //only one result
-    this.orderAPI.getById(orderID)
-      .subscribe(
-        data => {
-          this.dataSource.push(data);
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        }); 
+    /*    this.byorder.nativeElement.value=''; */
+    this.byorder.nativeElement.value = "";
+    if (orderID) {
+      this.dataSource = this.originalData.filter(ele => ele.id == orderID);
+
+    }
+    else {
+      this.dataSource = this.originalData;
+    }
+    // this.dataSource=[];
+    // //only one result
+    // this.orderAPI.getById(orderID)
+    //   .subscribe(
+    //     data => {
+    //       this.dataSource.push(data);
+    //       console.log(data);
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     }); 
   }
 
   loadOrders() {
-/*     this.byorder.nativeElement.value=''; */
-/*     this.byorder.nativeElement.value=''; */
-/*      this.byorder=null;
-    this.byorderid=null; */
-    this.orderAPI.getAll().subscribe(data => this.dataSource = data);
+    /*     this.byorder.nativeElement.value=''; */
+    /*     this.byorder.nativeElement.value=''; */
+    /*      this.byorder=null;
+        this.byorderid=null; */
+    this.orderAPI.getAll().subscribe(data => {
+      this.dataSource = data;
+      this.originalData = data;
+    });
   }
 
   ngOnInit(): void {

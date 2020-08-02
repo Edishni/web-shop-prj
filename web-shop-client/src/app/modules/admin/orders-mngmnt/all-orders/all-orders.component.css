@@ -1,12 +1,14 @@
 mat-card {
-  display: inline-block;
-  margin: 5px 6px 5px 6px;
-  padding: 8px;
-  width: auto;
+  position: relative;
+  margin: 5px;
+  max-width: 320px;
+  min-width: 280px;
 }
 
-div{
+.cards {
+  justify-content: center;
   display: inline-flex;
+  flex-wrap: wrap;
 }
 
 mat-form-field {
@@ -15,33 +17,6 @@ mat-form-field {
 
 mat-list-item mat-icon {
   margin-right: 2px;
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .card-columns {
-    column-count: 1;
-  }
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .card-columns {
-    column-count: 3;
-  }
-}
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .card-columns {
-    column-count: 4;
-  }
-}
-
-/*   // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .card-columns {
-    column-count: 5;
-  }
 }
 
 .example-button-row {

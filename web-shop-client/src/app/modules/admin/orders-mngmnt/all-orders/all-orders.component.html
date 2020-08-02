@@ -1,16 +1,16 @@
 <h2>Orders Management</h2><br>
 
   <mat-form-field class="searchOrder">
-    <input matInput type="text" class="form-control" placeholder="Search by user name" #byorder
+    <input matInput type="text" (keyup)="searchOrder(byorder.value)" class="form-control" placeholder="Search by user name" #byorder
       name="byorder" />
-    <button mat-button matSuffix (click)="searchOrder(byorder.value)" mat-icon-button>
+    <button mat-button matSuffix  mat-icon-button>
       <mat-icon>person_search</mat-icon>
     </button>
   </mat-form-field>
   <mat-form-field class="searchOrderID">
-    <input matInput type="number" class="form-control" placeholder="Search by order ID" #byorderid
+    <input matInput type="number" (keyup)="searchOrderID(byorderid.value)" class="form-control" placeholder="Search by order ID" #byorderid
       name="byorderid" />
-    <button mat-button matSuffix (click)="searchOrderID(byorderid.value)" mat-icon-button>
+    <button mat-button matSuffix  mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
@@ -19,9 +19,9 @@
   </button>
 <h4 mat-small>{{this.message}}</h4>
 
-<div class="card-columns" style="padding: 13px; margin:10px;">
+<div class="cards" style="padding: 13px; margin:10px;">
 
-  <mat-card class="card card-cascade narrower " *ngFor="let order of dataSource, let i=index">
+  <mat-card class="card" *ngFor="let order of dataSource, let i=index">
 
     <mat-list role="list">
       <mat-list-item role="listitem">

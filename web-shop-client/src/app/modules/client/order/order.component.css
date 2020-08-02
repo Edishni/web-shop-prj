@@ -4,22 +4,24 @@ h2 {
   margin-left: 20%;
 }
 
-.card-columns {
+.cards {
   justify-content: center;
   display: inline-flex;
   flex-wrap: wrap;
 }
 
-img {
-  height: 300px;
-}
-
 mat-card {
   position: relative;
-  margin: 7px;
-  min-width: 280px;
+  margin: 5px;
   max-width: 320px;
-  height: auto;
+  min-width: 280px;
+}
+
+mat-card-actions {
+  display: inline;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 .addOrderConteiner {
@@ -32,7 +34,7 @@ mat-card {
   padding: 0 3x 0 3px;
 }
 
-.message{
+.message {
   border: 1px solid purple;
   border-radius: 3px;
   background-color: purple;
@@ -40,6 +42,6 @@ mat-card {
   font-size: large;
   font-weight: bolder;
   color: greenyellow;
-padding: 10px;
-width: 400px;
+  padding: 10px;
+  width: 400px;
 }

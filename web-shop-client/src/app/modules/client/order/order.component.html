@@ -14,7 +14,7 @@
 
          <mat-form-field class="example-part-width">
            <mat-label for="phone">Phone:</mat-label>
-           <input matInput type="text" class="form-control" formControlName="phone" id="phone" autocomplete="off">
+           <input matInput type="text" class="form-control" pattern="^\+?(972|0)(\-)?0?(([23489]{1}\d{7})|[5]{1}\d{8})$" formControlName="phone" id="phone" autocomplete="off">
            <div class="error"
              *ngIf="addForm.controls['phone'].hasError('required') && addForm.controls['phone'].touched">
              phone number is required</div>
@@ -60,8 +60,8 @@
        </form>
      </div>
 
-     <div class="perfumeList card-columns">
-       <mat-card class="card card-cascade narrower" *ngFor="let cartDetail of orderDetails" style="margin:10px;">
+     <div class="perfumeList cards">
+       <mat-card class="card" *ngFor="let cartDetail of orderDetails" style="margin:10px;">
          <mat-card-header>
            <mat-card-title>{{cartDetail.elem.prodname}}</mat-card-title>
          </mat-card-header>
