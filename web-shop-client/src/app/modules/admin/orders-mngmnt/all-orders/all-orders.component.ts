@@ -10,11 +10,6 @@ import { ViewChild } from '@angular/core';
   styleUrls: ['./all-orders.component.css']
 })
 export class AllOrdersComponent implements OnInit {
-  /*   @ViewChild('byorder') 
-    byorder: ElementRef;
-    @ViewChild('byorderid') 
-    byorderid: ElementRef; */
-
   @ViewChild('byorder') byorder: ElementRef;
   @ViewChild('byorderid') byorderid: ElementRef;
   dataSource?: Order[];
@@ -27,7 +22,6 @@ export class AllOrdersComponent implements OnInit {
     this.orderAPI.selectedOrder = editselOrder;
     console.log(editselOrder);
     this.router.navigate([`/adminorder/editorder/${editselOrder.id}`]);
-
   }
   lookItems(orderID: number) {
     this.router.navigate([`/adminorder/viewitems/${orderID}`]);
@@ -43,6 +37,7 @@ export class AllOrdersComponent implements OnInit {
         console.log(error);
       });
   }
+
   searchOrder(ordername) {
     this.byorderid.nativeElement.value = "";
     if (ordername) {
@@ -51,45 +46,20 @@ export class AllOrdersComponent implements OnInit {
     else {
       this.dataSource = this.originalData;
     }
-    // this.orderAPI.getAll()
-    //   .subscribe(
-    //     data => {
-    //       this.dataSource = data.filter(ele => ele.name.includes(ordername));
-    //       console.log(data);
-    //     },
-    //     error => {
-    //       console.log(error);
-    //     });
   }
 
   searchOrderID(orderID) {
-    /*    this.byorder.nativeElement.value=''; */
     this.byorder.nativeElement.value = "";
     if (orderID) {
       this.dataSource = this.originalData.filter(ele => ele.id == orderID);
-
     }
     else {
       this.dataSource = this.originalData;
     }
-    // this.dataSource=[];
-    // //only one result
-    // this.orderAPI.getById(orderID)
-    //   .subscribe(
-    //     data => {
-    //       this.dataSource.push(data);
-    //       console.log(data);
-    //     },
-    //     error => {
-    //       console.log(error);
-    //     }); 
   }
 
   loadOrders() {
-    /*     this.byorder.nativeElement.value=''; */
-    /*     this.byorder.nativeElement.value=''; */
-    /*      this.byorder=null;
-        this.byorderid=null; */
+  
     this.orderAPI.getAll().subscribe(data => {
       this.dataSource = data;
       this.originalData = data;
@@ -98,6 +68,8 @@ export class AllOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('orders api?');
-    this.loadOrders();
+    this.loadOrders(); 
+     this.byorder.nativeElement.value = "";
+    this.byorderid.nativeElement.value = "";
   }
 }

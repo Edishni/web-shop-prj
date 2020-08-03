@@ -12,22 +12,23 @@ import { Router } from '@angular/router';
 })
 export class ShopAllComponent implements OnInit {
   arrayCart: any[] = [];
-  
+  originalList: Product[] = [];
+  categoryList: string[] = [];
   dataSource: Product[] = [];
 
   quantity: number = 0;
 
-  constructor(public prodAPI: ApiProductsService, public cart: CartListService,private router : Router) { }
+  constructor(public prodAPI: ApiProductsService, public cart: CartListService, private router: Router) { }
 
   addItemToCart(item: Product) {
-    this.cart.addToCart(item);  
+    this.cart.addToCart(item);
   }
 
   removeFromCart(item: Product) {
     this.cart.delFromCart(item);
   }
 
-  goToCartList(){
+  goToCartList() {
     this.router.navigate([`shopforclient/orderdetails`]);
   }
 
@@ -43,9 +44,26 @@ export class ShopAllComponent implements OnInit {
         });
   }
 
+  searchCategory(cat) {
+    if (cat) {
+      this.dataSource = this.originalList.filter(ele => ele.category.includes(cat));
+    }
+    else {
+      this.dataSource = this.originalList;
+    }
+  }
+
 
   loadProd() {
-    this.prodAPI.getAll().subscribe(data => this.dataSource = data);
+    this.prodAPI.getAll().subscribe(data => {
+      this.dataSource = data;
+      this.originalList = data;
+
+      this.originalList.forEach(item => {
+        if (!this.categoryList.includes(item.category))
+          this.categoryList.push(item.category)
+      });
+    });
   }
 
   ngOnInit(): void {

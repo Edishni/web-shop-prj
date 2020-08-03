@@ -6,6 +6,15 @@
     <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>
+<mat-form-field class="searchProd">
+  <mat-select #bycategory name="bycategory">
+    <mat-option (click)="searchCategory('')">- - -</mat-option>
+    <mat-option *ngFor="let category of categoryList" value="category" (click)="searchCategory(category)">
+    {{category}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
 <button mat-raised-button color="primary" (click)="goToCartList()" style="margin-left: 15px;">Your CART</button>
 
 <div class="cards" style="padding: 13px;">
@@ -15,7 +24,6 @@
       <mat-card-title>{{product.prodname}}</mat-card-title>
     </mat-card-header>
 
-
     <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product" class="view view-cascade overlay">
     <mat-card-content>
       <mat-label><b>cost : {{product.cost}} $ </b></mat-label>
@@ -23,8 +31,6 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <!-- actiions [disabled]="this.cart.findInCart(product)"-->
-
       <button #add{{id}} mat-raised-button color="primary" size="md" ml-3 (click)="addItemToCart(product)"
         *ngIf="!this.cart.findInCart(product)">
         <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
@@ -34,8 +40,7 @@
         <mat-icon>add_shopping_cart</mat-icon>Cancel from Cart
       </button>
     </mat-card-actions>
-
   </mat-card>
 </div>
 
-<!-- <button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button> -->
+

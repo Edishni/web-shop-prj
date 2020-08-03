@@ -9,7 +9,7 @@
   display: inline-flex;
   flex-wrap: wrap;
  }
-
+ 
  mat-card {
    position: relative;
    margin: 5px;
@@ -26,4 +26,12 @@
 
  mat-card-content{
   padding-bottom: 40px;
+}
+
+mat-form-field{
+   margin-right: 15px;
+}
+mat-select mat-option{
+   text-align: center;
+   justify-content: center;
 }
