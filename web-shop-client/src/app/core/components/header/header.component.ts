@@ -12,8 +12,8 @@ import { CartListService } from '../../services/cart-list.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  cartHasItems: number = 0;
-  constructor(public userAdmin: UserService, public router: Router, private auth: AuthorizationService, private dialog: MatDialog, private cart: CartListService) { }
+ 
+  constructor(public userAdmin: UserService, public router: Router, private auth: AuthorizationService, private dialog: MatDialog, public cart: CartListService) { }
   logOut() {
     this.auth.doLogout();
     this.router.navigate(['/shopforclient/shopall']);
@@ -29,13 +29,17 @@ export class HeaderComponent implements OnInit {
     });
     console.log("user:" + this.userAdmin.curentUser)
   }
-
+  goToAbout() {
+    this.router.navigate(['/about']);
+  }
+  goToStart() {
+    this.router.navigate(['/shopforclient/shopall']);
+  }
   goToCart() {
     this.router.navigate([`shopforclient/orderdetails`]);
   }
 
   ngOnInit() {
-    this.cartHasItems = this.cart.itemsListToOrder.length;
   }
 
 }

@@ -6,16 +6,19 @@
     <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>
-<mat-form-field class="searchProd">
+<mat-form-field class="searchProd" style="width:250px ;">
+  <mat-label>Category</mat-label>
   <mat-select #bycategory name="bycategory">
-    <mat-option (click)="searchCategory('')">- - -</mat-option>
+    <mat-option (click)="searchCategory('')"><small>cancel selection</small></mat-option>
     <mat-option *ngFor="let category of categoryList" value="category" (click)="searchCategory(category)">
     {{category}}
     </mat-option>
   </mat-select>
 </mat-form-field>
 
-<button mat-raised-button color="primary" (click)="goToCartList()" style="margin-left: 15px;">Your CART</button>
+<button mat-raised-button color="primary" (click)="goToCartList()" style="margin-left: 15px;"
+[disabled]="this.cart.templateProdList.length==0"
+>Your CART</button>
 
 <div class="cards" style="padding: 13px;">
   <mat-spinner *ngIf="this.dataSource.length === 0"></mat-spinner>

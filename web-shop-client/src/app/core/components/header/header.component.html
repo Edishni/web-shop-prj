@@ -1,21 +1,35 @@
 <mat-toolbar color="primary" class="navbar">
-  <div><mat-icon>local_florist</mat-icon> PERFUME WEB-SHOP</div>
-  <div>
-    <mat-icon *ngIf="this.cartHasItems>0" matBadge="this.cartHasItems" matBadgeColor="warn" (click)="goToCart()">shopping_cart</mat-icon>
-    <span >Welcome :  {{this.userAdmin.curentUser}}</span>
+  <div class="logo">
+    <mat-icon>local_florist</mat-icon>
+    <h1>
+      PERFUME WEB-SHOP
+    </h1>
+  </div>
 
-  
-    <a mat-fab matTooltip="return to main page" routerLink="/shopforclient/shopall"><mat-icon>home</mat-icon></a>
-    <a mat-fab matTooltip="Info about the site" routerLink="/about"><mat-icon>help</mat-icon></a>
-    
-
-    <button mat-fab  matTooltip="Logout from Administrative Mode" (click)="logOut()"
-     *ngIf="this.userAdmin.Logined"><mat-icon>logout</mat-icon></button>
-    <button mat-fab   matTooltip="LogIn to Administrative Mode" (click)="logIn()"
-    *ngIf="!this.userAdmin.Logined"><mat-icon>login</mat-icon></button>
- 
+  <div class="welcome">
+    <span>Welcome : {{this.userAdmin.curentUser}}</span>
 
   </div>
 
-
+  <div>
+   
+    <button *ngIf="this.cart.templateProdList.length>0" mat-fab color="Accent" class="fab-icon" matTooltip="go to your cart" (click)="goToCart()">
+      <mat-icon style="margin-top: 3px;margin-right: 3px;" matBadge="{{this.cart.templateProdList.length}}" matBadgeSize="small" matBadgeColor="warn">
+        shopping_cart</mat-icon>
+    </button>
+    <button mat-fab class="fab-icon" matTooltip="return to main page" (click)="goToStart()">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-fab matTooltip="Info about the site" (click)="goToAbout()">
+      <mat-icon>help</mat-icon>
+    </button>
+    <button mat-fab class="fab-icon" matTooltip="Logout from Administrative Mode" (click)="logOut()"
+      *ngIf="this.userAdmin.Logined">
+      <mat-icon>logout</mat-icon>
+    </button>
+    <button mat-fab class="fab-icon" matTooltip="LogIn to Administrative Mode" (click)="logIn()"
+      *ngIf="!this.userAdmin.Logined">
+      <mat-icon>login</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>

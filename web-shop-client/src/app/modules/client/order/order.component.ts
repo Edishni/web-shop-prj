@@ -7,6 +7,7 @@ import { ApiOrderItemsService } from 'src/app/core/services/api-order-items.serv
 import { CartListService } from 'src/app/core/services/cart-list.service';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { City} from 'src/app/shared/models/Cities'
 
 
 @Component({
@@ -19,11 +20,11 @@ export class OrderComponent implements OnInit {
   dataSource?: Order[]=[];
   selectedOrder: Order;
   totalSum = 0;
+  citylist=City;
+  cityCntrl=new FormControl('', Validators.required);
 hasOrder:boolean=false;
   showTEMPLATE: Order;
   invalidLogin: boolean = false;
- /*  deliveryCntr = new FormControl(false);
-  orderstatusCntr = new FormControl(false); */
   message = '';
   addForm;
   constructor(private formBuilder: FormBuilder, public orderItemsAPI: ApiOrderItemsService,
@@ -46,7 +47,7 @@ hasOrder:boolean=false;
     const order: Order = {
       name: this.addForm.controls.name.value,
       phone: this.addForm.controls.phone.value,
-      city: this.addForm.controls.city.value,
+      city: this.cityCntrl.value,
       address: this.addForm.controls.address.value,
       email: this.addForm.controls.email.value,
       sum: this.addForm.controls.sum.value,
@@ -100,7 +101,8 @@ putItems(addOrderId:number){
     this.addForm = this.formBuilder.group({
       name: ['', Validators.compose([Validators.required])],
       phone: ['', Validators.required],
-      city: ['', Validators.required],
+      
+      city: [''],
       address: ['', Validators.required],
       email: ['', Validators.required],
       sum: [this.Total()],

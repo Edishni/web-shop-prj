@@ -11,13 +11,15 @@
         <mat-icon>shop</mat-icon> Show all
       </a>
 
-      <a mat-list-item routerLink="/shopforclient/orderdetails">
+      <a mat-list-item routerLink="/shopforclient/orderdetails"
+      [disabled]="this.cart.templateProdList.length==0"
+      >
         <mat-icon>shopping_cart</mat-icon> Show your basket
       </a>
 
-      <a mat-list-item routerLink="/shopforclient/order">
+<!--       <a mat-list-item routerLink="/shopforclient/order">
         <mat-icon>store</mat-icon> Make Order
-      </a>
+      </a> -->
 
       <a mat-list-item routerLink="/shopforclient/registration">
         <mat-icon>how_to_reg</mat-icon> Registration
