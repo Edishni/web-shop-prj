@@ -48,3 +48,11 @@ mat-card-actions button {
   text-align: center;
   margin: 2px 10px 2px 10px;
 }
+
+h1{
+  text-align: center;
+  display: inline;
+  font-weight: bolder;
+  color:rgb(64, 64, 223);
+margin-left: 10px;
+}

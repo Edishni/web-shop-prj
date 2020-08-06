@@ -1,4 +1,4 @@
-<h2>The Order Editor</h2>
+<h1>The Order Editor</h1>
 <div class="addOrderConteiner">
   <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
 
@@ -13,7 +13,8 @@
 
     <mat-form-field class="example-part-width">
       <mat-label for="phone">Phone:</mat-label>
-      <input matInput type="text" class="form-control" pattern="^\+?(972|0)(\-)?0?(([23489]{1}\d{7})|[5]{1}\d{8})$" formControlName="phone" id="phone" autocomplete="off">
+      <input matInput type="text" class="form-control" pattern="^\+?(972|0)(\-)?0?(([23489]{1}\d{7})|[5]{1}\d{8})$"
+        formControlName="phone" id="phone" autocomplete="off">
       <div class="error" *ngIf="addForm.controls['phone'].hasError('required') && addForm.controls['phone'].touched">
         phone number is required</div>
     </mat-form-field>
@@ -46,13 +47,13 @@
       <div class="error" *ngIf="addForm.controls['sum'].hasError('required') && addForm.controls['sum'].touched">
         sum is required</div>
     </mat-form-field>
-  
-      <mat-checkbox mr-5 formControlName="delivery" labelPosition="after">- Delivery status
-      </mat-checkbox>
-   
-      <mat-checkbox  formControlName="orderstatus" labelPosition="after">- Order status
-      </mat-checkbox>
-   
+
+    <mat-checkbox mr-5 formControlName="delivery" labelPosition="after">- Delivery status
+    </mat-checkbox>
+
+    <mat-checkbox formControlName="orderstatus" labelPosition="after">- Order status
+    </mat-checkbox>
+
     <mat-form-field class="example-part-width">
       <mat-label for="wishes">Wishes:</mat-label>
       <textarea matInput type="text" class="form-control" formControlName="wishes" id="wishes"
@@ -63,7 +64,7 @@
       <mat-label for="notes">Notes:</mat-label>
       <textarea matInput type="text" class="form-control" formControlName="notes" id="notes"
         autocomplete="off"></textarea>
-    </mat-form-field> 
+    </mat-form-field>
 
     <button mat-raised-button color="primary" [disabled]="addForm.invalid">UPDATE ORDER</button>
     <div *ngIf="invalidLogin" class="error">

@@ -58,6 +58,10 @@ export class AllUsersComponent implements OnInit {
         });
   }
 
+  sentMessage(userdata){
+    console.log(userdata.email);
+  }
+
   ngOnInit(): void {
     console.log('users api?');
     this.loadUsers();

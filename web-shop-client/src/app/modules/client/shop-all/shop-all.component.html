@@ -1,5 +1,4 @@
-<h2>Perfumes List</h2><br>
-
+<h1 >Perfumes List</h1><br>
 <mat-form-field class="searchProd">
   <input matInput type="text" class="form-control" placeholder="Search by product name" #searchname name="searchname" />
   <button mat-button matSuffix (click)="searchPerfume(searchname.value)" mat-icon-button>
@@ -29,8 +28,18 @@
 
     <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product" class="view view-cascade overlay">
     <mat-card-content>
-      <mat-label><b>cost : {{product.cost}} $ </b></mat-label>
-      <p> {{product.description}} </p>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+          <b>cost : {{product.cost}} $ </b>
+          </mat-panel-title>
+          <mat-panel-description>
+            more info ...
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+    <p>{{product.description}}</p>
+      </mat-expansion-panel>
     </mat-card-content>
 
     <mat-card-actions>

@@ -1,5 +1,5 @@
-   <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
-  <h2><mat-icon>shopping_basket</mat-icon> Order Details</h2> 
+    <h1>Order Details</h1> <br> 
+  <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
    <div class="container">
 
      <div class="addOrderConteiner">
@@ -21,6 +21,7 @@
          </mat-form-field>
 
          <mat-form-field class="example-part-width">
+          <mat-label>city...</mat-label>
           <mat-select [formControl]="cityCntrl" required>
             <mat-option *ngFor="let city of citylist"  value="{{city}}" >
             {{city}}
@@ -68,13 +69,21 @@
          </mat-card-header>
          <img mat-card-image src="{{ cartDetail.elem.urlpicture }}" alt="Photo of a Product">
          <mat-card-content>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+          <b>COST : {{cartDetail.elem.cost}} $ </b>
+              </mat-panel-title>
+              <mat-panel-description>
+                more info ...
+              </mat-panel-description>
+            </mat-expansion-panel-header>
            <p>
-             {{cartDetail.elem.description}}
-           </p>
+            {{cartDetail.elem.description}}
+          </p>
+          </mat-expansion-panel>    
          </mat-card-content>
-         <mat-label><b>COST : {{cartDetail.elem.cost}} $ </b></mat-label>
-         <mat-divider></mat-divider>
-
+           <mat-divider></mat-divider>
          <mat-card-actions>
            <!-- actiions -->
            <button mat-mini-fab color="warn" (click)="cartDetail.quantity=cartDetail.quantity-1"

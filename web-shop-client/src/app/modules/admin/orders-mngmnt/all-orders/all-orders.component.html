@@ -1,28 +1,25 @@
-<h2>Orders Management</h2><br>
-
-  <mat-form-field class="searchOrder">
-    <input matInput type="text" (keyup)="searchOrder(byorder.value)" class="form-control" placeholder="Search by user name" #byorder
-      name="byorder" />
-    <button mat-button matSuffix  mat-icon-button>
-      <mat-icon>person_search</mat-icon>
-    </button>
-  </mat-form-field>
-  <mat-form-field class="searchOrderID">
-    <input matInput type="number" (keyup)="searchOrderID(byorderid.value)" class="form-control" placeholder="Search by order ID" #byorderid
-      name="byorderid" />
-    <button mat-button matSuffix  mat-icon-button>
-      <mat-icon>search</mat-icon>
-    </button>
-  </mat-form-field>
-  <button mat-button matSuffix (click)="loadOrders()" mat-icon-button>
-    <mat-icon>refresh</mat-icon>
+<h1>Orders Management</h1><br>
+<mat-form-field class="searchOrder">
+  <input matInput type="text" (keyup)="searchOrder(byorder.value)" class="form-control"
+    placeholder="Search by user name" #byorder name="byorder" />
+  <button mat-button matSuffix mat-icon-button>
+    <mat-icon>person_search</mat-icon>
   </button>
+</mat-form-field>
+<mat-form-field class="searchOrderID">
+  <input matInput type="number" (keyup)="searchOrderID(byorderid.value)" class="form-control"
+    placeholder="Search by order ID" #byorderid name="byorderid" />
+  <button mat-button matSuffix mat-icon-button>
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field>
+<button mat-button matSuffix (click)="loadOrders()" mat-icon-button>
+  <mat-icon>refresh</mat-icon>
+</button>
 <h4 mat-small>{{this.message}}</h4>
 
 <div class="cards" style="padding: 13px; margin:10px;">
-
   <mat-card class="card" *ngFor="let order of dataSource, let i=index">
-
     <mat-list role="list">
       <mat-list-item role="listitem">
         <mat-icon>details</mat-icon> ID - {{order.id }}
@@ -58,7 +55,7 @@
         <mat-icon>note</mat-icon> Notes - {{order.notes}}
       </mat-list-item>
     </mat-list>
-<mat-divider></mat-divider>
+    <mat-divider></mat-divider>
     <div class="example-button-row" justify-content-center>
       <button mat-raised-button color="accent" m-3 center (click)="editSelectedOrder(order)">
         <mat-icon>edit</mat-icon>

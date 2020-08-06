@@ -8,7 +8,7 @@ mat-sidenav ,mat-sidenav-content{
     align-items: flex-start;
 }
 mat-sidenav.usermenu {
-    background-color: blue;
+    background-color:rgb(63 81 181);;
     width: 200px;
     color: white;
 }
@@ -17,9 +17,13 @@ mat-sidenav.adminmenu  {
     width: 200px;
     color: purple;
 }
-
+button mat-icon{
+    color:rgb(63 81 181);;
+    margin-top: -5px;
+}
 mat-sidenav.usermenu a{
     color: white;
+ 
 }
 mat-sidenav.usermenu a:hover{
 background-color: rgba(255, 255, 0, 0.452);}

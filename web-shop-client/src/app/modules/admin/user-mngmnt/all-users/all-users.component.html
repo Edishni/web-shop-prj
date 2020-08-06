@@ -1,4 +1,4 @@
-<h2>Users Management</h2><br>
+<h1>Users Management</h1><br>
 
 <mat-form-field class="searchName">
   <input matInput type="text" class="form-control" placeholder="Search by name" #searchname name="searchname" />
@@ -30,6 +30,9 @@
         </button>
         <button mat-raised-button color="warn" m-3 center (click)="deleteUser(user)">
           <mat-icon>delete</mat-icon>Delete
+        </button>
+        <button mat-raised-button color="primary" m-3 center (click)="sentMessage(user)">
+          <mat-icon>email</mat-icon>Message
         </button>
       </mat-card-actions>
     </mat-list>

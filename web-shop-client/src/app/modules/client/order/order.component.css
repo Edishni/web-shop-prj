@@ -1,7 +1,9 @@
-h2 {
+h1 {
   text-align: center;
   display: inline;
-  margin-left: 20%;
+  font-weight: bolder;
+  color: rgb(64, 64, 223);
+  margin-left: 10px;
 }
 
 .cards {
@@ -18,10 +20,7 @@ mat-card {
 }
 
 mat-card-actions {
-  display: inline;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  text-align: center;
 }
 
 .addOrderConteiner {

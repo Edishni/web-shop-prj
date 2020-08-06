@@ -1,34 +1,33 @@
-h2 {
+h1 {
   text-align: center;
   display: inline;
-  margin-left: 20%;
+  font-weight: bolder;
+  color: rgb(64, 64, 223);
+  margin-left: 10px;
 }
 
-.cards {
-   justify-content: center;
-   display: inline-flex;
-   flex-wrap: wrap;
-  }
+ .cards {
+  justify-content: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
  
-  mat-card {
-    position: relative;
-    margin: 5px;
-   max-width: 320px; 
-   min-width: 280px;
-  }
- 
-  mat-card-actions {
-text-align: center; 
-  }
+mat-card {
+  position: relative;
+  margin: 5px;
+  max-width: 320px;
+  min-width: 280px;
+}
 
-  mat-card-content{
-   padding-bottom: 40px;
- }
- 
- mat-form-field{
-    margin-right: 15px;
- }
- mat-select mat-option{
-    text-align: center;
-    justify-content: center;
- }
+mat-card-actions {
+  text-align: center;
+}
+
+mat-form-field {
+  margin-right: 15px;
+}
+
+mat-select mat-option {
+  text-align: center;
+  justify-content: center;
+}

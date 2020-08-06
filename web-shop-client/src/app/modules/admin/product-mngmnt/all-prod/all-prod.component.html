@@ -1,17 +1,18 @@
-<h2>Perfumes Management</h2><br>
+<h1>Perfumes Management</h1><br>
 
 <mat-form-field class="searchProd">
-  <input matInput type="text" class="form-control" placeholder="Search by product name" #byname name="byname"/>
+  <input matInput type="text" class="form-control" placeholder="Search by product name" #byname name="byname" />
   <button mat-button matSuffix (click)="searchName(byname.value)" mat-icon-button>
     <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>
 
 <mat-form-field class="searchProd">
+  <mat-label>Category...</mat-label>
   <mat-select #bycategory name="bycategory">
     <mat-option (click)="searchCategory('')">- - -</mat-option>
     <mat-option *ngFor="let category of categoryList" value="category" (click)="searchCategory(category)">
-    {{category}}
+      {{category}}
     </mat-option>
   </mat-select>
 </mat-form-field>
@@ -24,9 +25,21 @@
       <mat-card-title>{{product.prodname}}</mat-card-title>
     </mat-card-header>
     <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product">
+    <mat-label></mat-label>
     <mat-card-content>
-      <mat-label><b>cost : {{product.cost}} $ </b></mat-label>
-      <p>{{product.description}}</p>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+          <b>cost : {{product.cost}} $ </b>
+          </mat-panel-title>
+          <mat-panel-description>
+            more info ...
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+    <p>{{product.description}}</p>
+      </mat-expansion-panel>
+     
     </mat-card-content>
     <mat-divider></mat-divider>
     <mat-card-actions>
@@ -36,9 +49,7 @@
       <button mat-raised-button color="warn" (click)="deleteSelectedProduct(product)">
         <mat-icon>delete</mat-icon>
       </button>
-    </mat-card-actions>
+        </mat-card-actions>
   </mat-card>
 
 </div>
-<!-- 
-<button mat-raised-button color="primary" (click)="loadProd()">REFRESH</button> -->

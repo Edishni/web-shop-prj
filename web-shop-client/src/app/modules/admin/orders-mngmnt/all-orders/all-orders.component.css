@@ -28,8 +28,10 @@ mat-list-item mat-icon {
   margin: 5px;
 }
 
-h2 {
+h1 {
   text-align: center;
   display: inline;
-  margin-left: 20%;
+  font-weight: bolder;
+  color:rgb(64, 64, 223);
+margin-left: 10px;
 }

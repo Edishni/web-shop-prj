@@ -58,7 +58,7 @@ export class AllProdComponent implements OnInit {
     }
   }
 
-  searchName(prodname) {
+  searchName(prodname:string) {
     if (prodname) {
       this.dataSource = this.originalList.filter(ele => ele.prodname.includes(prodname));
     }

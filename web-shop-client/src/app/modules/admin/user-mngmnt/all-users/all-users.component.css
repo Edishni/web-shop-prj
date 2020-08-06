@@ -5,7 +5,7 @@
   border-radius: 5px;
 }
 
-mat-card-actions{
+mat-card-actions {
   display: flex;
   justify-content: center;
 }
@@ -14,14 +14,16 @@ mat-card-actions{
   margin: 5px;
 }
 
-h2 {
+h1 {
   text-align: center;
   display: inline;
-  margin-left: 20%;
+  font-weight: bolder;
+  color: rgb(64, 64, 223);
+  margin-left: 10px;
 }
 
 
-mat-card{
+mat-card {
   display: inline-block;
   margin-bottom: 10px;
   overflow: unset;

@@ -5,3 +5,10 @@
    form{
     min-height: 90vh;
    }
+   h1{
+    text-align: center;
+    display: inline;
+    font-weight: bolder;
+    color:rgb(64, 64, 223);
+ margin-left: 10px;
+   }

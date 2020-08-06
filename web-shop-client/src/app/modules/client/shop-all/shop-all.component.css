@@ -1,37 +1,33 @@
- h2 {
+ h1 {
    text-align: center;
    display: inline;
-   margin-left: 20%;
+   font-weight: bolder;
+   color: rgb(64, 64, 223);
+   margin-left: 10px;
  }
 
  .cards {
-  justify-content: center;
-  display: inline-flex;
-  flex-wrap: wrap;
+   justify-content: center;
+   display: inline-flex;
+   flex-wrap: wrap;
  }
- 
+
  mat-card {
    position: relative;
    margin: 5px;
-  max-width: 320px; 
-  min-width: 280px;
+   max-width: 320px;
+   min-width: 280px;
  }
 
  mat-card-actions {
-   display: inline;
-   position: absolute;
-   bottom: 20px;
-   right: 20px;
+   text-align: center;
  }
 
- mat-card-content{
-  padding-bottom: 40px;
-}
-
-mat-form-field{
+ mat-form-field {
    margin-right: 15px;
-}
-mat-select mat-option{
+ }
+
+ mat-select mat-option {
    text-align: center;
    justify-content: center;
-}
+ }

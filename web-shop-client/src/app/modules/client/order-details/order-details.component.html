@@ -1,4 +1,4 @@
-<h1>  <mat-icon>shopping_basket</mat-icon>Cart Details</h1>
+<h1>  Cart Details</h1><br>
 <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
 <button mat-raised-button color="accent" (click)="goToOrder()">DO ORDER</button>
 <div class="totalSumDisplay"><h3><b>TOTAL SUM : {{Total()}} $</b></h3></div>
@@ -10,13 +10,21 @@
     </mat-card-header>
     <img mat-card-image src="{{ cartDetail.elem.urlpicture }}" alt="Photo of a Product">
     <mat-card-content>
-      <p>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+      <b>COST : {{cartDetail.elem.cost}} $ </b>
+          </mat-panel-title>
+          <mat-panel-description>
+            more info ...
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+       <p>
         {{cartDetail.elem.description}}
       </p>
-    </mat-card-content>
-    <mat-label ><b>COST : {{cartDetail.elem.cost}} $ </b></mat-label>
+      </mat-expansion-panel> 
+    </mat-card-content> 
     <mat-divider></mat-divider>
-
     <mat-card-actions >
       <!-- actiions -->
       <button mat-mini-fab color="warn" (click)="cartDetail.quantity=cartDetail.quantity-1"

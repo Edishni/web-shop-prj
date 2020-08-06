@@ -1,4 +1,4 @@
-<h2>Add New Order Editor</h2>
+<h1>Add New Order Editor</h1>
 <div class="addOrderConteiner">
   <button mat-raised-button color="primary" (click)="goBack()">GO BACK</button>
 
@@ -19,6 +19,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-part-width">
+      <mat-label>city...</mat-label>
       <mat-select [formControl]="cityCntrl" required>
         <mat-option *ngFor="let city of citylist"  value="{{city}}" >
         {{city}}
