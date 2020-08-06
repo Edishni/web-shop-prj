@@ -1,4 +1,4 @@
-<mat-sidenav-container>
+<mat-sidenav-container >
 
   <mat-sidenav #sidenav mode="side" [opened]="this.opened" [class.usermenu]="!this.userAdmin.Logined"
     [class.adminmenu]="this.userAdmin.Logined">
@@ -13,10 +13,6 @@
       [disabled]="this.cart.templateProdList.length==0">
         <mat-icon>shopping_cart</mat-icon> Show your basket
       </a>
-
-<!--       <a mat-list-item routerLink="/shopforclient/order">
-        <mat-icon>store</mat-icon> Make Order
-      </a> -->
 
       <a mat-list-item routerLink="/shopforclient/registration">
         <mat-icon>how_to_reg</mat-icon> Registration

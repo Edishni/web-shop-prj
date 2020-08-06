@@ -5,10 +5,12 @@
 div {
   display: inline-flex;
 }
-h3{
+
+h3 {
   margin: 0;
   padding: 0;
 }
+
 .totalSumDisplay {
   border: 1px solid purple;
   background-color: purple;
@@ -49,10 +51,10 @@ mat-card-actions button {
   margin: 2px 10px 2px 10px;
 }
 
-h1{
+h1 {
   text-align: center;
   display: inline;
   font-weight: bolder;
-  color:rgb(64, 64, 223);
-margin-left: 10px;
+  color: rgb(64, 64, 223);
+  margin-left: 10px;
 }

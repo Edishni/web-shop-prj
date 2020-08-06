@@ -2,12 +2,18 @@ button,
 a {
   margin: 0 5px 0 10px;
 }
+
 .navbar {
   justify-content: space-between;
-
   align-items: center;
   text-align: center;
 }
+
+mat-toolbar.bacgroundperfume {
+  background-color: #90ee90;
+  color: #3f51b5;
+}
+
 span {
   padding-right: 1rem;
 }
@@ -28,6 +34,7 @@ button:hover {
     width: auto;
     height: 90%;
   }
+
   .logo h1,
   .welcome {
     display: none;
@@ -40,6 +47,7 @@ button:hover {
     width: auto;
     height: 90%;
   }
+
   .logo h1 {
     display: none;
   }
@@ -52,6 +60,7 @@ button:hover {
     width: auto;
     height: 90%;
   }
+
   .logo h1,
   .welcome {
     font-size: 16px;

@@ -1,4 +1,6 @@
-<mat-toolbar color="primary" class="navbar">
+<mat-toolbar color="primary" class="navbar"
+[class.bacgroundperfume]="this.userAdmin.Logined"
+>
   <div class="logo">
     <mat-icon>local_florist</mat-icon>
     <h1>
@@ -13,21 +15,21 @@
 
   <div>
    
-    <button *ngIf="this.cart.templateProdList.length>0" mat-fab color="Accent" class="fab-icon" matTooltip="go to your cart" (click)="goToCart()">
+    <button matSuffix *ngIf="this.cart.templateProdList.length>0" mat-fab color="Accent" class="fab-icon" matTooltip="go to your cart" (click)="goToCart()">
       <mat-icon style="margin-top: 3px;margin-right: 3px;" matBadge="{{this.cart.templateProdList.length}}" matBadgeSize="small" matBadgeColor="warn">
         shopping_cart</mat-icon>
     </button>
-    <button mat-fab class="fab-icon" matTooltip="return to main page" (click)="goToStart()">
+    <button mat-fab matSuffix class="fab-icon" matTooltip="return to main page" (click)="goToStart()">
       <mat-icon>home</mat-icon>
     </button>
-    <button mat-fab matTooltip="Info about the site" (click)="goToAbout()">
+    <button mat-fab matSuffix  matTooltip="Info about the site" (click)="goToAbout()">
       <mat-icon>help</mat-icon>
     </button>
-    <button mat-fab class="fab-icon" matTooltip="Logout from Administrative Mode" (click)="logOut()"
+    <button mat-fab matSuffix class="fab-icon" matTooltip="Logout from Administrative Mode" (click)="logOut()"
       *ngIf="this.userAdmin.Logined">
       <mat-icon>logout</mat-icon>
     </button>
-    <button mat-fab class="fab-icon" matTooltip="LogIn to Administrative Mode" (click)="logIn()"
+    <button mat-fab matSuffix class="fab-icon" matTooltip="LogIn to Administrative Mode" (click)="logIn()"
       *ngIf="!this.userAdmin.Logined">
       <mat-icon>login</mat-icon>
     </button>

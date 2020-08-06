@@ -31,9 +31,9 @@
         <button mat-raised-button color="warn" m-3 center (click)="deleteUser(user)">
           <mat-icon>delete</mat-icon>Delete
         </button>
-        <button mat-raised-button color="primary" m-3 center (click)="sentMessage(user)">
-          <mat-icon>email</mat-icon>Message
-        </button>
+        <a mat-raised-button color="primary" m-3 center href="mailto:{{user.email}}?subject=Mail from our Perfume web-shop"><mat-icon>email</mat-icon>Message</a>
+          
+        
       </mat-card-actions>
     </mat-list>
   </mat-card>
