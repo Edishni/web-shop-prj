@@ -1,0 +1,59 @@
+table {
+    width: 100%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-order-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-order-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-order-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-order-detail {
+    overflow: hidden;
+    display: flex;
+  }
+    
+  .example-order-expand {
+    position:relative;
+    padding: 5px 10px 30px 10px;
+  }
+  .example-order-expand mat-icon {
+    position:relative;
+    padding: 0;
+    margin-top: 0;
+  }
+  .example-order-expand span {
+    padding:5px;
+  }
+  
+  .example-order-description-attribution {
+    opacity: 0.5;
+  }
+  .shiped{
+      background-color: rgba(87, 209, 71, 0.726);
+  }
+  .no_shiped{
+      background-color: rgba(240, 120, 116, 0.726);
+  }
+  .received{
+      background-color: rgba(88, 209, 88, 0.582);
+  }
+  .no_received{
+      background-color: rgba(209, 88, 183, 0.582);
+  }
+  .shiped.received{
+      background-color: yellowgreen;
+  }
+  .no_shiped.no_received{
+      background-color: rgb(165, 27, 3);
+  }

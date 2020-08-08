@@ -33,10 +33,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/about']);
   }
   goToStart() {
-    this.router.navigate(['/shopforclient/shopall']);
+    this.userAdmin.Logined ? this.router.navigate([`/administrator/adminprod`]) : this.router.navigate([`/shopforclient/shopall`]);
   }
   goToCart() {
-    this.router.navigate([`shopforclient/orderdetails`]);
+  this.router.navigate([`/shopforclient/orderdetails`]);
   }
 
   ngOnInit() {

@@ -26,6 +26,10 @@
         <mat-icon>list</mat-icon> Orders List
       </a>
 
+      <a mat-list-item routerLink="/administrator/adminorder/taballorders">
+        <mat-icon>table</mat-icon> Orders Table 
+      </a>
+
       <a mat-list-item routerLink="/administrator/adminorder/addorder">
         <mat-icon>playlist_add</mat-icon> Add Order
       </a>
@@ -52,14 +56,10 @@
 
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
-
-    <button mat-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-
+    <button mat-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon> </button>
+     
     <router-outlet></router-outlet>
-
   </mat-sidenav-content>
-
 </mat-sidenav-container>

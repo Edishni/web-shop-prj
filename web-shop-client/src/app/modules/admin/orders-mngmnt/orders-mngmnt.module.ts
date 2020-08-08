@@ -7,6 +7,7 @@ import { OrdersMngmntRoutingModule } from './orders-mngmnt-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewItemsComponent } from './view-items/view-items.component';
+import { TabAllOrderComponent } from './tab-all-order/tab-all-order.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ViewItemsComponent } from './view-items/view-items.component';
     AllOrdersComponent,
     EditOrderComponent,
     ViewItemsComponent,
+    TabAllOrderComponent,
   ],
   imports: [
     CommonModule,

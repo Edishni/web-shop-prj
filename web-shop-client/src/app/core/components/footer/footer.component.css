@@ -1,12 +1,13 @@
 
 a {
-  margin: 0 5px 15px 10px;
+  margin: 0 5px 5px 10px;
 }
 div{
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    height: 70px;
     padding: 5px;
     background-color: #90ee90 ;
+    
 }
+

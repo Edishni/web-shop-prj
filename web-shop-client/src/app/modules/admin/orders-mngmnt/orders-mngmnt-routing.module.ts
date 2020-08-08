@@ -4,6 +4,7 @@ import { AddOrderComponent } from './add-order/add-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { ViewItemsComponent } from './view-items/view-items.component';
+import { TabAllOrderComponent } from './tab-all-order/tab-all-order.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'editorder/:id', component: EditOrderComponent },
     { path: 'viewitems/:id', component: ViewItemsComponent },
     { path: 'allorders', component: AllOrdersComponent },
+    { path: 'taballorders', component: TabAllOrderComponent},
     
   ];
 
