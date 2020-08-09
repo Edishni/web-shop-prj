@@ -25,7 +25,7 @@ table {
     
   .example-order-expand {
     position:relative;
-    padding: 5px 10px 30px 10px;
+    padding: 5px 10px 5px 10px;
   }
   .example-order-expand mat-icon {
     position:relative;
@@ -57,3 +57,8 @@ table {
   .no_shiped.no_received{
       background-color: rgb(165, 27, 3);
   }
+
+  .example-button-row .mat-button-base {
+    margin: 5px;
+  }
+  

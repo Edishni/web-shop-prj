@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/shared/models/Order';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ApiOrdersService } from 'src/app/core/services/api-orders.service';
 import { Router } from '@angular/router';
+import { City } from 'src/app/shared/models/Cities';
 
 @Component({
   selector: 'app-edit-order',
@@ -15,7 +16,9 @@ export class EditOrderComponent implements OnInit {
   message='';
   constructor(private formBuilder: FormBuilder, private apiOrder: ApiOrdersService,private router: Router) { }
   addForm;
-
+  citylist=City;
+  cityCntrl=new FormControl('', Validators.required);
+  
   onSubmit() {
     if (this.addForm.invalid) {
       return;
@@ -23,7 +26,7 @@ export class EditOrderComponent implements OnInit {
      const order: Order = {
       name: this.addForm.controls.prodname.value,
       phone: this.addForm.controls.phone.value,
-      city: this.addForm.controls.city.value,
+      city: this.cityCntrl.value,
       address: this.addForm.controls.address.value,
       email: this.addForm.controls.email.value,
       sum: this.addForm.controls.sum.value,
@@ -46,10 +49,11 @@ goBack(){
 }
 
   ngOnInit(): void {
+    this.cityCntrl.setValue(this.apiOrder.selectedOrder.city);
     this.addForm = this.formBuilder.group({
       name: [this.apiOrder.selectedOrder.name, Validators.compose([Validators.required])],
       phone: [this.apiOrder.selectedOrder.phone, Validators.required],
-      city: [this.apiOrder.selectedOrder.city, Validators.required],
+      city: [ this.cityCntrl.value, Validators.required],
       address: [this.apiOrder.selectedOrder.address, Validators.required],
       email: [this.apiOrder.selectedOrder.email, Validators.required],
       sum: [this.apiOrder.selectedOrder.sum, Validators.required],

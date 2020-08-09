@@ -1,5 +1,5 @@
 <h1>Orders Management- Table view</h1><br>
- <mat-form-field class="searchOrder">
+<mat-form-field class="searchOrder">
   <input matInput type="text" (keyup)="searchOrder(byorder.value)" class="form-control"
     placeholder="Search by user name" #byorder name="byorder" />
   <button mat-button matSuffix mat-icon-button>
@@ -28,52 +28,50 @@
   <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let order" [attr.colspan]="columnsToDisplay.length">
-      <div class="example-order-detail" [@detailExpand]="order == expandedOrder ? 'expanded' : 'collapsed'"
+      <div class="example-order-detail" justify-content-center [@detailExpand]="order == expandedOrder ? 'expanded' : 'collapsed'">
 
-      >
-
-        <div class="example-order-expand">
+        <div class="example-order-expand" center>
           <mat-icon>details</mat-icon> <span>ID - {{order.id}}</span>
         </div>
-        <div class="example-order-expand">
+        <div class="example-order-expand" center>
           <mat-icon>perm_identity</mat-icon> <span>Name - {{order.name}}</span>
         </div>
-        <div class="example-order-expand"
-        [class.no_shiped]="!order.delivery"
-        [class.shiped]="order.delivery"
-        >
+        <div class="example-order-expand" center [class.no_shiped]="!order.delivery" [class.shiped]="order.delivery">
           <mat-icon>local_shipping</mat-icon><span> Shiping? - {{order.delivery}}</span>
         </div>
 
-        <div class="example-order-expand"
-           
-      [class.no_received]="!order.orderstatus"
-      [class.received]="order.orderstatus"
-      >
+        <div class="example-order-expand" center [class.no_received]="!order.orderstatus" [class.received]="order.orderstatus">
           <mat-icon>done_outline</mat-icon><span> Received? - {{order.orderstatus}}</span>
         </div>
-        <div class="example-order-expand">
+        <div class="example-order-expand" center>
           <mat-icon>note</mat-icon><span> Notes - {{order.notes}}</span>
         </div>
-        <div class="example-order-expand">
+        <div class="example-order-expand" center>
           <mat-icon>redeem</mat-icon><span> something from us - {{order.wishes}}</span>
         </div>
-
+        <div class="example-button-row" justify-content-center>
+          <button mat-raised-button color="accent"  center (click)="editSelectedOrder(order)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-raised-button color="warn"center (click)="deleteSelectedOrder(order)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-raised-button color="primary" center (click)="lookItems(order.id)">
+            <mat-icon>list</mat-icon>
+          </button>
+        </div>
       </div>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let order; columns: columnsToDisplay;" class="example-order-row"
-    [class.example-expanded-row]="expandedOrder === order"
-      
-    [class.shiped.received]="order.orderstatus&&order.delivery"
+  <tr mat-row *matRowDef="let order; columns: columnsToDisplay;" class="example-order-row" center
+    [class.example-expanded-row]="expandedOrder === order" [class.shiped.received]="order.orderstatus&&order.delivery"
     [class.no_shiped.no_received]="!order.orderstatus&&!order.delivery"
+    [class.shiped.received]="order.orderstatus"
     (click)="expandedOrder = expandedOrder === order ? null : order">
   </tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"
-  
-  ></tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
 
 

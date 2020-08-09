@@ -15,7 +15,7 @@ export class AddOrderComponent implements OnInit {
   invalidLogin: boolean = false;
   deliveryCntr = new FormControl(false);
   orderstatusCntr = new FormControl(false);
-  citylist=City;
+  citylist= City;
   cityCntrl=new FormControl('', Validators.required);
   message = '';
   constructor(private formBuilder: FormBuilder, private apiOrder: ApiOrdersService, private router: Router) { }
@@ -59,8 +59,8 @@ export class AddOrderComponent implements OnInit {
       sum: [0, Validators.required],
       delivery: ['', Validators.required],
       orderstatus: ['', Validators.required],
-      wishes: ['', Validators.required],
-      notes: ['', Validators.required],
+      wishes: [''],
+      notes: [''],
     });
 
     this.showTEMPLATE = this.addForm;
