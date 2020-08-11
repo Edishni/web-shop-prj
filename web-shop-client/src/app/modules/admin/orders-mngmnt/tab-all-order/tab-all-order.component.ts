@@ -2,29 +2,30 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Order } from 'src/app/shared/models/Order';
 import { ApiOrdersService } from 'src/app/core/services/api-orders.service';
 import { Router } from '@angular/router';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 
 @Component({
   selector: 'app-tab-all-order',
   templateUrl: './tab-all-order.component.html',
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
   styleUrls: ['./tab-all-order.component.css']
 })
 export class TabAllOrderComponent implements OnInit {
-/*   @ViewChild('byorder') byorder: ElementRef;
-  @ViewChild('byorderid') byorderid: ElementRef; */
+  /*   @ViewChild('byorder') byorder: ElementRef;
+    @ViewChild('byorderid') byorderid: ElementRef; */
   dataSource?: Order[];
-  originalData: Order[];
+  originalData: Order[]=[];
   message: string = '';
-  columnsToDisplay = ['id','name', 'phone', 'city', 'address' ,'email','sum'];//,'shiping?','received?','wishes','notes'
+  columnsToDisplay = ['id', 'name', 'phone', 'city', 'address', 'email', 'sum'];//,'shiping?','received?','wishes','notes'
   expandedOrder: Order | null;
-
+  totalSum: number;
   constructor(public orderAPI: ApiOrdersService, private router: Router) { }
 
   editSelectedOrder(editselOrder: Order) {
@@ -48,7 +49,7 @@ export class TabAllOrderComponent implements OnInit {
   }
 
   searchOrder(ordername) {
- /*    this.byorderid.nativeElement.value = ""; */
+    /*    this.byorderid.nativeElement.value = ""; */
     if (ordername) {
       this.dataSource = this.originalData.filter(ele => ele.name.includes(ordername));
     }
@@ -58,7 +59,7 @@ export class TabAllOrderComponent implements OnInit {
   }
 
   searchOrderID(orderID) {
- /*    this.byorder.nativeElement.value = ""; */
+    /*    this.byorder.nativeElement.value = ""; */
     if (orderID) {
       this.dataSource = this.originalData.filter(ele => ele.id == orderID);
     }
@@ -68,18 +69,26 @@ export class TabAllOrderComponent implements OnInit {
   }
 
   loadOrders() {
-  
+
     this.orderAPI.getAll().subscribe(data => {
       this.dataSource = data;
       this.originalData = data;
     });
   }
 
+  totalBalance() {
+    this.totalSum = 0;
+    this.originalData.forEach(elm =>
+      this.totalSum += elm.sum
+    )
+    return this.totalSum;
+  }
+
   ngOnInit(): void {
     console.log('orders api?');
-    this.loadOrders(); 
-/*      this.byorder.nativeElement.value = "";
-    this.byorderid.nativeElement.value = ""; */
+    this.loadOrders();
+    /*      this.byorder.nativeElement.value = "";
+        this.byorderid.nativeElement.value = ""; */
   }
 
 }

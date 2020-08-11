@@ -24,7 +24,7 @@ export class EditOrderComponent implements OnInit {
       return;
     }
      const order: Order = {
-      name: this.addForm.controls.prodname.value,
+      name: this.addForm.controls.name.value,
       phone: this.addForm.controls.phone.value,
       city: this.cityCntrl.value,
       address: this.addForm.controls.address.value,
@@ -45,7 +45,7 @@ export class EditOrderComponent implements OnInit {
   }
 
 goBack(){
-  this.router.navigate([`administrator/adminorder/allorders`]);
+  this.router.navigate([`administrator/adminorder/taballorders`]);
 }
 
   ngOnInit(): void {

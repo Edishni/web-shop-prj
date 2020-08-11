@@ -1,3 +1,6 @@
+mat-form-field{
+    margin-right: 10px;
+}
 table {
     width: 100%;
   }
@@ -39,26 +42,30 @@ table {
   .example-order-description-attribution {
     opacity: 0.5;
   }
-  .shiped{
-      background-color: rgba(87, 209, 71, 0.726);
+  .delivery{
+      background-color: rgba(89, 187, 23, 0.726);
   }
-  .no_shiped{
-      background-color: rgba(240, 120, 116, 0.726);
+  .no_delivery{
+      background-color: rgba(236, 25, 10, 0.726);
   }
   .received{
       background-color: rgba(88, 209, 88, 0.582);
   }
   .no_received{
-      background-color: rgba(209, 88, 183, 0.582);
+      background-color: rgba(211, 83, 74, 0.582);
   }
-  .shiped.received{
-      background-color: yellowgreen;
-  }
-  .no_shiped.no_received{
-      background-color: rgb(165, 27, 3);
+
+  .delivery.no_received{
+      background-color: rgb(133, 195, 214);
   }
 
   .example-button-row .mat-button-base {
     margin: 5px;
   }
   
+  .mat-header-cell{
+      font-size: 17px;
+      font-weight: bolder;
+      color: purple;
+
+  }

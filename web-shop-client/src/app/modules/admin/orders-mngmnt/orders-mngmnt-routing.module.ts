@@ -8,7 +8,7 @@ import { TabAllOrderComponent } from './tab-all-order/tab-all-order.component';
 
 
 const routes: Routes = [
-    { path: '', redirectTo : 'allorders' , pathMatch:'full'},
+    { path: '', redirectTo : 'taballorders' , pathMatch:'full'},
     { path: 'addorder', component: AddOrderComponent },
     { path: 'editorder/:id', component: EditOrderComponent },
     { path: 'viewitems/:id', component: ViewItemsComponent },

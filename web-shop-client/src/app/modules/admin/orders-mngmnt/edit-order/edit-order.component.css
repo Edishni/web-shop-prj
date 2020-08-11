@@ -7,13 +7,15 @@
   margin: 10px;
   width: 100%;
 }
-mat-checkbox{
-  margin-right:15px ;
+
+mat-checkbox {
+  margin-right: 15px;
 }
-h1{
+
+h1 {
   text-align: center;
   display: inline;
   font-weight: bolder;
-  color:rgb(64, 64, 223);
-margin-left: 10px;
+  color: rgb(64, 64, 223);
+  margin-left: 10px;
 }
