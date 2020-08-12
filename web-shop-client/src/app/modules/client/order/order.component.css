@@ -24,12 +24,12 @@ mat-card-actions {
 }
 
 .addOrderConteiner {
-  display: inline-block;
+  display: inline;
 }
 
 .example-part-width {
   width: 100%;
-  margin: 0 3px 0 3px;
+  margin: 5px 3px 0 3px;
   padding: 0 3x 0 3px;
 }
 

@@ -59,16 +59,12 @@
       <mat-label for="wishes">Wishes:</mat-label>
       <textarea matInput type="text" class="form-control" formControlName="wishes" id="wishes"
         autocomplete="off"></textarea>
-     <!--    <div class="error" *ngIf="addForm.controls['wishes'].hasError('required') && addForm.controls['wishes'].touched">
-          wishes is required</div> -->
     </mat-form-field>
 
     <mat-form-field class="example-part-width">
       <mat-label for="notes">Notes:</mat-label>
       <textarea matInput type="text" class="form-control" formControlName="notes" id="notes"
         autocomplete="off"></textarea>
-    <!--     <div class="error" *ngIf="addForm.controls['notes'].hasError('required') && addForm.controls['notes'].touched">
-          notes is required</div> -->
     </mat-form-field> 
 
     <button mat-raised-button color="primary" [disabled]="addForm.invalid">ADD NEW ORDER</button>

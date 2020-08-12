@@ -1,16 +1,16 @@
-<div >
+<div *ngIf="!this.userAdmin.Logined">
     <p>Copyright &copy; Edishni, 2020<br>
-        We <mat-icon>favorite</mat-icon> <a  mat-raised-button color="basic" href="http://edishni.com">edishni.com </a>
+        We <mat-icon>favorite</mat-icon> <a  mat-raised-button color="basic" href="http://edishni.com" target="_blank">edishni.com </a>
     <span>   find me in social links: </span>
-              <a mat-flat-button color="primary" href="https://facebook.com/edward.tchaevsky" matTooltip="Facebook page">
+              <a mat-flat-button color="primary" href="https://facebook.com/edward.tchaevsky" target="_blank" matTooltip="Facebook page">
                 Facebook
               </a>
         
-              <a mat-flat-button  color="accent" href="https://github.com/edishni" matTooltip="GitHub page">
+              <a mat-flat-button  color="accent" href="https://github.com/edishni" target="_blank" matTooltip="GitHub page">
                 GitHub
               </a>
          
-              <a mat-flat-button color="warn" href="http://linkedin.com/in/edwardtchaevsky" matTooltip="LinkedIn page">
+              <a mat-flat-button color="warn" href="http://linkedin.com/in/edwardtchaevsky" target="_blank" matTooltip="LinkedIn page">
                LinkedIn
               </a>
   </p>

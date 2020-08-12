@@ -21,7 +21,7 @@ export class TabAllOrderComponent implements OnInit {
   /*   @ViewChild('byorder') byorder: ElementRef;
     @ViewChild('byorderid') byorderid: ElementRef; */
   dataSource?: Order[];
-  originalData: Order[]=[];
+  originalData: Order[] = [];
   message: string = '';
   columnsToDisplay = ['id', 'name', 'phone', 'city', 'address', 'email', 'sum'];//,'shiping?','received?','wishes','notes'
   expandedOrder: Order | null;
@@ -83,6 +83,11 @@ export class TabAllOrderComponent implements OnInit {
     )
     return this.totalSum;
   }
+
+  useFilter(deliverycheck: boolean, receivedchecked: boolean) {
+    this.dataSource = this.originalData.filter(ele =>  (ele.delivery == deliverycheck ) && (ele.orderstatus == receivedchecked) )
+  }
+
 
   ngOnInit(): void {
     console.log('orders api?');

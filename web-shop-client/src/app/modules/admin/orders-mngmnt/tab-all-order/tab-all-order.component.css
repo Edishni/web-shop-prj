@@ -24,6 +24,7 @@ table {
   .example-order-detail {
     overflow: hidden;
     display: flex;
+    justify-content: space-between;
   }
     
   .example-order-expand {
@@ -67,5 +68,11 @@ table {
       font-size: 17px;
       font-weight: bolder;
       color: purple;
+  }
 
+  mat-checkbox{
+    margin-right:15px ;
+  }
+  section{
+    display: flex;
   }

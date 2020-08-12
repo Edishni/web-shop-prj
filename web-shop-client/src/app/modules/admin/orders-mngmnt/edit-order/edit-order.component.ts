@@ -24,6 +24,7 @@ export class EditOrderComponent implements OnInit {
       return;
     }
      const order: Order = {
+       id : this.apiOrder.selectedOrder.id,
       name: this.addForm.controls.name.value,
       phone: this.addForm.controls.phone.value,
       city: this.cityCntrl.value,
@@ -36,9 +37,9 @@ export class EditOrderComponent implements OnInit {
       notes: this.addForm.controls.notes.value,
     }
     /* console.log(order); */
-    this.apiOrder.addOrder(order).subscribe(data => {
+    this.apiOrder.editOrder(order).subscribe(data => {
       this.message='The Order was updated '
-      console.log(data);
+       console.log(data); 
       this.addForm.reset();
     }); 
    
