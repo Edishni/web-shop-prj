@@ -8,7 +8,7 @@ mat-sidenav ,mat-sidenav-content{
     align-items: flex-start;
 }
 mat-sidenav.usermenu {
-    background-color:rgb(63 81 181);;
+    background-color:rgb(63 81 181);
     width: 200px;
     color: white;
 }

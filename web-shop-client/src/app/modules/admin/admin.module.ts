@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -18,8 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductMngmntModule,
     UserMngmntModule,
     MaterialModule,
-    ReactiveFormsModule 
-   
-  ]
+  
+    ReactiveFormsModule ,   
+  ] 
 })
 export class AdminModule { }

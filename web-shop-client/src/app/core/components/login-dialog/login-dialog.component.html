@@ -1,16 +1,18 @@
 <mat-dialog-content>
-<mat-label mat-dialog-title>LOGIN</mat-label>
+  <mat-label mat-dialog-title>LOGIN</mat-label>
   <form class="my-form">
     <mat-form-field class="full-width">
       <mat-label>Email</mat-label>
-      <input matInput #inputEmail placeholder="Email" name="email">
+      <input matInput #inputEmail  placeholder="Email" name="email">
     </mat-form-field>
+<!-- pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" -->
     <mat-form-field class="full-width">
-      <mat-label>Password</mat-label>
-      <input matInput #inputPass placeholder="Password" name="password">
+      <mat-label>Password</mat-label> 
+      <input matInput #inputPass placeholder="Password" name="password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </mat-form-field>
-
   </form>
+  <mat-hint *ngIf="this.errorMessage">{{this.errorMessage}}</mat-hint>
 </mat-dialog-content>
 
 <mat-dialog-actions>

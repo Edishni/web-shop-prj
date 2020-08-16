@@ -38,7 +38,7 @@
 
     <mat-form-field class="example-part-width">
       <mat-label for="email">Email:</mat-label>
-      <input matInput type="text" class="form-control" formControlName="email" id="email" autocomplete="off">
+      <input matInput type="text" class="form-control" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="email" id="email" autocomplete="off">
       <div class="error" *ngIf="addForm.controls['email'].hasError('required') && addForm.controls['email'].touched">
         email is required</div>
     </mat-form-field>

@@ -25,13 +25,9 @@
   <mat-checkbox mr-10 #orderstatuscheck name="orderstatuscheck" labelPosition="after"
     (change)="useFilter(deliverycheck.checked,orderstatuscheck.checked)">- received?
   </mat-checkbox>
-
-
 </section>
 
-
 <h4 mat-small>{{this.message}}</h4>
-
 <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
   <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
@@ -86,18 +82,3 @@
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
 
-
-
-<!--    
-    <mat-icon>call</mat-icon> Phone - {{order.phone}}
-
-    <mat-icon>location_city</mat-icon> City - {{order.city}}
->
-    <mat-icon>home</mat-icon> Address - {{order.address}}
-
-    <mat-icon>alternate_email</mat-icon> Email - {{order.email}}
-
-    <mat-icon>attach_money</mat-icon> SUM - {{order.sum}} $
-
-
-  -->

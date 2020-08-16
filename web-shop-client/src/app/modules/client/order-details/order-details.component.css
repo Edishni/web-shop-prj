@@ -58,3 +58,12 @@ h1 {
   color: rgb(64, 64, 223);
   margin-left: 10px;
 }
+
+.mat-raised-button:hover {
+  transition: 1s;
+  opacity: 0.5;
+}
+.mat-mini-fab:hover{
+  transition: 1s;
+  transform: scale(1.1);
+}

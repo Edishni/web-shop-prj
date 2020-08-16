@@ -44,3 +44,12 @@ mat-card-actions {
   padding: 10px;
   width: 400px;
 }
+
+.mat-raised-button:hover {
+  transition: 1s;
+  opacity: 0.5;
+}
+.mat-mini-fab:hover{
+  transition: 1s;
+  transform: scale(1.1);
+}

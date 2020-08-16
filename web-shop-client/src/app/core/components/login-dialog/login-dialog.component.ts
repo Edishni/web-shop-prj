@@ -13,7 +13,7 @@ export class LoginDialogComponent implements OnInit {
   myForm: any;
   errorMessage: string;
   successMessage: string;
-
+hide:boolean=true;
   constructor(public dialogRef: MatDialogRef<LoginDialogComponent>, private auth: AuthorizationService,
     private router: Router, private userSrv: UserService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -26,14 +26,12 @@ export class LoginDialogComponent implements OnInit {
         console.log(res);
         this.errorMessage = "";
         this.successMessage = "Your account has been created";
+        console.log(this.successMessage);
         this.dialogRef.close("Welcome administrator...");
         this.router.navigate(['/administrator/adminprod']);
       }, err => {
         console.log(err);
         this.errorMessage = err.message;
-        this.successMessage = "";
-        this.dialogRef.close("Failed Login");
-        this.router.navigate(['/shopforclient/shopall']);
       })
   }
 
@@ -49,6 +47,8 @@ export class LoginDialogComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.errorMessage='';
+    this.successMessage='';
   }
 
 }

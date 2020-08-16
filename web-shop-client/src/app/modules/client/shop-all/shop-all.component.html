@@ -1,7 +1,7 @@
 <h1 >Perfumes List</h1><br>
 <mat-form-field class="searchProd">
-  <input matInput type="text" class="form-control" placeholder="Search by product name" #searchname name="searchname" />
-  <button mat-button matSuffix (click)="searchPerfume(searchname.value)" mat-icon-button>
+  <input matInput type="text" (keyup)="searchPerfume(searchname.value)" class="form-control" placeholder="Search by product name" #searchname name="searchname" />
+  <button mat-button matSuffix  mat-icon-button>
     <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>
@@ -14,7 +14,7 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-
+<br>
 <button mat-raised-button color="primary" (click)="goToCartList()" style="margin-left: 15px;"
 [disabled]="this.cart.templateProdList.length==0"
 >Your CART</button>
@@ -23,7 +23,7 @@
   <mat-spinner *ngIf="this.dataSource.length === 0"></mat-spinner>
   <mat-card cascade="true" class="card" *ngFor="let product of dataSource, let i=index">
     <mat-card-header>
-      <mat-card-title>{{product.prodname}}</mat-card-title>
+      <mat-card-title>{{product.prodname | uppercase}}</mat-card-title>
     </mat-card-header>
 
     <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product" class="view view-cascade overlay">

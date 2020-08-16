@@ -31,3 +31,11 @@ mat-select mat-option {
   text-align: center;
   justify-content: center;
 }
+.mat-raised-button:hover {
+  transition: 1s;
+  opacity: 0.5;
+}
+.mat-mini-fab:hover{
+  transition: 1s;
+  transform: scale(1.1);
+}

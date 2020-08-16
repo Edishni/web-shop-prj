@@ -2,8 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Product } from 'src/app/shared/models/Product';
 import { ApiProductsService } from 'src/app/core/services/api-products.service';
 import { Router } from '@angular/router';
-import { ViewChild } from '@angular/core';
-
+/* import { ViewChild } from '@angular/core'; */
 
 @Component({
   selector: 'app-all-prod',
@@ -15,14 +14,15 @@ export class AllProdComponent implements OnInit {
   dataSource?: Product[] = [];
   originalList: Product[] = [];
   categoryList: string[] = [];
-
+  result: string = '';
   message: string = '';
   quantity: number = 0;
-
+/* ,public dialog: MatDialog */
   constructor(public prodAPI: ApiProductsService, private router: Router) { }
 
   loadProd() {
     this.prodAPI.getAll().subscribe(data => {
+      data.forEach(item =>item.prodname= item.prodname.toUpperCase());
       this.dataSource = data;
       this.originalList = data;
 
@@ -38,6 +38,22 @@ export class AllProdComponent implements OnInit {
     console.log(editselProd);
     this.router.navigate([`/adminprod/editprod/${editselProd.id}`]);
   }
+
+/*   confirmDialog():void{
+    const message = `Are you sure you want to do this?`;
+
+    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      this.result = dialogResult;
+    }); 
+  
+  }*/
 
   deleteSelectedProduct(delselProd: Product) {
     this.prodAPI.deleteProd(delselProd.id).subscribe(data => {

@@ -1,13 +1,20 @@
-
 a {
   margin: 0 5px 5px 10px;
 }
-div{
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding: 5px;
-    background-color: #90ee90 ;
-    
+
+div {
+  color: white;
 }
 
+.mat-flat-button:hover {
+  transition: 1s;
+  opacity: 0.5;
+}
+
+div {
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(63 81 181);
+}

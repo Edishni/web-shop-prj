@@ -32,16 +32,13 @@ export class ShopAllComponent implements OnInit {
     this.router.navigate([`shopforclient/orderdetails`]);
   }
 
-  searchPerfume(item) {
-    this.prodAPI.getAll()
-      .subscribe(
-        data => {
-          this.dataSource = data.filter(ele => ele.prodname.includes(item));
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
+  searchPerfume(item: string ) {
+    if (item) {
+      this.dataSource = this.originalList.filter(ele => ele.prodname.includes(item.toUpperCase()));
+    }
+    else {
+      this.dataSource = this.originalList;
+    }
   }
 
   searchCategory(cat) {
@@ -53,12 +50,12 @@ export class ShopAllComponent implements OnInit {
     }
   }
 
-
   loadProd() {
     this.prodAPI.getAll().subscribe(data => {
+      
+      data.forEach(item =>item.prodname= item.prodname.toUpperCase());
       this.dataSource = data;
       this.originalList = data;
-
       this.originalList.forEach(item => {
         if (!this.categoryList.includes(item.category))
           this.categoryList.push(item.category)
