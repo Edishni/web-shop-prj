@@ -28,7 +28,7 @@
         <button mat-raised-button color="accent" m-3 center (click)="editUser(user)">
           <mat-icon>edit</mat-icon>Edit
         </button>
-        <button mat-raised-button color="warn" m-3 center (click)="deleteUser(user)">
+        <button mat-raised-button color="warn" m-3 center (click)="openDialogForConfirmDeletion(user)">
           <mat-icon>delete</mat-icon>Delete
         </button>
         <a mat-raised-button color="primary" m-3 center href="mailto:{{user.email}}?subject=Mail from our Perfume web-shop"><mat-icon>email</mat-icon>Message</a>

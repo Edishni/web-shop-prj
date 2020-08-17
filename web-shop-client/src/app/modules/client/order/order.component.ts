@@ -8,6 +8,8 @@ import { CartListService } from 'src/app/core/services/cart-list.service';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { City} from 'src/app/shared/models/Cities'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AcceptDialogComponent } from 'src/app/core/components/accept-dialog/accept-dialog.component';
 
 
 @Component({
@@ -28,7 +30,7 @@ hasOrder:boolean=false;
   message = '';
   addForm;
   constructor(private formBuilder: FormBuilder, public orderItemsAPI: ApiOrderItemsService,
-     public orderAPI: ApiOrdersService, private router: Router, private cart: CartListService) { }
+     public orderAPI: ApiOrdersService, private router: Router, private cart: CartListService, private dialog4: MatDialog) { }
 
   loadOrders(id) {
     this.orderAPI.getById(id).subscribe(data => this.selectedOrder = data);
@@ -56,14 +58,46 @@ hasOrder:boolean=false;
       wishes: this.addForm.controls.wishes.value,
       notes: this.addForm.controls.notes.value,
     }
-    console.log(order); 
+    this.openDialogForConfirmNewOrder(order);
+/*     console.log(order); 
    this.orderAPI.addOrder(order).subscribe(data => {
       this.message = 'New order has created';
       console.log(data.id);
-       this.putItems(data.id);
-      
-    }); 
+       this.putItems(data.id);     
+    });  */
   }
+
+//dialog call start
+
+openDialogForConfirmNewOrder(neworder: Order) {
+  const dialogConfig = new MatDialogConfig();
+
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+
+  const dialogRef = this.dialog4.open(AcceptDialogComponent, {
+    width: '350px',
+    data: "confirm the order..."
+  });
+
+  dialogRef.afterClosed().subscribe(
+    data => {
+      console.log("Dialog output:", data);
+      //if was confirm action so do it
+      if (data) {
+        console.log("new order added");
+        console.log(neworder); 
+        this.orderAPI.addOrder(neworder).subscribe(data => {
+           this.message = 'New order has created';
+           console.log(data.id);
+            this.putItems(data.id);     
+         });
+      }
+    }
+  );
+}
+
+//dialog end
 
 putItems(addOrderId:number){
    //contain array of production and his quantity { Product , quantity}
@@ -73,17 +107,13 @@ putItems(addOrderId:number){
         productID: item.elem.id,
         quantity: item.quantity
       } 
-    /*   console.log(addNewItem); */
-     this.orderItemsAPI.addItem(addNewItem).subscribe(newItem=>{
+      this.orderItemsAPI.addItem(addNewItem).subscribe(newItem=>{
        console.log(newItem);
        this.hasOrder=true;
      }); 
-  /*   console.log("array list of products"); */
-   /*  console.log(item); */
-   
     }); 
 }
-
+//count total sum in the order
   Total() {
     this.totalSum = 0;
     if (this.cart.itemsListToOrder.length > 0) {
@@ -97,7 +127,6 @@ putItems(addOrderId:number){
   ngOnInit(): void {
 
     this.orderDetails = this.cart.itemsListToOrder;
-
     this.addForm = this.formBuilder.group({
       name: ['', Validators.compose([Validators.required])],
       phone: ['', Validators.required],

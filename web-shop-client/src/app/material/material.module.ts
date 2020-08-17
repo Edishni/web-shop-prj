@@ -81,6 +81,7 @@ const MaterialComponents = [
   exports: [MaterialComponents],
   providers: [MatDatepickerModule,]
 })
+
 export class MaterialModule {
   constructor(public matIconRegistry: MatIconRegistry) { }
 }

@@ -4,6 +4,8 @@ import { ApiOrdersService } from 'src/app/core/services/api-orders.service';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
+import { AcceptDialogComponent } from 'src/app/core/components/accept-dialog/accept-dialog.component';
 
 @Component({
   selector: 'app-tab-all-order',
@@ -26,7 +28,7 @@ export class TabAllOrderComponent implements OnInit {
   columnsToDisplay = ['id', 'name', 'phone', 'city', 'address', 'email', 'sum'];//,'shiping?','received?','wishes','notes'
   expandedOrder: Order | null;
   totalSum: number;
-  constructor(public orderAPI: ApiOrdersService, private router: Router) { }
+  constructor(public orderAPI: ApiOrdersService, private router: Router, private dialog3: MatDialog) { }
 
   editSelectedOrder(editselOrder: Order) {
     this.orderAPI.selectedOrder = editselOrder;
@@ -36,6 +38,32 @@ export class TabAllOrderComponent implements OnInit {
   lookItems(orderID: number) {
     this.router.navigate([`/adminorder/viewitems/${orderID}`]);
   }
+//dialog call start
+
+openDialogForConfirmDeletion(delselOrder: Order) {
+  console.log("confirm????");
+  const dialogConfig = new MatDialogConfig();
+
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+
+  const dialogRef = this.dialog3.open(AcceptDialogComponent, {
+    width: '350px',
+    data: "confirm deletion..."
+  });
+
+  dialogRef.afterClosed().subscribe(
+    data => {
+      console.log("Dialog output:", data);
+      //if was confirm delation so delete item
+      if (data) {
+        this.deleteSelectedOrder(delselOrder);
+      }
+    }
+  );
+}
+
+//dialog end
 
   deleteSelectedOrder(delselOrder: Order) {
     this.orderAPI.deleteOrder(delselOrder.id).subscribe(data => {

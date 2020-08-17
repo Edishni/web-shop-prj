@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './core/main/main.component';
+import { AcceptDialogComponent } from './core/components/accept-dialog/accept-dialog.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
@@ -29,7 +30,8 @@ firebase.initializeApp(environment.firebaseConfig);
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-     LoginDialogComponent
+     LoginDialogComponent,
+     AcceptDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ firebase.initializeApp(environment.firebaseConfig);
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialogComponent]
+  entryComponents: [LoginDialogComponent,AcceptDialogComponent]
 })
+
 export class AppModule { }

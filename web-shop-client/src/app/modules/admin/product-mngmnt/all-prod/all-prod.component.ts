@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Product } from 'src/app/shared/models/Product';
 import { ApiProductsService } from 'src/app/core/services/api-products.service';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AcceptDialogComponent } from 'src/app/core/components/accept-dialog/accept-dialog.component';
 /* import { ViewChild } from '@angular/core'; */
 
 @Component({
@@ -17,12 +19,12 @@ export class AllProdComponent implements OnInit {
   result: string = '';
   message: string = '';
   quantity: number = 0;
-/* ,public dialog: MatDialog */
-  constructor(public prodAPI: ApiProductsService, private router: Router) { }
+  /* ,public dialog: MatDialog */
+  constructor(public prodAPI: ApiProductsService, private router: Router, private dialog: MatDialog) { }
 
   loadProd() {
     this.prodAPI.getAll().subscribe(data => {
-      data.forEach(item =>item.prodname= item.prodname.toUpperCase());
+      data.forEach(item => item.prodname = item.prodname.toUpperCase());
       this.dataSource = data;
       this.originalList = data;
 
@@ -38,24 +40,33 @@ export class AllProdComponent implements OnInit {
     console.log(editselProd);
     this.router.navigate([`/adminprod/editprod/${editselProd.id}`]);
   }
+  // confirm dialog
+  openDialogForConfirmDeletion(delselProd: Product) {
+    const dialogConfig = new MatDialogConfig();
 
-/*   confirmDialog():void{
-    const message = `Are you sure you want to do this?`;
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
 
-    const dialogData = new ConfirmDialogModel("Confirm Action", message);
-
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      maxWidth: "400px",
-      data: dialogData
+    const dialogRef = this.dialog.open(AcceptDialogComponent, {
+      width: '350px',
+      data: "confirm item deletion..."
     });
 
-    dialogRef.afterClosed().subscribe(dialogResult => {
-      this.result = dialogResult;
-    }); 
-  
-  }*/
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data);
+        //if was confirm delation so delete item
+        if (data) {
+          this.deleteSelectedProduct(delselProd);
+        }
+      }
+    );
+  }
+
+  //end confirm dialog
 
   deleteSelectedProduct(delselProd: Product) {
+
     this.prodAPI.deleteProd(delselProd.id).subscribe(data => {
       this.loadProd();
       console.log(data);
@@ -66,7 +77,7 @@ export class AllProdComponent implements OnInit {
   }
 
   searchCategory(cat) {
-      if (cat) {
+    if (cat) {
       this.dataSource = this.originalList.filter(ele => ele.category.includes(cat));
     }
     else {
@@ -74,7 +85,7 @@ export class AllProdComponent implements OnInit {
     }
   }
 
-  searchName(prodname:string) {
+  searchName(prodname: string) {
     if (prodname) {
       this.dataSource = this.originalList.filter(ele => ele.prodname.includes(prodname));
     }
