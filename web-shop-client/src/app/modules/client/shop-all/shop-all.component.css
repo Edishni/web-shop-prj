@@ -10,6 +10,7 @@
    justify-content: center;
    display: inline-flex;
    flex-wrap: wrap;
+  
  }
 
  mat-card {
@@ -17,6 +18,7 @@
    margin: 5px;
    max-width: 320px;
    min-width: 280px;
+    background:  linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.5));
  }
 
  mat-card-actions {

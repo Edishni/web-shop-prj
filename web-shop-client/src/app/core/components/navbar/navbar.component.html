@@ -1,6 +1,7 @@
-<mat-sidenav-container >
+<mat-sidenav-container>
 
-  <mat-sidenav #sidenav mode="side" [opened]="this.opened" [class.usermenu]="!this.userAdmin.Logined"
+  <mat-sidenav #sidenav mode="side" [opened]="this.opened" 
+    [class.usermenu]="!this.userAdmin.Logined"
     [class.adminmenu]="this.userAdmin.Logined">
     <h2>WEB-SHOP MENU</h2>
 
@@ -9,8 +10,7 @@
         <mat-icon>shop</mat-icon> Show all
       </a>
 
-      <a mat-list-item routerLink="/shopforclient/orderdetails"
-      [disabled]="this.cart.templateProdList.length==0">
+      <a mat-list-item routerLink="/shopforclient/orderdetails" [disabled]="this.cart.templateProdList.length==0">
         <mat-icon>shopping_cart</mat-icon> Show your basket
       </a>
 
@@ -19,7 +19,7 @@
       </a>
     </mat-nav-list>
 
-    <mat-nav-list *ngIf="this.userAdmin.Logined">  
+    <mat-nav-list *ngIf="this.userAdmin.Logined">
       <div mat-header>Orders Mangement</div>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/administrator/adminorder/allorders">
@@ -27,13 +27,13 @@
       </a>
 
       <a mat-list-item routerLink="/administrator/adminorder/taballorders">
-        <mat-icon>list</mat-icon> Orders Table 
+        <mat-icon>list</mat-icon> Orders Table
       </a>
 
       <a mat-list-item routerLink="/administrator/adminorder/addorder">
         <mat-icon>playlist_add</mat-icon> Add Order
       </a>
-      
+
       <div mat-header>Perfumes Mangement</div>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/administrator/adminprod/allprod">
@@ -58,8 +58,14 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <button mat-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon> </button>
-     
+    <button mat-button (click)="sidenav.toggle()" matTooltip="open/close menu"
+    [matTooltipShowDelay]="500"
+        [matTooltipHideDelay]="1000"
+    >
+      <mat-icon *ngIf="!sidenav.opened">arrow_forward_ios</mat-icon>
+      <mat-icon *ngIf="sidenav.opened">arrow_back_ios</mat-icon>
+    </button>
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

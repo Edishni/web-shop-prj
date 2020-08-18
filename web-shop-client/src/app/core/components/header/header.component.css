@@ -7,10 +7,15 @@ a {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  height:8vh;
+  height:10vh;
+  color: #3f51b5;
+  background:linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('src/assets/large.jpg')  ; 
+  background-size: contain ; 
+  background-position: top  ; 
 }
 
 mat-toolbar.bacgroundperfume {
+  background:none;
   background-color: #90ee90;
   color: #3f51b5;
 }
