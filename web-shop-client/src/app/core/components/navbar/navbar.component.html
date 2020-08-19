@@ -22,11 +22,11 @@
     <mat-nav-list *ngIf="this.userAdmin.Logined">
       <div mat-header>Orders Mangement</div>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/administrator/adminorder/allorders">
+      <a mat-list-item routerLink="/administrator/adminorder/allorders" matTooltip="card view">
         <mat-icon>dashboard</mat-icon> Orders List
       </a>
 
-      <a mat-list-item routerLink="/administrator/adminorder/taballorders">
+      <a mat-list-item routerLink="/administrator/adminorder/taballorders" matTooltip="table view">
         <mat-icon>list</mat-icon> Orders Table
       </a>
 

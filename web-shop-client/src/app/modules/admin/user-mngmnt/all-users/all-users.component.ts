@@ -16,7 +16,8 @@ export class AllUsersComponent implements OnInit {
   searchname = '';
   message = '';
   dataSource?: User[];
-
+  displayedColumns: string[] = ['id', 'name', 'phone', 'email','actions'];
+  tableView:boolean=false;
   constructor(public userAPI: ApiUsersService,private formBuilder: FormBuilder,
     private router: Router, private dialog4: MatDialog) {}
  

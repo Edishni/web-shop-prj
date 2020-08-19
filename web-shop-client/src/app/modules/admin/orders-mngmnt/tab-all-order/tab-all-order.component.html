@@ -27,7 +27,7 @@
   </mat-checkbox>
 </section>
 
-<h4 mat-small>{{this.message}}</h4>
+<h4 mat-small>message: {{this.message}}</h4>
 <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
   <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
@@ -62,7 +62,7 @@
           <button mat-raised-button color="accent" (click)="editSelectedOrder(order)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-raised-button color="warn" (click)="openDialogForConfirmDeletion(order)">
+          <button mat-raised-button color="warn" (click)="deleteSelectedOrder(order)">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-raised-button color="primary" (click)="lookItems(order.id)">

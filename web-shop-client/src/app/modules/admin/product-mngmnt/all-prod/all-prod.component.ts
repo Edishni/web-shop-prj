@@ -15,7 +15,7 @@ export class AllProdComponent implements OnInit {
 
   dataSource?: Product[] = [];
   originalList: Product[] = [];
-  categoryList: string[] = [];
+  categoryList: string[] = ["FOR MEN", "FOR WOMEN"];
   result: string = '';
   message: string = '';
   quantity: number = 0;
@@ -27,7 +27,6 @@ export class AllProdComponent implements OnInit {
       data.forEach(item => item.prodname = item.prodname.toUpperCase());
       this.dataSource = data;
       this.originalList = data;
-
       this.originalList.forEach(item => {
         if (!this.categoryList.includes(item.category))
           this.categoryList.push(item.category)
@@ -40,6 +39,7 @@ export class AllProdComponent implements OnInit {
     console.log(editselProd);
     this.router.navigate([`/adminprod/editprod/${editselProd.id}`]);
   }
+  
   // confirm dialog
   openDialogForConfirmDeletion(delselProd: Product) {
     const dialogConfig = new MatDialogConfig();
@@ -61,12 +61,9 @@ export class AllProdComponent implements OnInit {
         }
       }
     );
-  }
-
-  //end confirm dialog
+  }  //end confirm dialog
 
   deleteSelectedProduct(delselProd: Product) {
-
     this.prodAPI.deleteProd(delselProd.id).subscribe(data => {
       this.loadProd();
       console.log(data);

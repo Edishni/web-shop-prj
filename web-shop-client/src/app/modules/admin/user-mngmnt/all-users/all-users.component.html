@@ -6,8 +6,13 @@
     <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>
-
-<div class="card card-columns" >
+<button mat-icon-button (click)="this.tableView=!this.tableView" matTooltip="table / card view">
+  <mat-icon *ngIf="!this.tableView">table_view</mat-icon>
+  <mat-icon *ngIf="this.tableView">dashboard</mat-icon>
+</button>
+<div class="card card-columns" 
+*ngIf="!this.tableView"
+>
 
   <mat-card *ngFor="let user of dataSource" style="margin:10px;">
     <mat-list role="list">
@@ -38,3 +43,48 @@
     </mat-list>
   </mat-card>
 </div>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8"
+*ngIf="this.tableView"
+>
+  <!-- id Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+  </ng-container>
+
+  <!-- phone Column -->
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef> Phone </th>
+    <td mat-cell *matCellDef="let user"> {{user.phone}} </td>
+  </ng-container>
+
+  <!-- email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let user" class="action-link"> 
+      <button mat-stroked-button color="accent"  (click)="editUser(user)">
+        <mat-icon>edit</mat-icon>Edit
+      </button>
+      <button mat-stroked-button color="warn"  (click)="openDialogForConfirmDeletion(user)">
+        <mat-icon>delete</mat-icon>Delete
+      </button>
+      <a mat-stroked-button color="primary"  href="mailto:{{user.email}}?subject=Mail from our Perfume web-shop"><mat-icon>email</mat-icon>Message</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

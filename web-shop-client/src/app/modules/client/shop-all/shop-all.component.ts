@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class ShopAllComponent implements OnInit {
   arrayCart: any[] = [];
   originalList: Product[] = [];
-  categoryList: string[] = [];
+  categoryList: string[] = ["FOR MEN","FOR WOMEN"];
   dataSource: Product[] = [];
 
   quantity: number = 0;
