@@ -16,7 +16,7 @@ export class EditOrderComponent implements OnInit {
   message='';
   constructor(private formBuilder: FormBuilder, private apiOrder: ApiOrdersService,private router: Router) { }
   addForm;
-  citylist=City;
+  citylist=City.map(city => city.toUpperCase());
   cityCntrl=new FormControl('', Validators.required);
   
   onSubmit() {

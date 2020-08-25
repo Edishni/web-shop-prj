@@ -22,7 +22,7 @@ export class OrderComponent implements OnInit {
   dataSource?: Order[]=[];
   selectedOrder: Order;
   totalSum = 0;
-  citylist=City;
+  citylist=City.map(city => city.toUpperCase());
   cityCntrl=new FormControl('', Validators.required);
 hasOrder:boolean=false;
   showTEMPLATE: Order;

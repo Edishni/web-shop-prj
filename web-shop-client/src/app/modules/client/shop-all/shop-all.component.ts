@@ -24,8 +24,8 @@ export class ShopAllComponent implements OnInit {
     this.cart.addToCart(item);
   }
 
-  removeFromCart(item: Product) {
-    this.cart.delFromCart(item);
+  removeFromCart(prodid:number) {
+    this.cart.delFromCart(prodid);
   }
 
   goToCartList() {

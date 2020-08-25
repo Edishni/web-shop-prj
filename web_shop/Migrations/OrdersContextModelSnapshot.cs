@@ -55,7 +55,7 @@ namespace web_shop.Migrations
                     b.Property<string>("wishes")
                         .HasColumnType("text");
 
-                    b.Property<string>("notes")                 
+                    b.Property<string>("notes")
                         .HasColumnType("text");
 
                     b.Property<double>("sum")

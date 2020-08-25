@@ -97,6 +97,11 @@ export class TabAllOrderComponent implements OnInit {
   loadOrders() {
 
     this.orderAPI.getAll().subscribe(data => {
+      data.forEach(
+        order =>{
+          order.name= order.name.toUpperCase();
+          order.city= order.city.toUpperCase();
+        });
       this.dataSource = data;
       this.originalData = data;
     });

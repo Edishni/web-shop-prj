@@ -17,6 +17,22 @@
       <a mat-list-item routerLink="/shopforclient/registration">
         <mat-icon>how_to_reg</mat-icon> Registration
       </a>
+
+      <a mat-list-item routerLink="/about">
+        <mat-icon>help</mat-icon> About the site
+      </a>
+
+      <mat-list-item 
+           (click)="logOut()"
+        *ngIf="this.userAdmin.Logined">
+        <mat-icon>logout</mat-icon>LogOut
+      </mat-list-item>
+      <mat-list-item
+        (click)="logIn()"
+        *ngIf="!this.userAdmin.Logined">
+        <mat-icon>login</mat-icon>LogIn
+      </mat-list-item>
+
     </mat-nav-list>
 
     <mat-nav-list *ngIf="this.userAdmin.Logined">
@@ -54,6 +70,22 @@
         <mat-icon>person_add</mat-icon> Add Users
       </a>
 
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/about">
+        <mat-icon>help</mat-icon> About the site
+      </a>
+
+      <mat-list-item 
+           (click)="logOut()"
+        *ngIf="this.userAdmin.Logined">
+        <mat-icon>logout</mat-icon>LogOut
+      </mat-list-item>
+      <mat-list-item
+        (click)="logIn()"
+        *ngIf="!this.userAdmin.Logined">
+        <mat-icon>login</mat-icon>LogIn
+      </mat-list-item>
+      
     </mat-nav-list>
   </mat-sidenav>
 

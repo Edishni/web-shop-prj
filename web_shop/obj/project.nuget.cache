@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3e1nMOMXUtrcwPY5QVFsKbhrkrZP/5ztKBA/sZiQCNQdy430opT4Abwn+4ys77cL+zPkDL6Iy+XHeVIqSIk4Tw==",
+  "dgSpecHash": "x1OgcYYOxscOf0S6YxGp9QO2lWkehEYd0APgmvB+gM/nJnEOWNEBqFqoTXlG5EScr7nh+sxvogy+mAAzgyZZtg==",
   "success": true,
-  "projectFilePath": "C:\\C_sharp_Angular\\WEB_project\\web_shop\\web_shop.csproj",
+  "projectFilePath": "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\web_shop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Edi\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Edi\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",

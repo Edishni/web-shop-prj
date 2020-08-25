@@ -1,8 +1,9 @@
 <h1>Perfumes Management</h1><br>
 
 <mat-form-field class="searchProd">
-  <input matInput type="text" class="form-control" placeholder="Search by product name" #byname name="byname" />
-  <button mat-button matSuffix (click)="searchName(byname.value)" mat-icon-button>
+  <input matInput type="text" (input)="byname.value = byname.value.toUpperCase()" (keyup)="searchName(byname.value)" 
+  class="form-control" placeholder="Search by product name" #byname name="byname" />
+  <button mat-button matSuffix  mat-icon-button>
     <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>
@@ -10,13 +11,13 @@
 <mat-form-field class="searchProd">
   <mat-label>Category...</mat-label>
   <mat-select #bycategory name="bycategory">
-    <mat-option (click)="searchCategory('')">- - -</mat-option>
+    <mat-option (click)="searchCategory('')">Show all</mat-option>
     <mat-option *ngFor="let category of categoryList" value="category" (click)="searchCategory(category)">
       {{category}}
     </mat-option>
   </mat-select>
 </mat-form-field>
-
+<br>
 <div class="cards" style="padding: 5px;">
   <mat-spinner *ngIf="dataSource.length === 0"></mat-spinner>
 

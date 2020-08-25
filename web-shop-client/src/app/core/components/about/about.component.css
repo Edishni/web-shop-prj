@@ -4,3 +4,6 @@ div{
     text-align: left;
     margin-left: 20px;
 }
+.mat-list-base .mat-list-item{
+    height: 20px;;
+}

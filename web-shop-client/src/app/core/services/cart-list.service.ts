@@ -15,13 +15,13 @@ export class CartListService {
     this.templateProdList.push(item);
   }
 
-  delFromCart(item: Product) {
-    const index: number = this.templateProdList.indexOf(item);
+  delFromCart(prodid: number) {
+    const index: number = this.templateProdList.findIndex(item=>item.id==prodid);
     this.templateProdList.splice(index, 1);
   }
 
-  findInCart(item: Product): boolean {
-    if (this.templateProdList.indexOf(item) >= 0) {
+  findInCart(prodid: number): boolean {
+    if (this.templateProdList.find(item=>item.id==prodid)) {
       return true
     }
     else false

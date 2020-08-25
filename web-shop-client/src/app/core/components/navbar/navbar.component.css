@@ -1,6 +1,4 @@
-/* mat-sidenav-container{
-    height:88vh;
-} */
+
 mat-sidenav ,mat-sidenav-content{
     padding: 15px;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -22,13 +20,13 @@ button mat-icon{
     color:rgb(63 81 181);;
     margin-top: -5px;
 }
-mat-sidenav.usermenu a{
+mat-sidenav.usermenu .mat-list-item{
     color: white;
  
 }
-mat-sidenav.usermenu a:hover{
+mat-sidenav.usermenu .mat-list-item:hover{
 background-color: rgba(255, 255, 0, 0.452);}
 
-mat-sidenav.adminmenu a:hover{
+mat-sidenav.adminmenu .mat-list-item:hover{
 background-color: rgba(255, 0, 0, 0.281);}
 

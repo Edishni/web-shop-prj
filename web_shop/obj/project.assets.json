@@ -12622,24 +12622,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\edwardt\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Edi\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\AngularPrj\\WEB_project-master\\web-shop-prj\\web_shop\\web_shop.csproj",
+      "projectUniqueName": "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\web_shop.csproj",
       "projectName": "web_shop",
-      "projectPath": "C:\\AngularPrj\\WEB_project-master\\web-shop-prj\\web_shop\\web_shop.csproj",
-      "packagesPath": "C:\\Users\\edwardt\\.nuget\\packages\\",
-      "outputPath": "C:\\AngularPrj\\WEB_project-master\\web-shop-prj\\web_shop\\obj\\",
+      "projectPath": "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\web_shop.csproj",
+      "packagesPath": "C:\\Users\\Edi\\.nuget\\packages\\",
+      "outputPath": "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\edwardt\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Edi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -12674,6 +12675,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12684,10 +12686,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

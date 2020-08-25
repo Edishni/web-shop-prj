@@ -44,7 +44,7 @@ namespace web_shop.Models
         [Column(TypeName = "text")]
         public string wishes { get; set; }
 
-       
+        
         [Column(TypeName = "text")]
         public string notes { get; set; }
     }

@@ -1,8 +1,8 @@
 <h1>Orders Management - Table view</h1><br>
 <h3>Current Balance - <b>{{this.totalBalance()}} $</b> </h3><br>
 <mat-form-field class="searchOrder">
-  <input matInput type="text" (keyup)="searchOrder(byorder.value)" class="form-control"
-    placeholder="Search by user name" #byorder name="byorder" />
+  <input matInput type="text" (input)="byorder.value = byorder.value.toUpperCase()" (keyup)="searchOrder(byorder.value)" 
+  class="form-control" placeholder="Search by user name" #byorder name="byorder" />
   <button mat-button matSuffix mat-icon-button>
     <mat-icon>person_search</mat-icon>
   </button>
