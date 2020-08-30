@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
-  apiProducts:'https://localhost:44355/api/ProductDetails',
-  apiOrders:'https://localhost:44355/api/OrdersDetails',
-  apiOrderItems:'https://localhost:44355/api/OrderItemsDetails',
-  apiUsers:'https://localhost:44355/api/UsersDetails',
+  apiProducts:'https://webapplication1020200712214553.azurewebsites.net/api/ProductDetails',
+  apiOrders:'https://webapplication1020200712214553.azurewebsites.net/api/OrdersDetails',
+  apiOrderItems:'https://webapplication1020200712214553.azurewebsites.net/api/OrderItemsDetails',
+  apiUsers:'https://webapplication1020200712214553.azurewebsites.net/api/UsersDetails',
   firebaseConfig :{
     apiKey: "AIzaSyD5H5vJ_hxNTuEqO5ZxUF-h8B0z1ojKTrM",
     authDomain: "web-shop-project-86eef.firebaseapp.com",
