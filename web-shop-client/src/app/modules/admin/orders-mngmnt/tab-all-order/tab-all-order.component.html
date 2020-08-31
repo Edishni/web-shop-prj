@@ -62,7 +62,7 @@
           <button mat-raised-button color="accent" (click)="editSelectedOrder(order)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-raised-button color="warn" (click)="deleteSelectedOrder(order)">
+          <button mat-raised-button color="warn" (click)="openDialogForConfirmDeletion(order)">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-raised-button color="primary" (click)="lookItems(order.id)">
