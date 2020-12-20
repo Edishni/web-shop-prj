@@ -3,7 +3,6 @@ import { Order } from 'src/app/shared/models/Order';
 import { ApiOrdersService } from 'src/app/core/services/api-orders.service';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { AcceptDialogComponent } from 'src/app/core/components/accept-dialog/accept-dialog.component';
 
@@ -20,12 +19,11 @@ import { AcceptDialogComponent } from 'src/app/core/components/accept-dialog/acc
   styleUrls: ['./tab-all-order.component.css']
 })
 export class TabAllOrderComponent implements OnInit {
-  /*   @ViewChild('byorder') byorder: ElementRef;
-    @ViewChild('byorderid') byorderid: ElementRef; */
+
   dataSource?: Order[];
   originalData: Order[] = [];
   message: string = '';
-  columnsToDisplay = ['id', 'name', 'phone', 'city', 'address', 'email', 'sum'];//,'shiping?','received?','wishes','notes'
+  columnsToDisplay = ['id', 'name', 'phone', 'city', 'address', 'email', 'sum'];
   expandedOrder: Order | null;
   totalSum: number;
   constructor(public orderAPI: ApiOrdersService, private router: Router, private dialog3: MatDialog) { }
@@ -38,32 +36,32 @@ export class TabAllOrderComponent implements OnInit {
   lookItems(orderID: number) {
     this.router.navigate([`/adminorder/viewitems/${orderID}`]);
   }
-//dialog call start
+  //dialog call start
 
-openDialogForConfirmDeletion(delselOrder: Order) {
-  console.log("confirm????");
-  const dialogConfig = new MatDialogConfig();
+  openDialogForConfirmDeletion(delselOrder: Order) {
+    console.log("confirm????");
+    const dialogConfig = new MatDialogConfig();
 
-  dialogConfig.disableClose = true;
-  dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
 
-  const dialogRef = this.dialog3.open(AcceptDialogComponent, {
-    width: '350px',
-    data: "confirm deletion..."
-  });
+    const dialogRef = this.dialog3.open(AcceptDialogComponent, {
+      width: '350px',
+      data: "confirm deletion..."
+    });
 
-  dialogRef.afterClosed().subscribe(
-    data => {
-      console.log("Dialog output:", data);
-      //if was confirm delation so delete item
-      if (data) {
-        this.deleteSelectedOrder(delselOrder);
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data);
+        //if was confirm delation so delete item
+        if (data) {
+          this.deleteSelectedOrder(delselOrder);
+        }
       }
-    }
-  );
-}
+    );
+  }
 
-//dialog end
+  //dialog end
 
   deleteSelectedOrder(delselOrder: Order) {
     this.orderAPI.deleteOrder(delselOrder.id).subscribe(data => {
@@ -77,7 +75,7 @@ openDialogForConfirmDeletion(delselOrder: Order) {
   }
 
   searchOrder(ordername) {
-    /*    this.byorderid.nativeElement.value = ""; */
+
     if (ordername) {
       this.dataSource = this.originalData.filter(ele => ele.name.includes(ordername));
     }
@@ -87,7 +85,7 @@ openDialogForConfirmDeletion(delselOrder: Order) {
   }
 
   searchOrderID(orderID) {
-    /*    this.byorder.nativeElement.value = ""; */
+
     if (orderID) {
       this.dataSource = this.originalData.filter(ele => ele.id == orderID);
     }
@@ -99,6 +97,11 @@ openDialogForConfirmDeletion(delselOrder: Order) {
   loadOrders() {
 
     this.orderAPI.getAll().subscribe(data => {
+      data.forEach(
+        order =>{
+          order.name= order.name.toUpperCase();
+          order.city= order.city.toUpperCase();
+        });
       this.dataSource = data;
       this.originalData = data;
     });
@@ -113,15 +116,12 @@ openDialogForConfirmDeletion(delselOrder: Order) {
   }
 
   useFilter(deliverycheck: boolean, receivedchecked: boolean) {
-    this.dataSource = this.originalData.filter(ele =>  (ele.delivery == deliverycheck ) && (ele.orderstatus == receivedchecked) )
+    this.dataSource = this.originalData.filter(ele => (ele.delivery == deliverycheck) && (ele.orderstatus == receivedchecked))
   }
-
 
   ngOnInit(): void {
     console.log('orders api?');
     this.loadOrders();
-    /*      this.byorder.nativeElement.value = "";
-        this.byorderid.nativeElement.value = ""; */
   }
 
 }

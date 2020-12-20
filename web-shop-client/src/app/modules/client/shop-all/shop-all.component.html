@@ -1,23 +1,24 @@
-<h1 >Perfumes List</h1><br>
+<h1>Perfumes List</h1><br>
 <mat-form-field class="searchProd">
-  <input matInput type="text" (keyup)="searchPerfume(searchname.value)" class="form-control" placeholder="Search by product name" #searchname name="searchname" />
-  <button mat-button matSuffix  mat-icon-button>
+  <input matInput type="text" (input)="searchname.value = searchname.value.toUpperCase()"
+    (keyup)="searchPerfume(searchname.value)" class="form-control" placeholder="Search by product name" #searchname
+    name="searchname" />
+  <button mat-button matSuffix mat-icon-button>
     <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>
 <mat-form-field class="searchProd" style="width:250px ;">
   <mat-label>Category</mat-label>
   <mat-select #bycategory name="bycategory">
-    <mat-option (click)="searchCategory('')"><small>cancel selection</small></mat-option>
+    <mat-option (click)="searchCategory('')">Show all</mat-option>
     <mat-option *ngFor="let category of categoryList" value="category" (click)="searchCategory(category)">
-    {{category}}
+      {{category}}
     </mat-option>
   </mat-select>
 </mat-form-field>
 <br>
 <button mat-raised-button color="primary" (click)="goToCartList()" style="margin-left: 15px;"
-[disabled]="this.cart.templateProdList.length==0"
->Your CART</button>
+  [disabled]="this.cart.templateProdList.length==0">Your CART</button>
 
 <div class="cards" style="padding: 13px;">
   <mat-spinner *ngIf="this.dataSource.length === 0"></mat-spinner>
@@ -25,34 +26,32 @@
     <mat-card-header>
       <mat-card-title>{{product.prodname | uppercase}}</mat-card-title>
     </mat-card-header>
-
+    <small>{{product.category}}</small>
     <img mat-card-image src="{{ product.urlpicture }}" alt="Photo of a Product" class="view view-cascade overlay">
     <mat-card-content>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-          <b>cost : {{product.cost}} $ </b>
+            <b>cost : {{product.cost}} $ </b>
           </mat-panel-title>
           <mat-panel-description>
             more info ...
           </mat-panel-description>
         </mat-expansion-panel-header>
-    
-    <p>{{product.description}}</p>
+
+        <p>{{product.description}}</p>
       </mat-expansion-panel>
     </mat-card-content>
 
     <mat-card-actions>
       <button #add{{id}} mat-raised-button color="primary" size="md" ml-3 (click)="addItemToCart(product)"
-        *ngIf="!this.cart.findInCart(product)">
+        *ngIf="!this.cart.findInCart(product.id)">
         <mat-icon>add_shopping_cart</mat-icon>ADD to Cart
       </button>
-      <button #out{{id}} mat-raised-button color="warn" size="md" ml-3 (click)="removeFromCart(product)"
-        *ngIf="this.cart.findInCart(product)">
+      <button #out{{id}} mat-raised-button color="warn" size="md" ml-3 (click)="removeFromCart(product.id)"
+        *ngIf="this.cart.findInCart(product.id)">
         <mat-icon>add_shopping_cart</mat-icon>Cancel from Cart
       </button>
     </mat-card-actions>
   </mat-card>
 </div>
-
-

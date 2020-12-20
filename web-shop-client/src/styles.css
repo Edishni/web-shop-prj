@@ -1,4 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; margin: 0;padding: 0;}
-body { box-sizing: border-box; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+

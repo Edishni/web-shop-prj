@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\C_sharp_Angular\\WEB_project\\web_shop\\web_shop.csproj": {}
+    "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\web_shop.csproj": {}
   },
   "projects": {
-    "C:\\C_sharp_Angular\\WEB_project\\web_shop\\web_shop.csproj": {
+    "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\web_shop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\C_sharp_Angular\\WEB_project\\web_shop\\web_shop.csproj",
+        "projectUniqueName": "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\web_shop.csproj",
         "projectName": "web_shop",
-        "projectPath": "C:\\C_sharp_Angular\\WEB_project\\web_shop\\web_shop.csproj",
+        "projectPath": "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\web_shop.csproj",
         "packagesPath": "C:\\Users\\Edi\\.nuget\\packages\\",
-        "outputPath": "C:\\C_sharp_Angular\\WEB_project\\web_shop\\obj\\",
+        "outputPath": "C:\\C_sharp_Angular\\WEB_project\\web-shop-prj\\web_shop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

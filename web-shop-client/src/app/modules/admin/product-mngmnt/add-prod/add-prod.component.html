@@ -7,7 +7,8 @@
 
         <mat-form-field class="example-part-width">
           <mat-label for="prodname">perfume name:</mat-label>
-          <input matInput type="text" class="form-control" formControlName="prodname" id="prodname" autocomplete="off">
+          <input matInput type="text" class="form-control" formControlName="prodname" #prodname (input)="prodname.value = prodname.value.toUpperCase()"
+           id="prodname" autocomplete="off">
           <div class="error"
             *ngIf="addForm.controls['prodname'].hasError('required') && addForm.controls['prodname'].touched">perfume
             name
@@ -17,7 +18,8 @@
 
         <mat-form-field class="example-part-width">
           <mat-label for="category">category:</mat-label>
-          <input matInput type="text" class="form-control" formControlName="category" id="category" autocomplete="off">
+          <input matInput type="text" class="form-control" formControlName="category" #category (input)="category.value = category.value.toUpperCase()" 
+          id="category" autocomplete="off">
           <div class="error"
             *ngIf="addForm.controls['category'].hasError('required') && addForm.controls['category'].touched">category
             is
@@ -69,7 +71,7 @@
         <mat-card-header>
           <mat-card-title>{{this.showTEMPLATE.prodname}}</mat-card-title>
         </mat-card-header>
-
+        <small>{{this.showTEMPLATE.category}}</small>
         <img mat-card-image src="{{ this.showTEMPLATE.urlpicture }}" alt="Photo of a Product"
           class="view view-cascade overlay">
         <mat-card-content>

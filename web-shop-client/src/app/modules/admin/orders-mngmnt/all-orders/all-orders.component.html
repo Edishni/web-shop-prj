@@ -1,6 +1,6 @@
 <h1>Orders Management</h1><br>
 <mat-form-field class="searchOrder">
-  <input matInput type="text" (keyup)="searchOrder(byorder.value)" class="form-control"
+  <input matInput type="text" (input)="byorder.value = byorder.value.toUpperCase()"  (keyup)="searchOrder(byorder.value)" class="form-control"
     placeholder="Search by user name" #byorder name="byorder" />
   <button mat-button matSuffix mat-icon-button>
     <mat-icon>person_search</mat-icon>

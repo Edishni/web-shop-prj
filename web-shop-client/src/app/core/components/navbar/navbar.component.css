@@ -1,6 +1,4 @@
-/* mat-sidenav-container{
-    height:88vh;
-} */
+
 mat-sidenav ,mat-sidenav-content{
     padding: 15px;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -22,13 +20,39 @@ button mat-icon{
     color:rgb(63 81 181);;
     margin-top: -5px;
 }
-mat-sidenav.usermenu a{
+mat-sidenav.usermenu .mat-list-item{
     color: white;
  
 }
-mat-sidenav.usermenu a:hover{
-background-color: rgba(255, 255, 0, 0.452);}
+mat-sidenav.usermenu .mat-list-item:hover{
+background-color: rgba(255, 255, 255, 0.452);}
 
-mat-sidenav.adminmenu a:hover{
-background-color: rgba(255, 0, 0, 0.281);}
+mat-sidenav.adminmenu .mat-list-item:hover{
+background-color: rgba(0, 195, 255, 0.329);}
 
+.active-list-item{
+    background-color: rgba(0, 146, 139, 0.521) ;
+}
+
+@media (max-width: 575.98px) {
+
+  }
+  
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  
+  }
+  
+  /* // Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+
+  }
+  
+  /* // Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+  
+  }
+  
+  /*   // Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  
+  }

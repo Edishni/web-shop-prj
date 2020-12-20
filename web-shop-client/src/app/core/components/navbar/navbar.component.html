@@ -1,69 +1,98 @@
 <mat-sidenav-container>
 
-  <mat-sidenav #sidenav mode="side" [opened]="this.opened" 
+  <mat-sidenav #sidenav mode="over" [opened]="this.opened" 
     [class.usermenu]="!this.userAdmin.Logined"
     [class.adminmenu]="this.userAdmin.Logined">
     <h2>WEB-SHOP MENU</h2>
 
     <mat-nav-list *ngIf="!this.userAdmin.Logined">
-      <a mat-list-item routerLink="/shopforclient/shopall">
+      <a mat-list-item routerLink="/shopforclient/shopall" routerLinkActive="active-list-item">
         <mat-icon>shop</mat-icon> Show all
       </a>
 
-      <a mat-list-item routerLink="/shopforclient/orderdetails" [disabled]="this.cart.templateProdList.length==0">
+      <a mat-list-item routerLink="/shopforclient/orderdetails" [disabled]="this.cart.templateProdList.length==0" routerLinkActive="active-list-item">
         <mat-icon>shopping_cart</mat-icon> Show your basket
       </a>
 
-      <a mat-list-item routerLink="/shopforclient/registration">
+      <a mat-list-item routerLink="/shopforclient/registration" routerLinkActive="active-list-item">
         <mat-icon>how_to_reg</mat-icon> Registration
       </a>
+
+      <a mat-list-item routerLink="/about" routerLinkActive="active-list-item">
+        <mat-icon>help</mat-icon> About the site
+      </a>
+
+      <mat-list-item 
+           (click)="logOut()"
+        *ngIf="this.userAdmin.Logined">
+        <mat-icon>logout</mat-icon>LogOut
+      </mat-list-item>
+      <mat-list-item
+        (click)="logIn()"
+        *ngIf="!this.userAdmin.Logined">
+        <mat-icon>login</mat-icon>LogIn
+      </mat-list-item>
     </mat-nav-list>
 
     <mat-nav-list *ngIf="this.userAdmin.Logined">
       <div mat-header>Orders Mangement</div>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/administrator/adminorder/allorders">
+      <a mat-list-item routerLink="/administrator/adminorder/allorders" matTooltip="card view" routerLinkActive="active-list-item">
         <mat-icon>dashboard</mat-icon> Orders List
       </a>
 
-      <a mat-list-item routerLink="/administrator/adminorder/taballorders">
+      <a mat-list-item routerLink="/administrator/adminorder/taballorders" matTooltip="table view" routerLinkActive="active-list-item">
         <mat-icon>list</mat-icon> Orders Table
       </a>
 
-      <a mat-list-item routerLink="/administrator/adminorder/addorder">
+      <a mat-list-item routerLink="/administrator/adminorder/addorder" routerLinkActive="active-list-item">
         <mat-icon>playlist_add</mat-icon> Add Order
       </a>
 
       <div mat-header>Perfumes Mangement</div>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/administrator/adminprod/allprod">
+      <a mat-list-item routerLink="/administrator/adminprod/allprod" routerLinkActive="active-list-item"> 
         <mat-icon>category</mat-icon> Perfumes List
       </a>
 
-      <a mat-list-item routerLink="/administrator/adminprod/addprod">
+      <a mat-list-item routerLink="/administrator/adminprod/addprod" routerLinkActive="active-list-item">
         <mat-icon>addchart</mat-icon> Add Perfume
       </a>
 
       <div mat-header>Users Mangement</div>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/administrator/adminuser/alluser">
+      <a mat-list-item routerLink="/administrator/adminuser/alluser" routerLinkActive="active-list-item">
         <mat-icon>supervisor_account</mat-icon> Users Mgmt
       </a>
 
-      <a mat-list-item routerLink="/administrator/adminuser/adduser">
+      <a mat-list-item routerLink="/administrator/adminuser/adduser" routerLinkActive="active-list-item">
         <mat-icon>person_add</mat-icon> Add Users
       </a>
 
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/about" routerLinkActive="active-list-item">
+        <mat-icon>help</mat-icon> About the site
+      </a>
+
+      <mat-list-item 
+           (click)="logOut()"
+        *ngIf="this.userAdmin.Logined">
+        <mat-icon>logout</mat-icon>LogOut
+      </mat-list-item>
+      <mat-list-item
+        (click)="logIn()"
+        *ngIf="!this.userAdmin.Logined">
+        <mat-icon>login</mat-icon>LogIn
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <button mat-button (click)="sidenav.toggle()" matTooltip="open/close menu"
     [matTooltipShowDelay]="500"
-        [matTooltipHideDelay]="1000"
-    >
-      <mat-icon *ngIf="!sidenav.opened">arrow_forward_ios</mat-icon>
-      <mat-icon *ngIf="sidenav.opened">arrow_back_ios</mat-icon>
+    [matTooltipHideDelay]="1000">
+      <mat-icon >menu</mat-icon>
+     
     </button>
 
     <router-outlet></router-outlet>

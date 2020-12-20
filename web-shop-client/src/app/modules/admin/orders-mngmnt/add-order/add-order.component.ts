@@ -15,7 +15,7 @@ export class AddOrderComponent implements OnInit {
   invalidLogin: boolean = false;
   deliveryCntr = new FormControl(false);
   orderstatusCntr = new FormControl(false);
-  citylist= City;
+  citylist= City.map(city => city.toUpperCase());
   cityCntrl=new FormControl('', Validators.required);
   message = '';
   constructor(private formBuilder: FormBuilder, private apiOrder: ApiOrdersService, private router: Router) { }

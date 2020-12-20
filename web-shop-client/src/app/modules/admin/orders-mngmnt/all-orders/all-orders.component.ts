@@ -52,7 +52,6 @@ openDialogForConfirmDeletion(delselOrder: Order) {
     }
   );
 }
-
 //dialog end
 
   deleteSelectedOrder(delselOrder: Order) {
@@ -87,8 +86,12 @@ openDialogForConfirmDeletion(delselOrder: Order) {
   }
 
   loadOrders() {
-  
     this.orderAPI.getAll().subscribe(data => {
+      data.forEach(
+        order =>{
+          order.name= order.name.toUpperCase();
+          order.city= order.city.toUpperCase();
+        });
       this.dataSource = data;
       this.originalData = data;
     });
