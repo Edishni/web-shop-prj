@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/models/User';
+import { UsersList } from 'src/app/shared/biblio/users_list';
 import { ApiUsersService } from 'src/app/core/services/api-users.service';
 import { Router} from '@angular/router';
 import { FormBuilder } from '@angular/forms';
@@ -22,7 +23,10 @@ export class AllUsersComponent implements OnInit {
     private router: Router, private dialog4: MatDialog) {}
  
   loadUsers() {
-    this.userAPI.getAll().subscribe(data => this.dataSource = data);
+    /* for demo */
+    this.dataSource= UsersList;
+    /* open if API live */
+    /* this.userAPI.getAll().subscribe(data => this.dataSource = data); */
   }
 
 //dialog call start

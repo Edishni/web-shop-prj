@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../shared/models/Product';
+import { ProductsList } from '../../../shared/biblio/products_list';
 import { ApiProductsService } from 'src/app/core/services/api-products.service';
 import { CartListService } from 'src/app/core/services/cart-list.service';
 import { Router } from '@angular/router';
@@ -51,8 +52,12 @@ export class ShopAllComponent implements OnInit {
   }
 
   loadProd() {
-    this.prodAPI.getAll().subscribe(data => {
-      
+    /* for demo only */
+    this.dataSource = ProductsList;
+    this.originalList = ProductsList;
+    
+/* If API is live */
+ /*    this.prodAPI.getAll().subscribe(data => {
       data.forEach(item =>item.prodname= item.prodname.toUpperCase());
       this.dataSource = data;
       this.originalList = data;
@@ -60,7 +65,7 @@ export class ShopAllComponent implements OnInit {
         if (!this.categoryList.includes(item.category))
           this.categoryList.push(item.category)
       });
-    });
+    }); */
   }
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ApiOrdersService } from 'src/app/core/services/api-orders.service';
 import { Order } from 'src/app/shared/models/Order';
+import { OrdersList } from 'src/app/shared/biblio/orders_list';
 import { Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -86,7 +87,11 @@ openDialogForConfirmDeletion(delselOrder: Order) {
   }
 
   loadOrders() {
-    this.orderAPI.getAll().subscribe(data => {
+    /* for demo */
+    this.dataSource = OrdersList;
+    this.originalData =OrdersList;
+/* is API live */
+/*     this.orderAPI.getAll().subscribe(data => {
       data.forEach(
         order =>{
           order.name= order.name.toUpperCase();
@@ -94,7 +99,7 @@ openDialogForConfirmDeletion(delselOrder: Order) {
         });
       this.dataSource = data;
       this.originalData = data;
-    });
+    }); */
   }
 
   ngOnInit(): void {

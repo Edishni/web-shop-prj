@@ -4,6 +4,7 @@ import { ApiProductsService } from 'src/app/core/services/api-products.service';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AcceptDialogComponent } from 'src/app/core/components/accept-dialog/accept-dialog.component';
+import { ProductsList } from 'src/app/shared/biblio/products_list';
 /* import { ViewChild } from '@angular/core'; */
 
 @Component({
@@ -23,7 +24,11 @@ export class AllProdComponent implements OnInit {
   constructor(public prodAPI: ApiProductsService, private router: Router, private dialog: MatDialog) { }
 
   loadProd() {
-    this.prodAPI.getAll().subscribe(data => {
+    /* for Demo */
+    this.dataSource = ProductsList;
+    this.originalList = ProductsList;
+    /* open if API live */
+ /*    this.prodAPI.getAll().subscribe(data => {
       data.forEach(item => item.prodname = item.prodname.toUpperCase());
       this.dataSource = data;
       this.originalList = data;
@@ -31,7 +36,7 @@ export class AllProdComponent implements OnInit {
         if (!this.categoryList.includes(item.category))
           this.categoryList.push(item.category)
       });
-    });
+    }); */
   }
 
   editSelectedProduct(editselProd: Product) {
