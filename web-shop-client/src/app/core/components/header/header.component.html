@@ -8,11 +8,11 @@
     </h1>
   </div>
 
-  <div class="welcome">
-    <span>Welcome : {{this.userAdmin.curentUser}}</span>
+<!--   <div class="welcome">
+    <span> Welcome : {{this.userAdmin.curentUser}}</span>
 
-  </div>
-
+  </div> -->
+  <marquee  direction="left">It is a demonstration site, the API server is not functional (the cause that the supporting API server is disconnected now)</marquee>
   <div>
 
     <button matSuffix  *ngIf="!this.userAdmin.Logined" mat-icon-button color="primary"  matTooltip="go to your cart" (click)="goToCart()" [disabled]="this.cart.templateProdList.length==0">
@@ -42,5 +42,5 @@
       <mat-icon>login</mat-icon>
     </button>
   </div>
-  <marquee  direction="left">It is a demonstration site, the API server is not functional (the cause that the supporting API server is disconnected now)</marquee>
+ 
 </mat-toolbar>
